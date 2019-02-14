@@ -1,0 +1,36 @@
+<component name="libraryTable">
+  <library name="org.apache.poi:poi-ooxml:4.0.1" type="repository">
+    <properties maven-id="org.apache.poi:poi-ooxml:4.0.1" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/poi-ooxml-4.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/poi-4.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-codec-1.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-collections4-4.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-math3-3.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/poi-ooxml-schemas-4.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xmlbeans-3.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-compress-1.18.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/curvesapi-1.05.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/poi-ooxml-4.0.1-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/poi-4.0.1-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-codec-1.11-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-collections4-4.2-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-math3-3.6.1-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xmlbeans-3.0.2-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-compress-1.18-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/curvesapi-1.05-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/poi-ooxml-4.0.1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/poi-4.0.1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-codec-1.11-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-collections4-4.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-math3-3.6.1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xmlbeans-3.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-compress-1.18-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/curvesapi-1.05-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
