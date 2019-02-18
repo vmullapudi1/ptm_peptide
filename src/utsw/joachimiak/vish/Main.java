@@ -209,12 +209,13 @@ public class Main {
 		//false = by fragment
 		Boolean method = true;
 
-		String fileName = "PCF-DC-400-09-2018_peptide";
+		String fileName = "PRJ-382-LFQ-Tau All PSMs_20180629";
+		String outputFileName = "phosSitesOutput";
 		String type = "557622";
 
 		System.out.println("Reading file...");
 
-		ArrayList<ArrayList<String>> week5 = extractFile("/Users/Owner/Documents/SURF/" + fileName + ".xlsx"); //[frag, sight of mod, abundance]
+		ArrayList<ArrayList<String>> week5 = extractFile(fileName + ".xlsx"); //[frag, sight of mod, abundance]
         /*for (ArrayList<String> tempp : week5) {
         	System.out.println(tempp);
         }*/
@@ -254,7 +255,7 @@ public class Main {
 
 			counter++;
 		}
-		System.out.println("Writing into file: " + fileName);
+		System.out.println("Writing into file: " + outputFileName);
 
 		//generates tables for coverage maps
 
@@ -337,7 +338,7 @@ public class Main {
 		}
 
 		// Write the output to a file
-		FileOutputStream fileOut = new FileOutputStream(fileName + ".xlsx");
+		FileOutputStream fileOut = new FileOutputStream(outputFileName + ".xlsx");
 		workbook.write(fileOut);
 		fileOut.close();
 
