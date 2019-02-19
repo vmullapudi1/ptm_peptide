@@ -22,12 +22,12 @@ public class Main {
 		Workbook workbook = WorkbookFactory.create(new File(data));
 		ArrayList<ArrayList<String>> excelReadout = new ArrayList<ArrayList<String>>();
 		// Retrieving the number of sheets in the Workbook
-		//System.out.println("Workbook has " + workbook.getNumberOfSheets() + " Sheets : ");
+		System.out.println("Workbook has " + workbook.getNumberOfSheets() + " Sheets : ");
 		Iterator<Sheet> sheetIterator = workbook.sheetIterator();
-		//System.out.println("Retrieving Sheets using Iterator");
+		System.out.println("Retrieving Sheets using Iterator");
 		while (sheetIterator.hasNext()) {
 			Sheet sheet = sheetIterator.next();
-			//System.out.println("=> " + sheet.getSheetName());
+			System.out.println("=> " + sheet.getSheetName());
 		}
 		// Getting the Sheet at index zero
 		Sheet sheet = workbook.getSheetAt(0);
@@ -92,8 +92,8 @@ public class Main {
 			String modification = row.getCell(mods).toString(); //reads of the 4th column
 			String toAdd = null;
 			if (modification.contains("Phospho")) {
-				String[] mod = modification.split("o ");
-				String Mod = mod[1].split("]")[0];
+				String[] mod = modification.replaceAll("[(Phospho)]", "").split("[);]");//modification.split("o ");
+				String Mod = mod[1];//.split("]")[0];
 				toAdd = Mod.substring(1);
 			}
 			shortlist.add(toAdd);
@@ -193,6 +193,7 @@ public class Main {
 	//TODO fix for peptide/PSM input file format
 	//TODO change to separate phosphorylation localization based on fileID
 	public static void main(String[] args) throws EncryptedDocumentException, InvalidFormatException, IOException {
+		//Tau 2N4R isoform
 		String tauIsoformF =
 				"MAEPR" + "QEFEV" + "MEDHA" + "GTYGL" + "GDRKD" + "QGGYT" + "MHQDQ" + "EGDTD" + "AGLKE" + "SPLQT" //0-49
 						+ "PTEDG" + "SEEPG" + "SETSD" + "AKSTP" + "TAEDV" + "TAPLV" + "DEGAP" + "GKQAA" + "AQPHT" + "EIPEG" //50-99
