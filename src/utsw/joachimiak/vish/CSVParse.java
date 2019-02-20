@@ -3,8 +3,7 @@ package utsw.joachimiak.vish;
 import java.io.*;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
-import java.util.Arrays;
-import java.util.stream.Stream;
+import java.util.ArrayList;
 
 public class CSVParse {
 	private static final String sourceCSV = "Human_Tau_PSM.csv";
@@ -21,7 +20,7 @@ public class CSVParse {
 	private static String[] columnHeaders;
 
 	public static void main(String[] args) {
-		Stream<String[]> fileData = null;
+		ArrayList<String[]> fileData = null;
 
 		try {
 			fileData = ingestFile();
@@ -30,26 +29,21 @@ public class CSVParse {
 			System.exit(1);
 		}
 		System.out.println("File ingestion was a success.");
-
-
+		//DEBUG
+		//Arrays.stream(columnHeaders).forEach(System.out::println);
 		//DEBUG
 		//fileData.forEach(lineArr->System.out.println(Arrays.toString(lineArr)));
 
-		//Get all of the phosphorylated peptides' lines
-		Stream<String[]> phosphoPeptides = getPhosphoPeptides(fileData);
-
-		//DEBUG
-		//phosphoPeptides.forEach((lineArr->System.out.println(Arrays.toString(lineArr))));
 	}
 
 	/**
-	 * Ingest file ,using comma as the delimiting value between items and producing a Stream<String[]> containing the file's data
+	 * Ingest file, using comma as the delimiting value between items and producing a Stream<String[]> containing the file's data
 	 *
-	 * @return A stream from the file containing each line of the CSV file as a string array
+	 * @return A ArrayList<String[]> from the file containing each line of the CSV file as a string array
 	 * @throws IOException           if there is another error in reading/opening/working with the file (From BufferedReader)
 	 * @throws FileNotFoundException if the file is not found in the local directory
 	 */
-	private static Stream<String[]> ingestFile() throws IOException {
+	private static ArrayList<String[]> ingestFile() throws IOException {
 		if (Files.exists((FileSystems.getDefault().getPath(sourceCSV)))) {
 			System.out.println("attempting to open input file...");
 		} else {
@@ -58,15 +52,10 @@ public class CSVParse {
 		}
 		BufferedReader inputReader = new BufferedReader(new InputStreamReader(new FileInputStream(sourceCSV)));
 		columnHeaders = inputReader.readLine().split(",");
-		return inputReader.lines().map(dataLine -> dataLine.split(","));
-	}
+		ArrayList<String[]> data = new ArrayList<>();
+		inputReader.lines().forEach(dataLine -> data.add(dataLine.split(",")));
+		return data;
 
-	/**
-	 * @param fileLines The Stream<String[]> containing the file data (each String[] is a line, each string is a element in that line
-	 * @return A Stream<String[]> containing all of the peptides indicated by the "Modifications" column to contain one or more phosphorylated sites
-	 */
-	private static Stream<String[]> getPhosphoPeptides(Stream<String[]> fileLines) {
-		int modificationIndex = Arrays.asList(columnHeaders).indexOf("Modifications");
-		return fileLines.filter(s -> s[modificationIndex].contains("Phospho"));
+
 	}
 }
