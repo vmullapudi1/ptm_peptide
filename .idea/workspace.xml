@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2e607ce3-0343-4ed1-8721-2d56870ccc4f" name="Default Changelist" comment="Started new file to read and parse the file input.&#10;TODO: add phosphorylation localization (indexed to full-length tau) by fileID&#10;TODO: Add abundance calculations by FileID&#10;TODO:Add data output">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/vmull.xml" afterDir="false" />
+    <list default="true" id="2e607ce3-0343-4ed1-8721-2d56870ccc4f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ptm_from_scratch/utsw/joachimiak/vish/CSVParse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ptm_from_scratch/utsw/joachimiak/vish/CSVParse.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" afterDir="false" />
@@ -25,8 +25,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="110" selection-start-line="110" selection-end-line="110" />
+            <state relative-caret-position="212">
+              <caret line="75" column="50" selection-start-line="75" selection-start-column="50" selection-end-line="75" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -37,10 +37,35 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+            <state relative-caret-position="391">
+              <caret line="73" column="23" lean-forward="true" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="265">
+              <caret line="33" column="61" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
+              <folding>
+                <element signature="e#100#101#0" expanded="true" />
+                <element signature="e#120#121#0" expanded="true" />
+                <element signature="e#161#162#0" expanded="true" />
+                <element signature="e#188#189#0" expanded="true" />
+                <element signature="e#224#225#0" expanded="true" />
+                <element signature="e#250#251#0" expanded="true" />
+                <element signature="e#303#304#0" expanded="true" />
+                <element signature="e#342#343#0" expanded="true" />
+                <element signature="e#381#382#0" expanded="true" />
+                <element signature="e#411#412#0" expanded="true" />
+                <element signature="e#471#472#0" expanded="true" />
+                <element signature="e#518#519#0" expanded="true" />
+                <element signature="e#671#672#0" expanded="true" />
+                <element signature="e#686#687#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -69,11 +94,13 @@
       <list>
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Main.java" />
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" />
+        <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -186,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1550603877634</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Input parsing successful, need to analyze data&#10;TODO: add phosphorylation localization (indexed to full-length tau) by fileID&#10;TODO: Add abundance calculations by FileID&#10;TODO:Add data output">
+      <created>1550692139469</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1550692139469</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -208,17 +242,17 @@
       <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.123667374" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.49946696" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.3859275" side_tool="true" visible="true" weight="0.32394367" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.50479746" side_tool="true" visible="true" weight="0.22643554" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="2" weight="0.32936078" />
       <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.4989339" weight="0.3286334" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.6140725" visible="true" weight="0.32394367" />
-      <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.49200428" weight="0.39045554" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.6130064" weight="0.22643554" />
+      <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.49093816" weight="0.38937092" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" sideWeight="0.4989339" weight="0.32827735" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49573562" weight="0.32827735" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49520257" weight="0.32719395" />
       <window_info anchor="right" id="Cargo" order="0" />
       <window_info anchor="right" id="Palette&#9;" order="1" />
       <window_info anchor="right" id="Palette" order="2" />
@@ -233,7 +267,8 @@
     <MESSAGE value="Initial commit" />
     <MESSAGE value="attempted to separate input and output file Core finds correct input file. Still issues with parsing phosphorylation sites." />
     <MESSAGE value="Started new file to read and parse the file input.&#10;TODO: add phosphorylation localization (indexed to full-length tau) by fileID&#10;TODO: Add abundance calculations by FileID&#10;TODO:Add data output" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started new file to read and parse the file input.&#10;TODO: add phosphorylation localization (indexed to full-length tau) by fileID&#10;TODO: Add abundance calculations by FileID&#10;TODO:Add data output" />
+    <MESSAGE value="Input parsing successful, need to analyze data&#10;TODO: add phosphorylation localization (indexed to full-length tau) by fileID&#10;TODO: Add abundance calculations by FileID&#10;TODO:Add data output" />
+    <option name="LAST_COMMIT_MESSAGE" value="Input parsing successful, need to analyze data&#10;TODO: add phosphorylation localization (indexed to full-length tau) by fileID&#10;TODO: Add abundance calculations by FileID&#10;TODO:Add data output" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -322,18 +357,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="110" selection-start-line="110" selection-end-line="110" />
+        <state relative-caret-position="212">
+          <caret line="75" column="50" selection-start-line="75" selection-start-column="50" selection-end-line="75" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="33" column="61" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
+          <folding>
+            <element signature="e#100#101#0" expanded="true" />
+            <element signature="e#120#121#0" expanded="true" />
+            <element signature="e#161#162#0" expanded="true" />
+            <element signature="e#188#189#0" expanded="true" />
+            <element signature="e#224#225#0" expanded="true" />
+            <element signature="e#250#251#0" expanded="true" />
+            <element signature="e#303#304#0" expanded="true" />
+            <element signature="e#342#343#0" expanded="true" />
+            <element signature="e#381#382#0" expanded="true" />
+            <element signature="e#411#412#0" expanded="true" />
+            <element signature="e#471#472#0" expanded="true" />
+            <element signature="e#518#519#0" expanded="true" />
+            <element signature="e#671#672#0" expanded="true" />
+            <element signature="e#686#687#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+        <state relative-caret-position="391">
+          <caret line="73" column="23" lean-forward="true" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -3,7 +3,8 @@ package utsw.joachimiak.vish;
 import java.io.*;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
-import java.util.ArrayList;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class CSVParse {
 	private static final String sourceCSV = "Human_Tau_PSM.csv";
@@ -18,10 +19,10 @@ public class CSVParse {
 			+ "QSKIG" + "SLDNI" + "THVPG" + "GGNKK" + "IETHK" + "LTFRE" + "NAKAK" + "TDHGA" + "EIVYK" + "SPVVS" //350-399
 			+ "GDTSP" + "RHLSN" + "VSSTG" + "SIDMV" + "DSPQL" + "ATLAD" + "EVSAS" + "LAKQG" + "L";
 	private static String[] columnHeaders;
-
 	public static void main(String[] args) {
-		ArrayList<String[]> fileData = null;
-
+		ArrayList<Peptide> fileData = null;
+		HashSet<String> fileID_list;
+		Map<String, List<Peptide>> peptidesByFile;
 		try {
 			fileData = ingestFile();
 		} catch (IOException ex) {
@@ -29,21 +30,30 @@ public class CSVParse {
 			System.exit(1);
 		}
 		System.out.println("File ingestion was a success.");
-		//DEBUG
-		//Arrays.stream(columnHeaders).forEach(System.out::println);
-		//DEBUG
-		//fileData.forEach(lineArr->System.out.println(Arrays.toString(lineArr)));
 
+		//@DEBUG Column header array generation
+		//Arrays.stream(columnHeaders).forEach(System.out::println);
+
+		//@DEBUG file ingestion
+		fileData.forEach(System.out::println);
+
+		//Split the peptides by which file they came from
+		peptidesByFile = fileData.stream().collect(Collectors.groupingBy(Peptide::getFileID));
+
+		//@DEBUG Splitting by file ID
+		//System.out.println(peptidesByFile.toString().replaceAll(",","\n"));
 	}
 
+
 	/**
-	 * Ingest file, using comma as the delimiting value between items and producing a Stream<String[]> containing the file's data
-	 *
-	 * @return A ArrayList<String[]> from the file containing each line of the CSV file as a string array
+	 * Ingest file, using comma as the delimiting value between items and producing an ArrayList<String[]> containing the file's data	 *
+	 * @return An ArrayList<String[]> from the file containing each line of the CSV file as a string array
 	 * @throws IOException           if there is another error in reading/opening/working with the file (From BufferedReader)
 	 * @throws FileNotFoundException if the file is not found in the local directory
 	 */
-	private static ArrayList<String[]> ingestFile() throws IOException {
+	private static ArrayList<Peptide> ingestFile() throws IOException {
+		ArrayList<Peptide> data;
+		List<String> headerList;
 		if (Files.exists((FileSystems.getDefault().getPath(sourceCSV)))) {
 			System.out.println("attempting to open input file...");
 		} else {
@@ -52,10 +62,15 @@ public class CSVParse {
 		}
 		BufferedReader inputReader = new BufferedReader(new InputStreamReader(new FileInputStream(sourceCSV)));
 		columnHeaders = inputReader.readLine().split(",");
-		ArrayList<String[]> data = new ArrayList<>();
-		inputReader.lines().forEach(dataLine -> data.add(dataLine.split(",")));
+		headerList = Arrays.asList(columnHeaders);
+		int fileIDindex = headerList.indexOf("File ID");
+		int sequenceIndex = headerList.indexOf("Annotated Sequence");
+		int phosphoIndex = headerList.indexOf("Modifications");
+		data = inputReader.lines().map(line -> line.split(","))
+				.map(lineArr -> new Peptide(lineArr[fileIDindex], lineArr[sequenceIndex], lineArr[phosphoIndex].split(";")))
+				.collect(Collectors.toCollection(ArrayList::new));
 		return data;
-
-
 	}
+
 }
+
