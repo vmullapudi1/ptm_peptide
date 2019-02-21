@@ -1,15 +1,39 @@
 package utsw.joachimiak.vish;
 
+import java.util.Arrays;
+
 class Peptide {
 
 	private String fileID;
 	private String annotatedSeq;
 	private String[] phosphorylations;
 
-	Peptide(String fileID, String seq, String[] phosphorylations) {
+	public int[] getTauPhosLocalization() {
+		return tauPhosLocalization;
+	}
+
+	public void setTauPhosLocalization(int[] tauPhosLocalization) {
+		this.tauPhosLocalization = tauPhosLocalization;
+	}
+
+	private int[] tauPhosLocalization;
+
+	double getAbundance() {
+		return abundance;
+	}
+
+	void setAbundance(double abundance) {
+		this.abundance = abundance;
+	}
+
+	private double abundance;
+	Peptide(String fileID, String seq, String[] phosphorylations, double abundance) {
 		setFileID(fileID);
 		setAnnotatedSeq(seq);
 		setPhosphorylations(phosphorylations);
+		setAbundance(abundance);
+		tauPhosLocalization= new int[phosphorylations.length];
+		Arrays.fill(tauPhosLocalization,-1);
 	}
 
 	String getFileID() {

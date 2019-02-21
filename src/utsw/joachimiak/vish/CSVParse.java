@@ -21,7 +21,6 @@ public class CSVParse {
 	private static String[] columnHeaders;
 	public static void main(String[] args) {
 		ArrayList<Peptide> fileData = null;
-		HashSet<String> fileID_list;
 		Map<String, List<Peptide>> peptidesByFile;
 		try {
 			fileData = ingestFile();
@@ -35,13 +34,16 @@ public class CSVParse {
 		//Arrays.stream(columnHeaders).forEach(System.out::println);
 
 		//@DEBUG file ingestion
-		fileData.forEach(System.out::println);
+		//fileData.forEach(System.out::println);
 
 		//Split the peptides by which file they came from
 		peptidesByFile = fileData.stream().collect(Collectors.groupingBy(Peptide::getFileID));
 
 		//@DEBUG Splitting by file ID
 		//System.out.println(peptidesByFile.toString().replaceAll(",","\n"));
+		for(String s:peptidesByFile.keySet()) {
+			calcPeptideTauPhosLocalizations(peptidesByFile.get(s));
+		}
 	}
 
 
@@ -52,7 +54,7 @@ public class CSVParse {
 	 * @throws FileNotFoundException if the file is not found in the local directory
 	 */
 	private static ArrayList<Peptide> ingestFile() throws IOException {
-		ArrayList<Peptide> data;
+		ArrayList<Peptide> data=new ArrayList<>();
 		List<String> headerList;
 		if (Files.exists((FileSystems.getDefault().getPath(sourceCSV)))) {
 			System.out.println("attempting to open input file...");
@@ -63,14 +65,39 @@ public class CSVParse {
 		BufferedReader inputReader = new BufferedReader(new InputStreamReader(new FileInputStream(sourceCSV)));
 		columnHeaders = inputReader.readLine().split(",");
 		headerList = Arrays.asList(columnHeaders);
-		int fileIDindex = headerList.indexOf("File ID");
+		int fileIDIndex = headerList.indexOf("File ID");
 		int sequenceIndex = headerList.indexOf("Annotated Sequence");
 		int phosphoIndex = headerList.indexOf("Modifications");
-		data = inputReader.lines().map(line -> line.split(","))
-				.map(lineArr -> new Peptide(lineArr[fileIDindex], lineArr[sequenceIndex], lineArr[phosphoIndex].split(";")))
-				.collect(Collectors.toCollection(ArrayList::new));
+		int abundanceIndex=headerList.indexOf("Precursor Abundance");
+
+		while(inputReader.ready()) {
+			String[] lineArr = inputReader.readLine().replaceAll("[,]{2}",",-1,").split(",");
+			data.add(new Peptide(lineArr[fileIDIndex], lineArr[sequenceIndex], lineArr[phosphoIndex].split(";"),Double.parseDouble(lineArr[abundanceIndex])));
+		}
 		return data;
 	}
 
+	private static void calcPeptideTauPhosLocalizations(List<Peptide> peptideList){
+		for(Peptide p:peptideList){
+			String[] peptideSites=p.getPhosphorylations();
+			if (peptideSites[0].equals("-1")){
+				continue;
+			}
+
+
+			String seq=p.getAnnotatedSeq();
+			//remove bracket/periods in front of sequence
+			seq=seq.substring(4,seq.length()-4);
+			int peptideTauIndex=tau2N4R.indexOf(seq);
+			int[]tauLocal=p.getTauPhosLocalization();
+			
+			for (int i = 0; i < peptideSites.length; i++) {
+				int site=Integer.parseInt(peptideSites[i]);
+				tauLocal[i]=site-1+peptideTauIndex;
+			}
+
+			}
+
+		}
 }
 
