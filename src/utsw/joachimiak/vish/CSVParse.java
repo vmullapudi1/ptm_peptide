@@ -51,8 +51,8 @@ class CSVParse {
 		//System.out.println(peptidesByFile.toString().replaceAll(",","\n"));
 
 		//generate abundance and phosphorylation data for each file
-		for(String s:peptidesByFile.keySet()) {
-			List<Peptide> p = peptidesByFile.get(s);
+		for (String fileID : peptidesByFile.keySet()) {
+			List<Peptide> p = peptidesByFile.get(fileID);
 			calcPeptideTauPhosLocalizations(p);
 			double[][] abundance = generateAbundances(p);
 		}
@@ -150,6 +150,17 @@ class CSVParse {
 		}
 
 		return abundances;
+	}
+
+	/**
+	 * @param fileID     THe fileID of the source of the peptides
+	 * @param abundances the 2d array containing the phosphorylated [i][0] amd the total [i][1] abundances of a residue
+	 *                   in the PTM data
+	 * @param p          The list of Peptide objects from a given fileID
+	 */
+	//TODO: add output of peptides with abundance and net abundances of each phosphorlated site
+	private static void outputCSV(String fileID, String[][] abundances, List<Peptide> p) {
+
 	}
 }
 
