@@ -1,15 +1,22 @@
 package utsw.joachimiak.vish;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.*;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
-public class CSVParse {
+class CSVParse {
+
 	private static final String sourceCSV = "Human_Tau_PSM.csv";
-	private static final String outputCSV = "HumanPSMOutput.csv";
-	private static final String tau2N4R = "MAEPR" + "QEFEV" + "MEDHA" + "GTYGL" + "GDRKD" + "QGGYT" + "MHQDQ" + "EGDTD" + "AGLKE" + "SPLQT" //0-49
+	private static final String outputFileNameFormat = "HumanPSMOutput.csv";
+	private static final String tau2N4R =
+			"MAEPR" + "QEFEV" + "MEDHA" + "GTYGL" + "GDRKD" + "QGGYT" + "MHQDQ" + "EGDTD" + "AGLKE" + "SPLQT" //0-49
 			+ "PTEDG" + "SEEPG" + "SETSD" + "AKSTP" + "TAEDV" + "TAPLV" + "DEGAP" + "GKQAA" + "AQPHT" + "EIPEG" //50-99
 			+ "TTAEE" + "AGIGD" + "TPSLE" + "DEAAG" + "HVTQA" + "RMVSK" + "SKDGT" + "GSDDK" + "KAKGA" + "DGKTK" //100-149
 			+ "IATPR" + "GAAPP" + "GQKGQ" + "ANATR" + "IPAKT" + "PPAPK" + "TPPSS" + "GEPPK" + "SGDRS" + "GYSSP" //150-199
@@ -19,6 +26,7 @@ public class CSVParse {
 			+ "QSKIG" + "SLDNI" + "THVPG" + "GGNKK" + "IETHK" + "LTFRE" + "NAKAK" + "TDHGA" + "EIVYK" + "SPVVS" //350-399
 			+ "GDTSP" + "RHLSN" + "VSSTG" + "SIDMV" + "DSPQL" + "ATLAD" + "EVSAS" + "LAKQG" + "L";
 	private static String[] columnHeaders;
+
 	public static void main(String[] args) {
 		ArrayList<Peptide> fileData = null;
 		Map<String, List<Peptide>> peptidesByFile;
@@ -41,11 +49,14 @@ public class CSVParse {
 
 		//@DEBUG Splitting by file ID
 		//System.out.println(peptidesByFile.toString().replaceAll(",","\n"));
+
+		//generate abundance and phosphorylation data for each file
 		for(String s:peptidesByFile.keySet()) {
-			calcPeptideTauPhosLocalizations(peptidesByFile.get(s));
+			List<Peptide> p = peptidesByFile.get(s);
+			calcPeptideTauPhosLocalizations(p);
+			double[][] abundance = generateAbundances(p);
 		}
 	}
-
 
 	/**
 	 * Ingest file, using comma as the delimiting value between items and producing an ArrayList<String[]> containing the file's data	 *
@@ -67,37 +78,78 @@ public class CSVParse {
 		headerList = Arrays.asList(columnHeaders);
 		int fileIDIndex = headerList.indexOf("File ID");
 		int sequenceIndex = headerList.indexOf("Annotated Sequence");
-		int phosphoIndex = headerList.indexOf("Modifications");
+		int modIndex = headerList.indexOf("Modifications");
 		int abundanceIndex=headerList.indexOf("Precursor Abundance");
 
 		while(inputReader.ready()) {
 			String[] lineArr = inputReader.readLine().replaceAll("[,]{2}",",-1,").split(",");
-			data.add(new Peptide(lineArr[fileIDIndex], lineArr[sequenceIndex], lineArr[phosphoIndex].split(";"),Double.parseDouble(lineArr[abundanceIndex])));
+			data.add(new Peptide(lineArr[fileIDIndex], lineArr[sequenceIndex], lineArr[modIndex], Double.parseDouble(lineArr[abundanceIndex])));
 		}
 		return data;
 	}
 
-	private static void calcPeptideTauPhosLocalizations(List<Peptide> peptideList){
+	/**
+	 * @param peptideList List of peptides for which to convert the peptide phosphorylation index to the 2N4R Tau
+	 *                    residue number (zero-indexed)
+	 */
+	private static void calcPeptideTauPhosLocalizations(@NotNull List<Peptide> peptideList) {
 		for(Peptide p:peptideList){
 			String[] peptideSites=p.getPhosphorylations();
+			if (peptideSites.length == 0) {
+				continue;
+			}
 			if (peptideSites[0].equals("-1")){
 				continue;
 			}
 
-
-			String seq=p.getAnnotatedSeq();
-			//remove bracket/periods in front of sequence
-			seq=seq.substring(4,seq.length()-4);
+			String seq = p.getSequence().toUpperCase();
 			int peptideTauIndex=tau2N4R.indexOf(seq);
-			int[]tauLocal=p.getTauPhosLocalization();
-			
+			if (peptideTauIndex == -1) {
+				//System.out.println(p.getSequence());
+			}
+			p.setTauIndex(peptideTauIndex);
+			int[] tauLocal = new int[peptideSites.length];
+
 			for (int i = 0; i < peptideSites.length; i++) {
-				int site=Integer.parseInt(peptideSites[i]);
+				int site = Integer.parseInt(peptideSites[i].replaceAll("[\\D]", ""));
 				tauLocal[i]=site-1+peptideTauIndex;
 			}
-
-			}
-
+			p.setTauPhosLocalization(tauLocal);
 		}
+	}
+
+	/**
+	 * Calculates the modified (phosphorylated) and unmodified abundances for each phosphorylation locus given in the peptideList
+	 *
+	 * @param peptideList the list of peptides from a particular MS run/sample
+	 * @return a 2d int array, where for every residue of tau a modified and unmodified abundance is stored
+	 */
+	private static double[][] generateAbundances(List<Peptide> peptideList) {
+		double[][] abundances = new double[tau2N4R.length()][2];
+		ArrayList<Peptide> notInTauFL = new ArrayList<>();
+
+		for (Peptide p : peptideList) {
+			int index = p.getTauIndex();
+			if (index == -1) {
+				notInTauFL.add(p);
+				continue;
+			}
+			double a = p.getAbundance();
+			//add the abundance of the peptide to all the unmodified sites that the peptide covers
+			for (int i = index; i < p.getSequence().length(); i++) {
+				abundances[i][1] += a;
+			}
+			//add the peptide abundance to the modified abundance of all the phophorylated sites
+			for (int i : p.getTauPhosLocalization()) {
+				//if no phosphorylation, break
+				if (i == -1) {
+					break;
+				}
+				abundances[i][0] += a;
+			}
+		}
+
+		return abundances;
+	}
 }
 
