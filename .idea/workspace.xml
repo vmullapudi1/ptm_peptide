@@ -5,7 +5,9 @@
     <option name="CUSTOM_SCOPE_NAME" value="Current File" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e607ce3-0343-4ed1-8721-2d56870ccc4f" name="Default Changelist" comment="">
+    <list default="true" id="2e607ce3-0343-4ed1-8721-2d56870ccc4f" name="Default Changelist" comment="Data output added&#10;Split abundance out into separate class for convenience">
+      <change afterPath="$PROJECT_DIR$/src/utsw/joachimiak/vish/Abundance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/vmull.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/vmull.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ptm_from_scratch/utsw/joachimiak/vish/CSVParse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ptm_from_scratch/utsw/joachimiak/vish/CSVParse.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ptm_from_scratch/utsw/joachimiak/vish/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ptm_from_scratch/utsw/joachimiak/vish/Main.class" afterDir="false" />
@@ -21,6 +23,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/ptm_from_scratch$Main.ic" NAME="Main Coverage Results" MODIFIED="1550511991579" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ptm_from_scratch$CSVParse.ic" NAME="CSVParse Coverage Results" MODIFIED="1551212191985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CoverageViewManager">
     <option name="myElementSize" value="241" />
@@ -45,13 +48,25 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="161" column="95" lean-forward="true" selection-start-line="161" selection-start-column="95" selection-end-line="161" selection-end-column="95" />
+            <state relative-caret-position="364">
+              <caret line="183" column="46" lean-forward="true" selection-start-line="183" selection-start-column="46" selection-end-line="183" selection-end-column="46" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="docComment;method#ingestFile#0;class#CSVParse#0" />
-                <element signature="method#ingestFile#0;class#CSVParse#0" />
                 <element signature="docComment;method#calcPeptideTauPhosLocalizations#0;class#CSVParse#0" />
-                <element signature="method#calcPeptideTauPhosLocalizations#0;class#CSVParse#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Abundance.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <folding>
+                <element signature="e#243#244#0" expanded="true" />
+                <element signature="e#309#310#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -101,15 +116,20 @@
       </list>
     </option>
   </component>
+  <component name="FindBugs-IDEA-Workspace">
+    <analyzeBeforeCheckIn>true</analyzeBeforeCheckIn>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>557622</find>
       <find>system.ou</find>
+      <find>error w</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="Vishruth Mullapudi &lt;vishruth.mullapudi@utsouthwestern.edu&gt;" />
         <option value="Vishruth.Mullapudi@utsouthwestern.edu &lt;vishruth.mullapudi@utsouthwestern.edu&gt;" />
         <option value="vmullapudi1 &lt;vmullapudi1@gmaiil.com&gt;" />
       </list>
@@ -121,6 +141,7 @@
       <list>
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Main.java" />
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java" />
+        <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Abundance.java" />
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" />
       </list>
     </option>
@@ -261,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1551117728323</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Localized phosphorylation and calculated abundances by location. Peptides that do not map onto FL tau are ignored.&#10;TODO:Add data output">
+      <created>1551118519265</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1551118519266</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -281,20 +309,20 @@
       <window_info id="Designer" order="1" />
       <window_info content_ui="combo" id="Project" order="2" sideWeight="0.49859944" visible="true" weight="0.12846482" />
       <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.49946696" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.40245202" side_tool="true" visible="true" weight="0.37811485" />
-      <window_info anchor="bottom" id="FindBugs-IDEA" order="2" weight="0.32936078" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.2835821" side_tool="true" visible="true" weight="0.37486458" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="2" sideWeight="0.49946696" weight="0.32936078" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.4914712" weight="0.32104123" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.48987207" weight="0.3206934" />
       <window_info anchor="bottom" id="Favorites" order="8" sideWeight="0.5010661" weight="0.12351029" />
-      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.607221" weight="0.22647703" />
-      <window_info active="true" anchor="bottom" id="Debug" order="10" sideWeight="0.59754795" visible="true" weight="0.37811485" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.60554373" weight="0.22451194" />
+      <window_info active="true" anchor="bottom" id="Debug" order="10" sideWeight="0.7164179" visible="true" weight="0.37486458" />
       <window_info anchor="bottom" id="TODO" order="11" sideWeight="0.4978678" weight="0.32827735" />
       <window_info anchor="bottom" id="Structure" order="12" sideWeight="0.49840087" weight="0.24918744" />
-      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49840087" weight="0.32827735" />
-      <window_info anchor="bottom" id="Inspection Results" order="14" sideWeight="0.49946696" weight="0.32936078" />
+      <window_info anchor="bottom" id="Inspection Results" order="13" sideWeight="0.49946696" weight="0.32936078" />
+      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.4978678" weight="0.32827735" />
       <window_info anchor="right" id="Cargo" order="0" />
       <window_info anchor="right" id="Palette&#9;" order="1" />
       <window_info anchor="right" id="Palette" order="2" />
@@ -304,15 +332,19 @@
       <window_info anchor="right" id="Coverage" order="6" side_tool="true" weight="0.32995737" />
     </layout>
   </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="Initial commit" />
     <MESSAGE value="attempted to separate input and output file Core finds correct input file. Still issues with parsing phosphorylation sites." />
     <MESSAGE value="Started new file to read and parse the file input.&#10;TODO: add phosphorylation localization (indexed to full-length tau) by fileID&#10;TODO: Add abundance calculations by FileID&#10;TODO:Add data output" />
     <MESSAGE value="Input parsing successful, need to analyze data&#10;TODO: add phosphorylation localization (indexed to full-length tau) by fileID&#10;TODO: Add abundance calculations by FileID&#10;TODO:Add data output" />
     <MESSAGE value="Pushed peptides out into separate class &#10;TODO: add phosphorylation localization (indexed to full-length tau) by fileID&#10;TODO: Add abundance calculations by FileID&#10;TODO:Add data output" />
     <MESSAGE value="Localized phosphorylation and calculated abundances by location. Peptides that do not map onto FL tau are ignored.&#10;TODO:Add data output" />
-    <option name="LAST_COMMIT_MESSAGE" value="Localized phosphorylation and calculated abundances by location. Peptides that do not map onto FL tau are ignored.&#10;TODO:Add data output" />
+    <MESSAGE value="Data output added&#10;Split abundance out into separate class for convenience" />
+    <option name="LAST_COMMIT_MESSAGE" value="Data output added&#10;Split abundance out into separate class for convenience" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -332,15 +364,9 @@
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java</url>
-          <line>30</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java</url>
-          <line>16</line>
+          <line>19</line>
           <properties field="outputFileNameFormat" class="utsw.joachimiak.vish.CSVParse" />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
@@ -349,6 +375,11 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>outputBuffer.toString();</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>tau2N4R</expression-string>
         <language-id>JAVA</language-id>
@@ -386,11 +417,6 @@
       </expression>
       <expression>
         <expression-string>tau2N4R.indexOf(&quot;SPQDSPPSKASPAQDGRPPQTAAR&quot;.toUpperCase());</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>tau2N4R.indexOf(&quot;EEVDEDRDVDEsSPQDSPPSKASPAQDGRPPQTAAR&quot;.toUpperCase());</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
@@ -461,15 +487,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Abundance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="e#243#244#0" expanded="true" />
+            <element signature="e#309#310#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="161" column="95" lean-forward="true" selection-start-line="161" selection-start-column="95" selection-end-line="161" selection-end-column="95" />
+        <state relative-caret-position="364">
+          <caret line="183" column="46" lean-forward="true" selection-start-line="183" selection-start-column="46" selection-end-line="183" selection-end-column="46" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="docComment;method#ingestFile#0;class#CSVParse#0" />
-            <element signature="method#ingestFile#0;class#CSVParse#0" />
             <element signature="docComment;method#calcPeptideTauPhosLocalizations#0;class#CSVParse#0" />
-            <element signature="method#calcPeptideTauPhosLocalizations#0;class#CSVParse#0" />
           </folding>
         </state>
       </provider>

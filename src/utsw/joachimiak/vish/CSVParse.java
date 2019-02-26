@@ -5,6 +5,9 @@ import org.jetbrains.annotations.NotNull;
 import java.io.*;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -54,7 +57,13 @@ class CSVParse {
 		for (String fileID : peptidesByFile.keySet()) {
 			List<Peptide> p = peptidesByFile.get(fileID);
 			calcPeptideTauPhosLocalizations(p);
-			double[][] abundance = generateAbundances(p);
+			Abundance[] abundance = generateAbundances(p);
+			try {
+				outputCSV(fileID, abundance, p);
+			} catch (IOException e) {
+				System.err.println("Error writing to file" + e.toString());
+				System.exit(1);
+			}
 		}
 	}
 
@@ -67,7 +76,7 @@ class CSVParse {
 	private static ArrayList<Peptide> ingestFile() throws IOException {
 		ArrayList<Peptide> data=new ArrayList<>();
 		List<String> headerList;
-		if (Files.exists((FileSystems.getDefault().getPath(sourceCSV)))) {
+		if (Files.exists((FileSystems.getDefault().getPath(sourceCSV))) && new File(sourceCSV).canRead()) {
 			System.out.println("attempting to open input file...");
 		} else {
 			System.err.println("File not found");
@@ -85,6 +94,7 @@ class CSVParse {
 			String[] lineArr = inputReader.readLine().replaceAll("[,]{2}",",-1,").split(",");
 			data.add(new Peptide(lineArr[fileIDIndex], lineArr[sequenceIndex], lineArr[modIndex], Double.parseDouble(lineArr[abundanceIndex])));
 		}
+		inputReader.close();
 		return data;
 	}
 
@@ -104,9 +114,7 @@ class CSVParse {
 
 			String seq = p.getSequence().toUpperCase();
 			int peptideTauIndex=tau2N4R.indexOf(seq);
-			if (peptideTauIndex == -1) {
-				//System.out.println(p.getSequence());
-			}
+
 			p.setTauIndex(peptideTauIndex);
 			int[] tauLocal = new int[peptideSites.length];
 
@@ -124,8 +132,11 @@ class CSVParse {
 	 * @param peptideList the list of peptides from a particular MS run/sample
 	 * @return a 2d int array, where for every residue of tau a modified and unmodified abundance is stored
 	 */
-	private static double[][] generateAbundances(List<Peptide> peptideList) {
-		double[][] abundances = new double[tau2N4R.length()][2];
+	private static Abundance[] generateAbundances(List<Peptide> peptideList) {
+		Abundance[] abundances = new Abundance[tau2N4R.length()];
+		for (int i = 0; i < abundances.length; i++) {
+			abundances[i] = new Abundance(0, 0);
+		}
 		ArrayList<Peptide> notInTauFL = new ArrayList<>();
 
 		for (Peptide p : peptideList) {
@@ -137,7 +148,7 @@ class CSVParse {
 			double a = p.getAbundance();
 			//add the abundance of the peptide to all the unmodified sites that the peptide covers
 			for (int i = index; i < p.getSequence().length(); i++) {
-				abundances[i][1] += a;
+				abundances[i].total += a;
 			}
 			//add the peptide abundance to the modified abundance of all the phophorylated sites
 			for (int i : p.getTauPhosLocalization()) {
@@ -145,7 +156,7 @@ class CSVParse {
 				if (i == -1) {
 					break;
 				}
-				abundances[i][0] += a;
+				abundances[i].phosphorylated += a;
 			}
 		}
 
@@ -154,13 +165,28 @@ class CSVParse {
 
 	/**
 	 * @param fileID     THe fileID of the source of the peptides
-	 * @param abundances the 2d array containing the phosphorylated [i][0] amd the total [i][1] abundances of a residue
+	 * @param abundances the array containing phosphorylated and total abundances of a residue
 	 *                   in the PTM data
 	 * @param p          The list of Peptide objects from a given fileID
 	 */
-	//TODO: add output of peptides with abundance and net abundances of each phosphorlated site
-	private static void outputCSV(String fileID, String[][] abundances, List<Peptide> p) {
+	private static void outputCSV(String fileID, Abundance[] abundances, List<Peptide> p) throws IOException {
+		LocalDateTime date = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("kk-mm-ss-MM-dd-YYYY");
+		String dateString = date.format(formatter);
 
+		BufferedWriter w = Files.newBufferedWriter(new File("output/" + fileID + "_" + dateString + outputFileNameFormat)
+				.toPath(), StandardOpenOption.CREATE_NEW);
+		StringBuilder outputBuffer = new StringBuilder(7000);
+		outputBuffer.append("Phosphorylation site, Phosphorylation Abundance, Total Abundance, Modification Proportion\n");
+		double phos;
+		double tot;
+		for (int i = 0; i < abundances.length; i++) {
+			phos = abundances[i].phosphorylated;
+			tot = abundances[i].total;
+			outputBuffer.append(i + "," + phos + "," + tot + "," + (phos / tot) + "\n");
+		}
+		w.write(outputBuffer.toString());
+		w.close();
 	}
 }
 
