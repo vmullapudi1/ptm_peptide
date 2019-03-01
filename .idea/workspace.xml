@@ -5,13 +5,10 @@
     <option name="CUSTOM_SCOPE_NAME" value="Current File" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e607ce3-0343-4ed1-8721-2d56870ccc4f" name="Default Changelist" comment="Data output added&#10;Split abundance out into separate class for convenience">
-      <change afterPath="$PROJECT_DIR$/src/utsw/joachimiak/vish/Abundance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/vmull.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/vmull.xml" afterDir="false" />
+    <list default="true" id="2e607ce3-0343-4ed1-8721-2d56870ccc4f" name="Default Changelist" comment="hunting bug in peptide tau lol">
+      <change afterPath="$PROJECT_DIR$/src/utsw/joachimiak/vish/psBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ptm_from_scratch/utsw/joachimiak/vish/CSVParse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ptm_from_scratch/utsw/joachimiak/vish/CSVParse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ptm_from_scratch/utsw/joachimiak/vish/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ptm_from_scratch/utsw/joachimiak/vish/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ptm_from_scratch/utsw/joachimiak/vish/Peptide.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ptm_from_scratch/utsw/joachimiak/vish/Peptide.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -48,12 +45,24 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="183" column="46" lean-forward="true" selection-start-line="183" selection-start-column="46" selection-end-line="183" selection-end-column="46" />
+            <state relative-caret-position="1374">
+              <caret line="75" column="59" selection-start-line="75" selection-start-column="59" selection-end-line="75" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#ingestFile#0;class#CSVParse#0" />
-                <element signature="docComment;method#calcPeptideTauPhosLocalizations#0;class#CSVParse#0" />
+                <element signature="method#ingestFile#0;class#CSVParse#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/psBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="617">
+              <caret line="36" column="48" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -64,10 +73,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="286">
               <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-              <folding>
-                <element signature="e#243#244#0" expanded="true" />
-                <element signature="e#309#310#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -75,33 +80,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
+            <state relative-caret-position="178">
               <caret line="26" selection-start-line="26" selection-end-line="26" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#238#239#0" expanded="true" />
-                <element signature="e#1332#1333#0" expanded="true" />
-                <element signature="e#1352#1353#0" expanded="true" />
-                <element signature="e#1394#1395#0" expanded="true" />
-                <element signature="e#1421#1422#0" expanded="true" />
-                <element signature="e#1450#1451#0" expanded="true" />
-                <element signature="e#1476#1477#0" expanded="true" />
-                <element signature="e#1530#1531#0" expanded="true" />
-                <element signature="e#1569#1570#0" expanded="true" />
-                <element signature="e#1604#1605#0" expanded="true" />
-                <element signature="e#1634#1635#0" expanded="true" />
-                <element signature="e#1698#1699#0" expanded="true" />
-                <element signature="e#1745#1746#0" expanded="true" />
-                <element signature="e#1787#1788#0" expanded="true" />
-                <element signature="e#1820#1821#0" expanded="true" />
-                <element signature="e#1886#1887#0" expanded="true" />
-                <element signature="e#1939#1940#0" expanded="true" />
-                <element signature="e#1968#1969#0" expanded="true" />
-                <element signature="e#1990#1991#0" expanded="true" />
-                <element signature="e#2032#2033#0" expanded="true" />
-                <element signature="e#2063#2064#0" expanded="true" />
-                <element signature="e#2103#2104#0" expanded="true" />
-                <element signature="e#2171#2172#0" expanded="true" />
+                <element signature="e#677#678#0" expanded="true" />
+                <element signature="e#1778#1779#0" expanded="true" />
+                <element signature="e#1811#1812#0" expanded="true" />
+                <element signature="e#1959#1960#0" expanded="true" />
+                <element signature="e#1981#1982#0" expanded="true" />
+                <element signature="e#2023#2024#0" expanded="true" />
+                <element signature="e#2054#2055#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -124,6 +113,7 @@
       <find>557622</find>
       <find>system.ou</find>
       <find>error w</find>
+      <find>setT</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -135,13 +125,40 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="new" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Main.java" />
-        <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java" />
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Abundance.java" />
+        <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/psBase.java" />
+        <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java" />
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" />
       </list>
     </option>
@@ -156,21 +173,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="ptm_from_scratch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ptm_from_scratch" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="true" />
@@ -222,8 +225,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="psBase" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="utsw.joachimiak.vish.psBase" />
+      <module name="ptm_from_scratch" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.CSVParse" />
+      <item itemvalue="Application.psBase" />
       <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
@@ -289,7 +300,14 @@
       <option name="project" value="LOCAL" />
       <updated>1551118519266</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Data output added&#10;Split abundance out into separate class for convenience">
+      <created>1551213118910</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1551213118911</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -307,18 +325,18 @@
     <layout>
       <window_info id="UI Designer" order="0" />
       <window_info id="Designer" order="1" />
-      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.49859944" visible="true" weight="0.12846482" />
+      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.49859944" weight="0.12846482" />
       <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.49946696" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.2835821" side_tool="true" visible="true" weight="0.37486458" />
-      <window_info anchor="bottom" id="FindBugs-IDEA" order="2" sideWeight="0.49946696" weight="0.32936078" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.28464818" side_tool="true" weight="0.3726977" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="2" sideWeight="0.4989339" weight="0.32936078" />
       <window_info anchor="bottom" id="Message" order="3" />
-      <window_info anchor="bottom" id="Find" order="4" />
+      <window_info anchor="bottom" id="Find" order="4" sideWeight="0.49946696" weight="0.32936078" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.48987207" weight="0.3206934" />
       <window_info anchor="bottom" id="Favorites" order="8" sideWeight="0.5010661" weight="0.12351029" />
-      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.60554373" weight="0.22451194" />
-      <window_info active="true" anchor="bottom" id="Debug" order="10" sideWeight="0.7164179" visible="true" weight="0.37486458" />
+      <window_info active="true" anchor="bottom" id="Run" order="9" sideWeight="0.60554373" visible="true" weight="0.22101842" />
+      <window_info anchor="bottom" id="Debug" order="10" sideWeight="0.7153518" weight="0.36836404" />
       <window_info anchor="bottom" id="TODO" order="11" sideWeight="0.4978678" weight="0.32827735" />
       <window_info anchor="bottom" id="Structure" order="12" sideWeight="0.49840087" weight="0.24918744" />
       <window_info anchor="bottom" id="Inspection Results" order="13" sideWeight="0.49946696" weight="0.32936078" />
@@ -364,17 +382,16 @@
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-field">
-          <url>file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java</url>
-          <line>19</line>
-          <properties field="outputFileNameFormat" class="utsw.joachimiak.vish.CSVParse" />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>p.sequence.length();</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>outputBuffer.toString();</expression-string>
         <language-id>JAVA</language-id>
@@ -415,11 +432,6 @@
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>tau2N4R.indexOf(&quot;SPQDSPPSKASPAQDGRPPQTAAR&quot;.toUpperCase());</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
@@ -454,58 +466,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#238#239#0" expanded="true" />
-            <element signature="e#1332#1333#0" expanded="true" />
-            <element signature="e#1352#1353#0" expanded="true" />
-            <element signature="e#1394#1395#0" expanded="true" />
-            <element signature="e#1421#1422#0" expanded="true" />
-            <element signature="e#1450#1451#0" expanded="true" />
-            <element signature="e#1476#1477#0" expanded="true" />
-            <element signature="e#1530#1531#0" expanded="true" />
-            <element signature="e#1569#1570#0" expanded="true" />
-            <element signature="e#1604#1605#0" expanded="true" />
-            <element signature="e#1634#1635#0" expanded="true" />
-            <element signature="e#1698#1699#0" expanded="true" />
-            <element signature="e#1745#1746#0" expanded="true" />
-            <element signature="e#1787#1788#0" expanded="true" />
-            <element signature="e#1820#1821#0" expanded="true" />
-            <element signature="e#1886#1887#0" expanded="true" />
-            <element signature="e#1939#1940#0" expanded="true" />
-            <element signature="e#1968#1969#0" expanded="true" />
-            <element signature="e#1990#1991#0" expanded="true" />
-            <element signature="e#2032#2033#0" expanded="true" />
-            <element signature="e#2063#2064#0" expanded="true" />
-            <element signature="e#2103#2104#0" expanded="true" />
-            <element signature="e#2171#2172#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Abundance.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/psBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="36" column="48" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
           <folding>
-            <element signature="e#243#244#0" expanded="true" />
-            <element signature="e#309#310#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#677#678#0" expanded="true" />
+            <element signature="e#1778#1779#0" expanded="true" />
+            <element signature="e#1811#1812#0" expanded="true" />
+            <element signature="e#1959#1960#0" expanded="true" />
+            <element signature="e#1981#1982#0" expanded="true" />
+            <element signature="e#2023#2024#0" expanded="true" />
+            <element signature="e#2054#2055#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="183" column="46" lean-forward="true" selection-start-line="183" selection-start-column="46" selection-end-line="183" selection-end-column="46" />
+        <state relative-caret-position="1374">
+          <caret line="75" column="59" selection-start-line="75" selection-start-column="59" selection-end-line="75" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#ingestFile#0;class#CSVParse#0" />
-            <element signature="docComment;method#calcPeptideTauPhosLocalizations#0;class#CSVParse#0" />
+            <element signature="method#ingestFile#0;class#CSVParse#0" />
           </folding>
         </state>
       </provider>
