@@ -1,13 +1,16 @@
 package utsw.joachimiak.vish;
 
 import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class psBase {
 	public static void main(String[] args) throws Exception {
 		HashMap<Integer, ArrayList<Integer>> links = new HashMap<>();
-		char[] tau2N4R =
+		final char[] tau2N4R =
 				("MAEPR" + "QEFEV" + "MEDHA" + "GTYGL" + "GDRKD" + "QGGYT" + "MHQDQ" + "EGDTD" + "AGLKE" + "SPLQT" //0-49
 						+ "PTEDG" + "SEEPG" + "SETSD" + "AKSTP" + "TAEDV" + "TAPLV" + "DEGAP" + "GKQAA" + "AQPHT" + "EIPEG" //50-99
 						+ "TTAEE" + "AGIGD" + "TPSLE" + "DEAAG" + "HVTQA" + "RMVSK" + "SKDGT" + "GSDDK" + "KAKGA" + "DGKTK" //100-149
@@ -17,34 +20,42 @@ public class psBase {
 						+ "PGGGS" + "VQIVY" + "KPVDL" + "SKVTS" + "KCGSL" + "GNIHH" + "KPGGG" + "QVEVK" + "SEKLD" + "FKDRV" //300-349
 						+ "QSKIG" + "SLDNI" + "THVPG" + "GGNKK" + "IETHK" + "LTFRE" + "NAKAK" + "TDHGA" + "EIVYK" + "SPVVS" //350-399
 						+ "GDTSP" + "RHLSN" + "VSSTG" + "SIDMV" + "DSPQL" + "ATLAD" + "EVSAS" + "LAKQG" + "L").toCharArray();
+		final int beginning = 0;
+		final int end = tau2N4R.length - 1;
+		for (int windowEnd = 5; windowEnd < tau2N4R.length; windowEnd++) {
+			int windowStart = 0;
 
-		for (int i = 0; i < tau2N4R.length; i++) {
-			char j = tau2N4R[i];
-			ArrayList<Integer> basicSites = new ArrayList<>();
-			if (j == 'S' || j == 'T' || j == 'Y') {
-				int beginning = i - 25 >= 0 ? (i - 25) : 0;
-				int end = i + 25 < tau2N4R.length ? (i + 25) : tau2N4R.length - 1;
-				for (int k = beginning; k <= end; k++) {
-					char z = tau2N4R[k];
-					if (z == 'R' || z == 'K' || z == 'H') {
-						basicSites.add(k);
+			for (int i = beginning; i <= end; i++) {
+				char j = tau2N4R[i];
+				ArrayList<Integer> basicSites = new ArrayList<>();
+				if (j == 'S' || j == 'T' || j == 'Y') {
+					for (int k = i - windowEnd >= 0 ? i - windowEnd : 0; ((k <= end) && (k <= i + windowEnd)); k++) {
+						char z = tau2N4R[k];
+						if (z == 'R' || z == 'K' || z == 'H') {
+							basicSites.add(k);
+						}
+
 					}
-
+					links.put(i, basicSites);
 				}
-				links.put(i, basicSites);
 			}
+			Files.createDirectories(Paths.get("contactOutput"));
+			outputToFile(windowStart, windowEnd, links);
 		}
+	}
 
-		FileWriter f = new FileWriter("Tau Links25.csv", false);
-		f.write("Protein 1,Protein 2,AbsPos1,AbsPos2\n");
+	private static void outputToFile(int windowStart, int windowEnd, HashMap<Integer, ArrayList<Integer>> links) throws IOException {
+		FileWriter f = new FileWriter("contactOutput/Tau Links" + windowStart + "-" + windowEnd + ".csv", false);
+		f.write("Protein1,Protein2,AbsPos1,AbsPos2\n");
 		StringBuilder output = new StringBuilder(26736);
 		for (int i : links.keySet()) {
 			ArrayList<Integer> bases = links.get(i);
-			for (int asdf : bases) {
-				output.append("Tau2N4R,Tau2N4R," + (1 + i) + "," + (1 + asdf) + "\n");
+			for (int resIndex : bases) {
+				output.append("sp|P10636-8|TAU_HUMAN,sp|P10636-8|TAU_HUMAN," + (1 + i) + "," + (1 + resIndex) + "\n");
 			}
 		}
-		f.write(output.toString());
+		f.write(output.toString().trim());
 		f.close();
+		System.out.println("tau links output to file");
 	}
 }

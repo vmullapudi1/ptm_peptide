@@ -170,6 +170,9 @@ class CSVParse {
 				continue;
 			}
 			double a = p.getAbundance();
+			if (a == -1) {
+				a = 0;
+			}
 			//add the abundance of the peptide to all the unmodified sites that the peptide covers
 			for (int i = index; i < index + p.getSequence().length(); i++) {
 				abundances[i].total += a;
@@ -207,9 +210,10 @@ class CSVParse {
 		for (int i = 0; i < abundances.length; i++) {
 			phos = abundances[i].phosphorylated;
 			tot = abundances[i].total;
-			if (phos > tot) {
+			//DEBUG
+			/*if (phos > tot) {
 				System.out.println(fileID + " " + i + " " + phos + " " + tot);
-			}
+			}*/
 			outputBuffer.append(i + "," + phos + "," + tot + "," + (phos / tot) + "\n");
 		}
 		w.write(outputBuffer.toString());
