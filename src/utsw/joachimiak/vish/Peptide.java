@@ -2,6 +2,8 @@ package utsw.joachimiak.vish;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 class Peptide {
 
@@ -44,12 +46,18 @@ class Peptide {
 	}
 
 	private String[] initphosphorylations(String modifications) {
+		Pattern phosRegex=Pattern.compile("[STY][0-9]+?");
+		Matcher m=phosRegex.matcher(modifications);
 		ArrayList<String> phosphorylations = new ArrayList<>();
-		for (String s : modifications.split(";")) {
+		/*for (String s : modifications.split(";")) {
 			if (s.contains("Phospho")) {
 				phosphorylations.add(s.replaceAll("\\D", ""));
 			}
+		}*/
+		while(m.find()){
+			phosphorylations.add(m.group());
 		}
+
 		String[] s = new String[phosphorylations.size()];
 		return phosphorylations.toArray(s);
 	}

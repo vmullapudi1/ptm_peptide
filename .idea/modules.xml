@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ptm_from_scratch.iml" filepath="$PROJECT_DIR$/ptm_from_scratch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ptm_peptide.iml" filepath="$PROJECT_DIR$/ptm_peptide.iml" />
     </modules>
   </component>
 </project>

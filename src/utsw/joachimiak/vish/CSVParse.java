@@ -14,9 +14,9 @@ import java.util.stream.Collectors;
 
 class CSVParse {
 	//Input and output locations
-	private static final String sourceCSV = "Human_Tau_PSM.csv";
+	private static final String sourceCSV = "PHF_PCF-DC-816-03-2019_peptide.csv";
 	//Output location is modified with date/time/fileID prefix
-	private static final String outputFileNameFormat = "HumanPSMOutput.csv";
+	private static final String outputFileNameFormat = "PCF-DC-816-03-2019_peptide_Output.csv";
 	//Full length tau isoform for aligning peptide fragments
 	private static final String tau2N4R =
 			"MAEPR" + "QEFEV" + "MEDHA" + "GTYGL" + "GDRKD" + "QGGYT" + "MHQDQ" + "EGDTD" + "AGLKE" + "SPLQT" //0-49
@@ -30,9 +30,9 @@ class CSVParse {
 					+ "GDTSP" + "RHLSN" + "VSSTG" + "SIDMV" + "DSPQL" + "ATLAD" + "EVSAS" + "LAKQG" + "L";
 
 	public static void main(String[] args) {
-		//Contains the parsed raw data from the CSV of the MS output
+		//Will contain the parsed raw data from the CSV of the MS output
 		ArrayList<Peptide> fileData = null;
-		//Contains the raw data grouped by fileID
+		//Will contain the data as peptide fragment objects grouped by fileID
 		Map<String, List<Peptide>> peptidesByFile;
 
 		//Attempt to read the file, return an error and exit if file input fails
@@ -108,12 +108,21 @@ class CSVParse {
 			int fileIDIndex = headerList.indexOf("File ID");
 			int sequenceIndex = headerList.indexOf("Annotated Sequence");
 			int modIndex = headerList.indexOf("Modifications");
-			int abundanceIndex = headerList.indexOf("Precursor Abundance");
+			int abundanceIndex = headerList.indexOf("Abundance");
 
 			//Read the whole file, creating new peptides from the CSV data
 			while (inputReader.ready()) {
-				String[] lineArr = inputReader.readLine().replaceAll("[,]{2}", ",-1,").split(",");
-				data.add(new Peptide(lineArr[fileIDIndex], lineArr[sequenceIndex], lineArr[modIndex], Double.parseDouble(lineArr[abundanceIndex])));
+				String[] lineArr = inputReader.readLine().split(",");
+				if(lineArr.length==8){
+					lineArr=Arrays.copyOf(lineArr,9);
+					lineArr[8]="0";
+				}
+				if(fileIDIndex==-1){
+					data.add(new Peptide("FileID Null", lineArr[sequenceIndex], lineArr[modIndex], Double.parseDouble(lineArr[abundanceIndex])));
+				}
+				else {
+					data.add(new Peptide(lineArr[fileIDIndex], lineArr[sequenceIndex], lineArr[modIndex], Double.parseDouble(lineArr[abundanceIndex])));
+				}
 			}
 			return data;
 		} catch (IOException e) {
@@ -169,6 +178,7 @@ class CSVParse {
 				notInTauFL.add(p);
 				continue;
 			}
+
 			double a = p.getAbundance();
 			if (a == -1) {
 				a = 0;
@@ -176,6 +186,9 @@ class CSVParse {
 			//add the abundance of the peptide to all the unmodified sites that the peptide covers
 			for (int i = index; i < index + p.getSequence().length(); i++) {
 				abundances[i].total += a;
+				if(i==202){
+
+				}
 			}
 			if (p.getTauPhosLocalization().length != 0) {
 				//add the peptide abundance to the modified abundance of all the phosphorylated sites

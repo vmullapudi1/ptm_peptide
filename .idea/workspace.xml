@@ -6,10 +6,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e607ce3-0343-4ed1-8721-2d56870ccc4f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ptm_from_scratch/utsw/joachimiak/vish/CSVParse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ptm_from_scratch/utsw/joachimiak/vish/CSVParse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Human_Tau_PSM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PRJ-382-LFQ-Tau All PSMs_20180629.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ptm_from_scratch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ptm_peptide.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utsw/joachimiak/vish/psBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utsw/joachimiak/vish/psBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,15 +28,12 @@
   <component name="CoverageViewManager">
     <option name="myElementSize" value="241" />
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="ptm_from_scratch" />
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1560">
+            <state relative-caret-position="1352">
               <caret line="60" column="28" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -42,27 +42,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4186">
-              <caret line="201" column="38" selection-start-line="201" selection-start-column="8" selection-end-line="201" selection-end-column="38" />
+            <state relative-caret-position="56">
+              <caret line="208" selection-start-line="208" selection-end-line="208" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="docComment;method#ingestFile#0;class#CSVParse#0" />
-                <element signature="method#ingestFile#0;class#CSVParse#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/psBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="48" column="56" selection-start-line="48" selection-start-column="56" selection-end-line="48" selection-end-column="56" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,8 +66,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="19" column="42" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="42" />
+            <state relative-caret-position="169">
+              <caret line="57" selection-start-line="57" selection-end-line="57" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#655#656#0" expanded="true" />
@@ -116,17 +102,27 @@
       <find>error w</find>
       <find>setT</find>
       <find>-1</find>
+      <find>ingest</find>
+      <find>calcA</find>
+      <find>genera</find>
+      <find>gener</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
-        <option value="Vishruth Mullapudi &lt;vishruth.mullapudi@utsouthwestern.edu&gt;" />
         <option value="Vishruth.Mullapudi@utsouthwestern.edu &lt;vishruth.mullapudi@utsouthwestern.edu&gt;" />
+        <option value="Vishruth Mullapudi &lt;vishruth.mullapudi@utsouthwestern.edu&gt;" />
         <option value="vmullapudi1 &lt;vmullapudi1@gmaiil.com&gt;" />
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="peptideFile" />
+      </map>
+    </option>
+    <option name="SIGN_OFF_COMMIT" value="true" />
     <favorite-branches>
       <branch-storage>
         <map>
@@ -159,9 +155,9 @@
       <list>
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Main.java" />
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Abundance.java" />
+        <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/psBase.java" />
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java" />
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" />
-        <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/psBase.java" />
       </list>
     </option>
   </component>
@@ -183,9 +179,9 @@
     <property name="Repository.Attach.JavaDocs" value="true" />
     <property name="Repository.Attach.Sources" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="IntelliLang.Configuration" />
   </component>
@@ -209,17 +205,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.psBase">
+  <component name="RunManager" selected="Application.CSVParse">
     <configuration name="CSVParse" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="utsw.joachimiak.vish.CSVParse" />
-      <module name="ptm_from_scratch" />
+      <module name="ptm_peptide" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="utsw.joachimiak.vish.Main" />
-      <module name="ptm_from_scratch" />
+      <module name="ptm_peptide" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
@@ -229,7 +225,54 @@
     </configuration>
     <configuration name="psBase" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="utsw.joachimiak.vish.psBase" />
-      <module name="ptm_from_scratch" />
+      <module name="ptm_peptide" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <module name="ptm_peptide" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <module name="ptm_peptide" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -317,7 +360,14 @@
       <option name="project" value="LOCAL" />
       <updated>1551477926116</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fixed bug where total abundance would never be written do to the index the peptide is found in in tau not being used properly to iterate over the indices in the abundance table&#10;&#10;Improved file output, runs now output into their own folder using the system time to give runs (relatively) unique ids">
+      <created>1552767803904</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1552767803906</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView">
@@ -336,17 +386,17 @@
       <window_info id="UI Designer" order="0" />
       <window_info id="Designer" order="1" />
       <window_info content_ui="combo" id="Project" order="2" sideWeight="0.49859944" weight="0.12846482" />
-      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.49946696" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.28464818" side_tool="true" weight="0.3726977" />
-      <window_info anchor="bottom" id="FindBugs-IDEA" order="2" sideWeight="0.4989339" weight="0.32827735" />
+      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.49733475" weight="0.32827735" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.28731343" side_tool="true" visible="true" weight="0.21668473" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="2" sideWeight="0.63538873" weight="0.2286652" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" sideWeight="0.49946696" weight="0.32936078" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.48987207" weight="0.3206934" />
-      <window_info anchor="bottom" id="Favorites" order="8" sideWeight="0.5010661" weight="0.12351029" />
-      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.60554373" weight="0.21908894" />
-      <window_info anchor="bottom" id="Debug" order="10" sideWeight="0.7153518" weight="0.36836404" />
+      <window_info anchor="bottom" id="Favorites" order="8" sideWeight="0.50067025" weight="0.12253829" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.6023454" weight="0.21668473" />
+      <window_info anchor="bottom" id="Debug" order="10" sideWeight="0.71268654" weight="0.3629469" />
       <window_info anchor="bottom" id="TODO" order="11" sideWeight="0.4978678" weight="0.32827735" />
       <window_info anchor="bottom" id="Structure" order="12" sideWeight="0.49840087" weight="0.24918744" />
       <window_info anchor="bottom" id="Inspection Results" order="13" sideWeight="0.49946696" weight="0.32936078" />
@@ -395,27 +445,68 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java</url>
-          <line>197</line>
+          <line>210</line>
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java</url>
-          <line>216</line>
+          <line>229</line>
           <properties />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java</url>
-          <line>33</line>
+          <line>61</line>
           <properties />
-          <option name="timeStamp" value="12" />
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java</url>
+          <line>53</line>
+          <properties />
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="lineArr[7]" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>tau2N4R.indexOf(&quot;VHFGGFSSPGTPGQAFYEMASFSEN&quot;);</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>tau2N4R.indexOf(&quot;PGTPALFSEAAAHLK&quot;);</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(&quot;asd,,1,,,123&quot;).split(&quot;,&quot;);</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>abundanceIndex=8;</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>headerList.indexOf(&quot;Abundance&quot;);</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>headerList.indexOf(&quot;abundance&quot;);</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>System.out.println(tau2N4R);</expression-string>
         <language-id>JAVA</language-id>
@@ -435,36 +526,6 @@
 		&quot;PGGGSVQIVYKPVDLSKVTSKCGSLGNIHHKPGGGQVEVKSEKLDFKDRVQSKIGSLDNI\n&quot; +
 		&quot;THVPGGGNKKIETHKLTFRENAKAKTDHGAEIVYKSPVVSGDTSPRHLSNVSSTGSIDMV\n&quot; +
 		&quot;DSPQLATLADEVSASLAKQGL&quot;)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>p.sequence.length();</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>outputBuffer.toString();</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>tau2N4R</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>tau2N4R.indexOf(&quot;SPQD&quot;.toUpperCase());</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>tau2N4R.indexOf(&quot;SPQ&quot;.toUpperCase());</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>tau2N4R.indexOf(&quot;SPQDsPP&quot;.toUpperCase());</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
@@ -502,6 +563,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/psBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="52" column="40" lean-forward="true" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Abundance.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -511,8 +582,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="19" column="42" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="42" />
+        <state relative-caret-position="169">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#655#656#0" expanded="true" />
@@ -529,22 +600,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="201" column="38" selection-start-line="201" selection-start-column="8" selection-end-line="201" selection-end-column="38" />
+        <state relative-caret-position="56">
+          <caret line="208" selection-start-line="208" selection-end-line="208" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="docComment;method#ingestFile#0;class#CSVParse#0" />
-            <element signature="method#ingestFile#0;class#CSVParse#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/psBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="48" column="56" selection-start-line="48" selection-start-column="56" selection-end-line="48" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -601,7 +660,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>ptm_from_scratch</last-edited>
+          <last-edited>ptm_peptide</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
