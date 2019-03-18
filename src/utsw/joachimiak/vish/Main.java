@@ -1,7 +1,6 @@
 package utsw.joachimiak.vish;
 
 import org.apache.poi.EncryptedDocumentException;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -11,7 +10,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.Map.Entry;
 
-public class Main {
+class Main {
 
 
 	private static ArrayList<Double> abundances;
@@ -192,7 +191,7 @@ public class Main {
 
 	//TODO fix for peptide/PSM input file format
 	//TODO change to separate phosphorylation localization based on fileID
-	public static void main(String[] args) throws EncryptedDocumentException, InvalidFormatException, IOException {
+	public static void main(String[] args) throws EncryptedDocumentException, IOException {
 		//Tau 2N4R isoform
 		String tauIsoformF =
 				"MAEPR" + "QEFEV" + "MEDHA" + "GTYGL" + "GDRKD" + "QGGYT" + "MHQDQ" + "EGDTD" + "AGLKE" + "SPLQT" //0-49
@@ -248,9 +247,7 @@ public class Main {
 			if (!ends.contains(-1)) {
 				ArrayList<Object> temp = new ArrayList<Object>();
 				temp.add(week5.get(counter).get(0));
-				for (int end : ends) {
-					temp.add(end);
-				}
+				temp.addAll(ends);
 				list.add(temp);
 			}
 
