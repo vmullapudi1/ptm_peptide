@@ -6,74 +6,48 @@ import java.io.*;
 import java.nio.file.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 class CSVParse {
-	//Input and output locations
-	private static final String sourceCSV = "PHF_PCF-DC-816-03-2019_peptide.csv";
-	//Output location is modified with date/time/fileID prefix
-	private static final String outputFileNameFormat = "PCF-DC-816-03-2019_peptide_Output.csv";
-	//Full length tau isoform for aligning peptide fragments
-	private static final String tau2N4R =
-			"MAEPR" + "QEFEV" + "MEDHA" + "GTYGL" + "GDRKD" + "QGGYT" + "MHQDQ" + "EGDTD" + "AGLKE" + "SPLQT" //0-49
-					+ "PTEDG" + "SEEPG" + "SETSD" + "AKSTP" + "TAEDV" + "TAPLV" + "DEGAP" + "GKQAA" + "AQPHT" + "EIPEG" //50-99
-					+ "TTAEE" + "AGIGD" + "TPSLE" + "DEAAG" + "HVTQA" + "RMVSK" + "SKDGT" + "GSDDK" + "KAKGA" + "DGKTK" //100-149
-					+ "IATPR" + "GAAPP" + "GQKGQ" + "ANATR" + "IPAKT" + "PPAPK" + "TPPSS" + "GEPPK" + "SGDRS" + "GYSSP" //150-199
-					+ "GSPGT" + "PGSRS" + "RTPSL" + "PTPPT" + "REPKK" + "VAVVR" + "TPPKS" + "PSSAK" + "SRLQT" + "APVPM" //200-249
-					+ "PDLKN" + "VKSKI" + "GSTEN" + "LKHQP" + "GGGKV" + "QIINK" + "KLDLS" + "NVQSK" + "CGSKD" + "NIKHV" //250-299
-					+ "PGGGS" + "VQIVY" + "KPVDL" + "SKVTS" + "KCGSL" + "GNIHH" + "KPGGG" + "QVEVK" + "SEKLD" + "FKDRV" //300-349
-					+ "QSKIG" + "SLDNI" + "THVPG" + "GGNKK" + "IETHK" + "LTFRE" + "NAKAK" + "TDHGA" + "EIVYK" + "SPVVS" //350-399
-					+ "GDTSP" + "RHLSN" + "VSSTG" + "SIDMV" + "DSPQL" + "ATLAD" + "EVSAS" + "LAKQG" + "L";
-
 	public static void main(String[] args) {
 		//Will contain the parsed raw data from the CSV of the MS output
 		ArrayList<Peptide> fileData = null;
 		//Will contain the data as peptide fragment objects grouped by fileID
 		Map<String, List<Peptide>> peptidesByFile;
-
-		//Attempt to read the file, return an error and exit if file input fails
+		final String sourceCSV = getInputFile();
+		final String outputFileNameFormat = getOutputFormat();
+		final String PROTEIN_SEQ = getProtein();
+		//Read The file
 		try {
-			fileData = ingestFile();
-		} catch (IOException ex) {
-			System.err.println("Error: File error " + System.getenv() + "\n" + ex.getMessage());
+			fileData = ingestFile(sourceCSV);
+		} catch (IOException e) {
+			System.err.println("error-file could not be read or found\n" + e);
 			System.exit(1);
 		}
-		System.out.println("File ingestion was a success.");
-
-		//@DEBUG Column header array generation
-		//Arrays.stream(columnHeaders).forEach(System.out::println);
-
-		//@DEBUG file ingestion
-		//fileData.forEach(System.out::println);
 
 		//Split the peptides by which file they came from
-		peptidesByFile = fileData.stream().collect(Collectors.groupingBy(Peptide::getFileID));
-
-		//@DEBUG Splitting by file ID
-		//System.out.println(peptidesByFile.keySet().toString());
-		//System.out.println(peptidesByFile.toString().replaceAll(",","\n"));
+		peptidesByFile = fileData.stream()
+				.collect(Collectors.groupingBy(Peptide::getFileID));
 
 		//generate abundance and phosphorylation data for each file
-		//Iterate through each fileID
 		long tID = System.currentTimeMillis();
 		for (String fileID : peptidesByFile.keySet()) {
 			//Get the peptide list of that file ID
 			List<Peptide> p = peptidesByFile.get(fileID);
+
 			//Align the peptide to Tau to generate its index in the tau isoform
-			calcPeptideTauPhosLocalizations(p);
+			calcProteinPhosLocalizations(p, PROTEIN_SEQ);
 
 			//Calculate the phosphorylated and unphosphorylated abundances for each residue in Tau
-			Abundance[] abundance = generateAbundances(p);
+			Abundance[] abundance = generateAbundances(p, PROTEIN_SEQ.length());
 
-			//Attempt to print the abundance data to a file
+			//Attempt to print the abundance data to a file, or complain and exit if it doesn't work
 			try {
-				outputCSV(fileID, abundance, p, tID);
+				outputCSV(fileID, abundance, p, tID, sourceCSV, outputFileNameFormat);
+				System.out.println("Output to folder " + tID);
 			} catch (IOException e) {
-				System.err.println("Error writing to file" + e.getMessage());
+				System.err.println("Error writing to file" + e);
 				System.exit(1);
 			}
 		}
@@ -85,7 +59,7 @@ class CSVParse {
 	 * @throws IOException           if there is another error in reading/opening/working with the file (From BufferedReader)
 	 * @throws FileNotFoundException if the file is not found in the local directory
 	 */
-	private static ArrayList<Peptide> ingestFile() throws IOException {
+	private static ArrayList<Peptide> ingestFile(String sourceCSV) throws IOException {
 		//The list that wil contain the data from the file about each peptide
 		ArrayList<Peptide> data=new ArrayList<>();
 		//The first line of the file containing the column headers of the CSV file
@@ -95,8 +69,7 @@ class CSVParse {
 		if (Files.exists((FileSystems.getDefault().getPath(sourceCSV))) && new File(sourceCSV).canRead()) {
 			System.out.println("attempting to open input file...");
 		} else {
-			System.err.println("File not found");
-			throw new FileNotFoundException("File was not found or cannot be read");
+			throw new FileNotFoundException();
 		}
 
 		//Attempt to read the file. Throw an exception if it fails.
@@ -108,14 +81,20 @@ class CSVParse {
 			int fileIDIndex = headerList.indexOf("File ID");
 			int sequenceIndex = headerList.indexOf("Annotated Sequence");
 			int modIndex = headerList.indexOf("Modifications");
-			int abundanceIndex = headerList.indexOf("Abundance");
+			int abundanceIndex = headerList.indexOf("Abundance") == -1 ? headerList.indexOf("Precursor Abundance") : headerList.indexOf("Abundance");
 
 			//Read the whole file, creating new peptides from the CSV data
 			while (inputReader.ready()) {
-				String[] lineArr = inputReader.readLine().split(",");
+				//String[] lineArr = inputReader.readLine().split(",");
+				String[] lineArr = inputReader.readLine().replaceAll(",", ", ").split(",");
 				if(lineArr.length==8){
 					lineArr=Arrays.copyOf(lineArr,9);
 					lineArr[8]="0";
+				}
+				for (int k = 0; k < lineArr.length; k++) {
+					if (lineArr[k].equals(" ")) {
+						lineArr[k] = "0";
+					}
 				}
 				if(fileIDIndex==-1){
 					data.add(new Peptide("FileID Null", lineArr[sequenceIndex], lineArr[modIndex], Double.parseDouble(lineArr[abundanceIndex])));
@@ -135,19 +114,20 @@ class CSVParse {
 	 * @param peptideList List of peptides for which to convert the peptide phosphorylation index to the 2N4R Tau
 	 *                    residue number (zero-indexed)
 	 */
-	private static void calcPeptideTauPhosLocalizations(@NotNull List<Peptide> peptideList) {
+	private static void calcProteinPhosLocalizations(@NotNull List<Peptide> peptideList, String protein) {
+
 		for(Peptide p:peptideList){
 			String seq = p.getSequence().toUpperCase();
-			int peptideTauIndex = tau2N4R.indexOf(seq);
+			int peptideTauIndex = protein.indexOf(seq);
 			p.setTauIndex(peptideTauIndex);
 			String[] peptideSites=p.getPhosphorylations();
+
 			if (peptideSites.length == 0) {
 				continue;
 			}
 			if (peptideSites[0].equals("-1")){
 				continue;
 			}
-
 
 			int[] tauLocal = new int[peptideSites.length];
 
@@ -165,8 +145,9 @@ class CSVParse {
 	 * @param peptideList the list of peptides from a particular MS run/sample
 	 * @return a 2d int array, where for every residue of tau a modified and unmodified abundance is stored
 	 */
-	private static Abundance[] generateAbundances(List<Peptide> peptideList) {
-		Abundance[] abundances = new Abundance[tau2N4R.length()];
+	private static Abundance[] generateAbundances(List<Peptide> peptideList, int proteinLength) {
+		//441 is the length of the full length tau isoform
+		Abundance[] abundances = new Abundance[proteinLength];
 		for (int i = 0; i < abundances.length; i++) {
 			abundances[i] = new Abundance(0, 0);
 		}
@@ -180,16 +161,15 @@ class CSVParse {
 			}
 
 			double a = p.getAbundance();
-			if (a == -1) {
+
+			if (a < 0) {
 				a = 0;
 			}
 			//add the abundance of the peptide to all the unmodified sites that the peptide covers
 			for (int i = index; i < index + p.getSequence().length(); i++) {
 				abundances[i].total += a;
-				if(i==202){
-
-				}
 			}
+
 			if (p.getTauPhosLocalization().length != 0) {
 				//add the peptide abundance to the modified abundance of all the phosphorylated sites
 				for (int i : p.getTauPhosLocalization()) {
@@ -197,7 +177,6 @@ class CSVParse {
 				}
 			}
 		}
-
 		return abundances;
 	}
 
@@ -207,29 +186,84 @@ class CSVParse {
 	 *                   in the PTM data
 	 * @param p          The list of Peptide objects from a given fileID
 	 */
-	private static void outputCSV(String fileID, Abundance[] abundances, List<Peptide> p, long tID) throws IOException {
+	private static void outputCSV(String fileID, Abundance[] abundances, List<Peptide> p, long tID, String sourceCSV, String outputFormat) throws IOException {
+		//Create the output file name and folder, using the system time as folder
+		//and the date and time as filename modifiers
 		LocalDateTime date = LocalDateTime.now();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("kk-mm-ss-MM-dd-YYYY");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("kk-mm-MM-dd-YY");
 		String dateString = date.format(formatter);
+		//todo allow user picking of output folder
 		Path path = Paths.get("output/" + tID);
+		//create the folder for the current run
 		Files.createDirectories(path);
 
-		BufferedWriter w = Files.newBufferedWriter(new File("output/" + tID + "/" + fileID + "_" + dateString + outputFileNameFormat)
-				.toPath(), StandardOpenOption.CREATE_NEW);
+		//The file writer. Creates new file instead of appending old ones, failing if the file already exists
+		BufferedWriter w = Files.newBufferedWriter(new File("output/" + tID + "/" + fileID + "_" + dateString +
+				sourceCSV + outputFormat).toPath(), StandardOpenOption.CREATE_NEW);
+
 		StringBuilder outputBuffer = new StringBuilder(7000);
+		//for residue-based phosphorylation
 		outputBuffer.append("Phosphorylation site, Phosphorylation Abundance, Total Abundance, Modification Proportion\n");
 		double phos;
 		double tot;
+
 		for (int i = 0; i < abundances.length; i++) {
 			phos = abundances[i].phosphorylated;
 			tot = abundances[i].total;
-			//DEBUG
-			/*if (phos > tot) {
-				System.out.println(fileID + " " + i + " " + phos + " " + tot);
-			}*/
 			outputBuffer.append(i + "," + phos + "," + tot + "," + (phos / tot) + "\n");
 		}
+
+		//for peptide modification
+		/*outputBuffer.append("Peptide Fragment,Tau Index,Fragment Length,Phosphorylation Abundance,Total Abundance,Modification Proportion\n");
+		Map<String,List<Peptide>> fragments=p.stream().collect(Collectors.groupingBy(Peptide::getSequence));
+		for(String s:fragments.keySet()){
+			double phos=0;
+			double tot=0;
+			for(Peptide pep:fragments.get(s)){
+				tot+=pep.getAbundance();
+				//TODO: This doesn't fix the non-assigned localizations.
+				if(pep.getPhosphorylations().length!=0){
+					phos+=pep.getAbundance();
+				}
+			}
+			int index=tau2N4R.indexOf(s.toUpperCase());
+			if(index!=-1) {
+				outputBuffer.append(s + ","+index+","+s.length()+"," + phos + "," + tot +","+ (phos/tot)+"\n");
+			}
+		}*/
 		w.write(outputBuffer.toString());
 		w.close();
+	}
+
+	//todo implement gui file picker or command line input of file
+	private static String getInputFile() {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter the name/path of the file you want to parse");
+		String f = s.next();
+		s.close();
+		return f;
+	}
+
+	//todo:allow custom output format from user
+	private static String getOutputFormat() {
+		return "_Output.csv";
+	}
+
+	/*
+		Todo: allow specifying the input protein to align the peptide fragments against
+			Using keyboard input/system.in or file?
+	 */
+	private static String getProtein() {
+		//Full length 2n4r tau isoform
+		return
+				"MAEPR" + "QEFEV" + "MEDHA" + "GTYGL" + "GDRKD" + "QGGYT" + "MHQDQ" + "EGDTD" + "AGLKE" + "SPLQT" //0-49
+						+ "PTEDG" + "SEEPG" + "SETSD" + "AKSTP" + "TAEDV" + "TAPLV" + "DEGAP" + "GKQAA" + "AQPHT" + "EIPEG" //50-99
+						+ "TTAEE" + "AGIGD" + "TPSLE" + "DEAAG" + "HVTQA" + "RMVSK" + "SKDGT" + "GSDDK" + "KAKGA" + "DGKTK" //100-149
+						+ "IATPR" + "GAAPP" + "GQKGQ" + "ANATR" + "IPAKT" + "PPAPK" + "TPPSS" + "GEPPK" + "SGDRS" + "GYSSP" //150-199
+						+ "GSPGT" + "PGSRS" + "RTPSL" + "PTPPT" + "REPKK" + "VAVVR" + "TPPKS" + "PSSAK" + "SRLQT" + "APVPM" //200-249
+						+ "PDLKN" + "VKSKI" + "GSTEN" + "LKHQP" + "GGGKV" + "QIINK" + "KLDLS" + "NVQSK" + "CGSKD" + "NIKHV" //250-299
+						+ "PGGGS" + "VQIVY" + "KPVDL" + "SKVTS" + "KCGSL" + "GNIHH" + "KPGGG" + "QVEVK" + "SEKLD" + "FKDRV" //300-349
+						+ "QSKIG" + "SLDNI" + "THVPG" + "GGNKK" + "IETHK" + "LTFRE" + "NAKAK" + "TDHGA" + "EIVYK" + "SPVVS" //350-399
+						+ "GDTSP" + "RHLSN" + "VSSTG" + "SIDMV" + "DSPQL" + "ATLAD" + "EVSAS" + "LAKQG" + "L";
 	}
 }

@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AnalysisUIOptions">
-    <option name="SCOPE_TYPE" value="8" />
     <option name="CUSTOM_SCOPE_NAME" value="Current File" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e607ce3-0343-4ed1-8721-2d56870ccc4f" name="Default Changelist" comment="" />
+    <list default="true" id="2e607ce3-0343-4ed1-8721-2d56870ccc4f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/vmull.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/vmull.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AT8_PCF-DC-816-03-2019_peptide.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AT8_PCF-DC-816-03-2019_peptide.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AT8_PCF-DC-816-03-2019_protein.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FW%3a_proteomics_sample_submission_PCF-DC-816--03--2019.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/P10636_DC_816.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHF_PCF-DC-816-03-2019_peptide.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHF_PCF-DC-816-03-2019_peptide.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHF_PCF-DC-816-03-2019_protein.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ptm_peptide/utsw/joachimiak/vish/CSVParse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ptm_peptide/utsw/joachimiak/vish/CSVParse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ptm_peptide/utsw/joachimiak/vish/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ptm_peptide/utsw/joachimiak/vish/Peptide.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ptm_peptide/utsw/joachimiak/vish/Peptide.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ptm_peptide/utsw/joachimiak/vish/psBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/1552938944347/FileID Null_14-55-44-03-18-2019PCF-DC-816-03-2019_peptide_Output.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/AT8/FileID Null_12-28-06-03-18-2019PCF-DC-816-03-2019_peptide_Output.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/PHF/FileID Null_13-30-21-03-18-2019PCF-DC-816-03-2019_peptide_Output.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,26 +41,18 @@
   <component name="CoverageViewManager">
     <option name="myElementSize" value="241" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="ptm_peptide" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1352">
-              <caret line="60" column="28" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="228" column="15" lean-forward="true" selection-start-line="228" selection-start-column="15" selection-end-line="228" selection-end-column="15" />
+            <state relative-caret-position="660">
+              <caret line="217" column="26" selection-start-line="217" selection-start-column="26" selection-end-line="218" selection-end-column="25" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="docComment;method#ingestFile#0;class#CSVParse#0" />
               </folding>
             </state>
@@ -55,21 +68,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="57" selection-start-line="57" selection-end-line="57" />
+            <state relative-caret-position="210">
+              <caret line="53" column="98" selection-start-line="53" selection-start-column="98" selection-end-line="53" selection-end-column="98" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#655#656#0" expanded="true" />
-                <element signature="e#677#678#0" expanded="true" />
-                <element signature="e#1778#1779#0" expanded="true" />
-                <element signature="e#1811#1812#0" expanded="true" />
-                <element signature="e#1959#1960#0" expanded="true" />
-                <element signature="e#1981#1982#0" expanded="true" />
-                <element signature="e#2023#2024#0" expanded="true" />
-                <element signature="e#2054#2055#0" expanded="true" />
+                <element signature="e#2807#2808#0" expanded="true" />
+                <element signature="e#2876#2877#0" expanded="true" />
+                <element signature="e#2931#2932#0" expanded="true" />
+                <element signature="e#3024#3025#0" expanded="true" />
+                <element signature="e#3089#3090#0" expanded="true" />
+                <element signature="e#3200#3201#0" expanded="true" />
+                <element signature="e#3275#3276#0" expanded="true" />
+                <element signature="e#3394#3395#0" expanded="true" />
+                <element signature="e#3445#3446#0" expanded="true" />
+                <element signature="e#3518#3519#0" expanded="true" />
+                <element signature="e#3626#3627#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -84,9 +100,6 @@
       </list>
     </option>
   </component>
-  <component name="FindBugs-IDEA-Workspace">
-    <analyzeBeforeCheckIn>true</analyzeBeforeCheckIn>
-  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>557622</find>
@@ -98,13 +111,14 @@
       <find>calcA</find>
       <find>genera</find>
       <find>gener</find>
+      <find>map</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
-        <option value="Vishruth.Mullapudi@utsouthwestern.edu &lt;vishruth.mullapudi@utsouthwestern.edu&gt;" />
         <option value="Vishruth Mullapudi &lt;vishruth.mullapudi@utsouthwestern.edu&gt;" />
+        <option value="Vishruth.Mullapudi@utsouthwestern.edu &lt;vishruth.mullapudi@utsouthwestern.edu&gt;" />
         <option value="vmullapudi1 &lt;vmullapudi1@gmaiil.com&gt;" />
       </list>
     </option>
@@ -148,14 +162,15 @@
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Main.java" />
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Abundance.java" />
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/psBase.java" />
-        <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java" />
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" />
+        <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="974" />
+    <option name="x" value="-28" />
+    <option name="y" value="-8" />
+    <option name="width" value="1277" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -163,19 +178,34 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ptm_peptide" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ptm_peptide" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.Annotations" value="true" />
     <property name="Repository.Attach.JavaDocs" value="true" />
     <property name="Repository.Attach.Sources" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ptm_from_scratch" />
+    <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="IntelliLang.Configuration" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -224,8 +254,8 @@
     </configuration>
     <list>
       <item itemvalue="Application.CSVParse" />
-      <item itemvalue="Application.Main" />
       <item itemvalue="Application.psBase" />
+      <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
@@ -312,7 +342,21 @@
       <option name="project" value="LOCAL" />
       <updated>1552767803906</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="removed extra files">
+      <created>1552942032561</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1552942032561</updated>
+    </task>
+    <task id="LOCAL-00012" summary="reformatted">
+      <created>1552944323584</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1552944323584</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView">
@@ -325,41 +369,41 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="UI Designer" order="0" />
-      <window_info id="Designer" order="1" />
-      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.49859944" weight="0.12846482" />
-      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.49733475" weight="0.32827735" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.28731343" side_tool="true" visible="true" weight="0.21668473" />
-      <window_info anchor="bottom" id="FindBugs-IDEA" order="2" sideWeight="0.63538873" weight="0.2286652" />
-      <window_info anchor="bottom" id="Message" order="3" />
-      <window_info anchor="bottom" id="Find" order="4" sideWeight="0.49946696" weight="0.32936078" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.48987207" weight="0.3206934" />
-      <window_info anchor="bottom" id="Favorites" order="8" sideWeight="0.50067025" weight="0.12253829" />
-      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.6023454" weight="0.21668473" />
-      <window_info anchor="bottom" id="Debug" order="10" sideWeight="0.71268654" weight="0.3629469" />
-      <window_info anchor="bottom" id="TODO" order="11" sideWeight="0.4978678" weight="0.32827735" />
-      <window_info anchor="bottom" id="Structure" order="12" sideWeight="0.49840087" weight="0.24918744" />
-      <window_info anchor="bottom" id="Inspection Results" order="13" sideWeight="0.49946696" weight="0.32936078" />
-      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.4978678" weight="0.32827735" />
-      <window_info anchor="right" id="Cargo" order="0" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49859944" visible="true" weight="0.20095949" />
+      <window_info id="Structure" order="1" sideWeight="0.49840087" weight="0.24918744" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.494659" weight="0.32713348" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5021322" side_tool="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.59808105" weight="0.20932755" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.70629" weight="0.30010834" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="4" sideWeight="0.63270336" weight="0.22757111" />
+      <window_info anchor="bottom" id="Message" order="5" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49733475" weight="0.32827735" />
+      <window_info active="true" anchor="bottom" id="Find" order="7" sideWeight="0.4978678" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.48773986" weight="0.31995663" />
+      <window_info anchor="bottom" id="Favorites" order="11" sideWeight="0.4989339" weight="0.12134345" />
+      <window_info anchor="bottom" id="Inspection Results" order="12" sideWeight="0.49946696" weight="0.32936078" />
+      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.4978678" weight="0.32827735" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="14" sideWeight="0.4989339" weight="0.3286334" />
+      <window_info anchor="right" id="Cargo" order="0" weight="0.32949877" />
       <window_info anchor="right" id="Palette&#9;" order="1" />
       <window_info anchor="right" id="Palette" order="2" />
       <window_info anchor="right" id="Commander" order="3" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="4" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="5" weight="0.25" />
       <window_info anchor="right" id="Coverage" order="6" side_tool="true" weight="0.32995737" />
+      <window_info anchor="right" x="92" y="92" width="1736" height="856" id="Byte Code Viewer" order="7" type="FLOATING" />
     </layout>
   </component>
-  <component name="UpdateCopyrightCheckinHandler">
-    <option name="UPDATE_COPYRIGHT" value="true" />
-  </component>
   <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Initial commit" />
     <MESSAGE value="attempted to separate input and output file Core finds correct input file. Still issues with parsing phosphorylation sites." />
     <MESSAGE value="Started new file to read and parse the file input.&#10;TODO: add phosphorylation localization (indexed to full-length tau) by fileID&#10;TODO: Add abundance calculations by FileID&#10;TODO:Add data output" />
@@ -368,97 +412,102 @@
     <MESSAGE value="Localized phosphorylation and calculated abundances by location. Peptides that do not map onto FL tau are ignored.&#10;TODO:Add data output" />
     <MESSAGE value="Data output added&#10;Split abundance out into separate class for convenience" />
     <MESSAGE value="fixed bug where total abundance would never be written do to the index the peptide is found in in tau not being used properly to iterate over the indices in the abundance table&#10;&#10;Improved file output, runs now output into their own folder using the system time to give runs (relatively) unique ids" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed bug where total abundance would never be written do to the index the peptide is found in in tau not being used properly to iterate over the indices in the abundance table&#10;&#10;Improved file output, runs now output into their own folder using the system time to give runs (relatively) unique ids" />
+    <MESSAGE value="removed extra files" />
+    <MESSAGE value="reformatted" />
+    <option name="LAST_COMMIT_MESSAGE" value="reformatted" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Main.java</url>
-          <line>94</line>
-          <properties />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Main.java</url>
-          <line>98</line>
-          <properties />
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java</url>
-          <line>61</line>
-          <properties />
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java</url>
-          <line>53</line>
-          <properties />
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="lineArr[7]" />
+        <watch expression="((HashMap)fragments).entrySet().toArray()[0]" custom="java.util.HashMap" />
+        <watch expression="((HashMap)fragments).entrySet().toArray()[0]" language="JAVA" custom="java.util.HashMap" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
       <expression>
-        <expression-string>tau2N4R.indexOf(&quot;VHFGGFSSPGTPGQAFYEMASFSEN&quot;);</expression-string>
+        <expression-string>Pattern phosRegex=Pattern.compile(&quot;[STY][0-9]+?&quot;);
+Matcher m=phosRegex.matcher(&quot;1xCarbamidomethyl [C2]; 3xPhospho [S3/Y4/S/T]&quot;);
+m.find();
+int[]x =m.groups();</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>tau2N4R.indexOf(&quot;PGTPALFSEAAAHLK&quot;);</expression-string>
+        <expression-string>Pattern phosRegex=Pattern.compile(&quot;[STY][0-9]+?&quot;);
+Matcher m=phosRegex.matcher(&quot;1xCarbamidomethyl [C2]; 3xPhospho [S3/Y4/S/T]&quot;);
+m.find();
+int[]x=m.groups();</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>(&quot;asd,,1,,,123&quot;).split(&quot;,&quot;);</expression-string>
+        <expression-string>Pattern phosRegex=Pattern.compile(&quot;[STY][0-9]+?&quot;);
+Matcher m=phosRegex.matcher(&quot;1xCarbamidomethyl [C2]; 3xPhospho [S3/Y4/S/T]&quot;);
+m.find();
+String[]x=m.groups();</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>abundanceIndex=8;</expression-string>
+        <expression-string>Pattern phosRegex=Pattern.compile(&quot;[STY][0-9]+?&quot;);
+Matcher m=phosRegex.matcher(&quot;1xCarbamidomethyl [C2]; 3xPhospho [S3/Y4/S/T]&quot;);
+m.find();
+m.group();
+m.find();
+m.group();</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>headerList.indexOf(&quot;Abundance&quot;);</expression-string>
+        <expression-string>Pattern phosRegex=Pattern.compile(&quot;[STY][0-9]+?&quot;);
+Matcher m=phosRegex.matcher(&quot;1xCarbamidomethyl [C2]; 1xPhospho [S3/Y4]&quot;);
+m.find();
+m.group();
+m.find();
+m.group();</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>headerList.indexOf(&quot;abundance&quot;);</expression-string>
+        <expression-string>Pattern phosRegex=Pattern.compile(&quot;[STY][0-9]+?&quot;);
+Matcher m=phosRegex.matcher(&quot;1xCarbamidomethyl [C2]; 1xPhospho [S3/Y4]&quot;);
+m.find();
+m.group()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>System.out.println(tau2N4R);</expression-string>
+        <expression-string>Pattern phosRegex=Pattern.compile(&quot;[STY][0-9]+?&quot;);
+Matcher m=phosRegex.matcher(&quot;1xCarbamidomethyl [C2]; 1xPhospho [S3/Y]&quot;);
+m.find();
+m.group()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>tau2N4R;</expression-string>
+        <expression-string>Pattern phosRegex=Pattern.compile(&quot;[STY][0-9]+?&quot;);
+Matcher m=phosRegex.matcher(&quot;1xCarbamidomethyl [C2]; 1xPhospho [S3/Y]&quot;);
+m.find();</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>tau2N4R.equalsIgnoreCase(&quot;MAEPRQEFEVMEDHAGTYGLGDRKDQGGYTMHQDQEGDTDAGLKESPLQTPTEDGSEEPG\n&quot; +
-		&quot;SETSDAKSTPTAEDVTAPLVDEGAPGKQAAAQPHTEIPEGTTAEEAGIGDTPSLEDEAAG\n&quot; +
-		&quot;HVTQARMVSKSKDGTGSDDKKAKGADGKTKIATPRGAAPPGQKGQANATRIPAKTPPAPK\n&quot; +
-		&quot;TPPSSGEPPKSGDRSGYSSPGSPGTPGSRSRTPSLPTPPTREPKKVAVVRTPPKSPSSAK\n&quot; +
-		&quot;SRLQTAPVPMPDLKNVKSKIGSTENLKHQPGGGKVQIINKKLDLSNVQSKCGSKDNIKHV\n&quot; +
-		&quot;PGGGSVQIVYKPVDLSKVTSKCGSLGNIHHKPGGGQVEVKSEKLDFKDRVQSKIGSLDNI\n&quot; +
-		&quot;THVPGGGNKKIETHKLTFRENAKAKTDHGAEIVYKSPVVSGDTSPRHLSNVSSTGSIDMV\n&quot; +
-		&quot;DSPQLATLADEVSASLAKQGL&quot;)</expression-string>
+        <expression-string>Pattern phosRegex=Pattern.compile(&quot;[STY][0-9]+?&quot;);
+Matcher m=phosRegex.matcher(&quot;1xCarbamidomethyl [C2]; 1xPhospho [S3/Y]&quot;);
+m.group();</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Pattern phosRegex=Pattern.compile(&quot;[STY][0-9]+?&quot;);
+Matcher m=phosRegex.matcher(&quot;1xCarbamidomethyl [C2]; 1xPhospho [S3/Y]&quot;);
+m.groups();</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
@@ -479,29 +528,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/psBase.java" />
+    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Main.java" />
+    <entry file="file://$PROJECT_DIR$/AT8_PCF-DC-816-03-2019_peptide.csv" />
     <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/util/function/Function.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="41">
           <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Main.java">
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/lang/Double.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1352">
-          <caret line="60" column="28" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="-13496">
+          <caret line="141" column="60" lean-forward="true" selection-start-line="141" selection-start-column="60" selection-end-line="141" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/psBase.java">
+    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="52" column="40" lean-forward="true" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
+        <state relative-caret-position="660">
+          <caret line="217" column="26" selection-start-line="217" selection-start-column="26" selection-end-line="218" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="docComment;method#ingestFile#0;class#CSVParse#0" />
           </folding>
         </state>
       </provider>
@@ -515,28 +565,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        <state relative-caret-position="210">
+          <caret line="53" column="98" selection-start-line="53" selection-start-column="98" selection-end-line="53" selection-end-column="98" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#655#656#0" expanded="true" />
-            <element signature="e#677#678#0" expanded="true" />
-            <element signature="e#1778#1779#0" expanded="true" />
-            <element signature="e#1811#1812#0" expanded="true" />
-            <element signature="e#1959#1960#0" expanded="true" />
-            <element signature="e#1981#1982#0" expanded="true" />
-            <element signature="e#2023#2024#0" expanded="true" />
-            <element signature="e#2054#2055#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="228" column="15" lean-forward="true" selection-start-line="228" selection-start-column="15" selection-end-line="228" selection-end-column="15" />
-          <folding>
-            <element signature="docComment;method#ingestFile#0;class#CSVParse#0" />
+            <element signature="e#2807#2808#0" expanded="true" />
+            <element signature="e#2876#2877#0" expanded="true" />
+            <element signature="e#2931#2932#0" expanded="true" />
+            <element signature="e#3024#3025#0" expanded="true" />
+            <element signature="e#3089#3090#0" expanded="true" />
+            <element signature="e#3200#3201#0" expanded="true" />
+            <element signature="e#3275#3276#0" expanded="true" />
+            <element signature="e#3394#3395#0" expanded="true" />
+            <element signature="e#3445#3446#0" expanded="true" />
+            <element signature="e#3518#3519#0" expanded="true" />
+            <element signature="e#3626#3627#0" expanded="true" />
           </folding>
         </state>
       </provider>

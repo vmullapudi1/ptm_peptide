@@ -9,58 +9,84 @@ class Peptide {
 
 	private String fileID;
 	private String annotatedSeq;
-
+	private int phosphorylationCount;
 	private String sequence;
 	private int tauIndex;
-
+	private String[] phosphorylations;
+	private int[] tauPhosLocalization;
+	private double abundance;
+	private boolean modificationInPeptideFormat;
 	Peptide(String fileID, String seq, String modifications, double abundance) {
 		setFileID(fileID);
 		setAnnotatedSeq(seq);
-		setPhosphorylations(initphosphorylations(modifications));
+		modificationInPeptideFormat = isPeptideFormat(modifications);
+		//phosphorylationCount=countPhosphorylations(modifications);
+		setPhosphorylations(initPhosphorylations(modifications));
 		setAbundance(abundance);
-		tauPhosLocalization= new int[phosphorylations.length];
-		Arrays.fill(tauPhosLocalization,-1);
-		sequence = seq.substring(seq.indexOf('.') + 1, seq.lastIndexOf('.'));
+		tauPhosLocalization = new int[phosphorylations.length];
+		Arrays.fill(tauPhosLocalization, -1);
+		setSequence(seq.substring(seq.indexOf('.') + 1, seq.lastIndexOf('.')));
 	}
 
-	private String[] phosphorylations;
-
-	public String getSequence() {
+	String getSequence() {
 		return sequence;
 	}
 
-	private int[] tauPhosLocalization;
+	private void setSequence(String sequence) {
+		this.sequence = sequence;
+	}
 
 	double getAbundance() {
 		return abundance;
 	}
 
-	public void setSequence(String sequence) {
-		this.sequence = sequence;
-	}
-
-	private double abundance;
-
 	private void setAbundance(double abundance) {
 		this.abundance = abundance;
 	}
 
-	private String[] initphosphorylations(String modifications) {
-		Pattern phosRegex=Pattern.compile("[STY][0-9]+?");
-		Matcher m=phosRegex.matcher(modifications);
+	private String[] initPhosphorylations(String modifications) {
+		if (modifications.equals("") || modifications == null) {
+			return new String[0];
+		}
+		//Todo-use number from the phosphorylation count to go directly to array
 		ArrayList<String> phosphorylations = new ArrayList<>();
-		/*for (String s : modifications.split(";")) {
-			if (s.contains("Phospho")) {
-				phosphorylations.add(s.replaceAll("\\D", ""));
+
+		if (modificationInPeptideFormat) {
+			//TODO bug in this regex-phosphorylation extracting algorithm. Non-regex version below works on original dataset,
+			//	but can't parse out the new peptide file format. New version should hopefully be robust to both file formats
+			modifications = modifications.split("Phospho \\[")[1];
+			Pattern phosRegex = Pattern.compile("[STY][0-9]+?");
+			Matcher m = phosRegex.matcher(modifications);
+			while (m.find()) {
+				phosphorylations.add(m.group());
 			}
-		}*/
-		while(m.find()){
-			phosphorylations.add(m.group());
+
+		} else {
+			String[] split = modifications.split(";");
+			for (String s : split) {
+				if (s.contains("Phospho")) {
+					phosphorylations.add(s.replaceAll("\\D", ""));
+				}
+			}
 		}
 
 		String[] s = new String[phosphorylations.size()];
 		return phosphorylations.toArray(s);
 	}
+
+	//todo implement this method and make it robust to non-assigned phophorylations and interference from other
+	//	modifications
+	private int countPhosphorylations(String modifications) {
+		if (modifications.matches("[STY]")) {
+			modifications = modifications.substring(modifications.indexOf("["), modifications.indexOf("]"));
+		}
+		return modifications.split(";").length;
+	}
+
+	private boolean isPeptideFormat(String modifications) {
+		return !(modifications.equals("") || modifications == null || modifications.matches("Phospho\\("));
+	}
+
 	String getFileID() {
 		return fileID;
 	}
@@ -85,19 +111,19 @@ class Peptide {
 		this.phosphorylations = phosphorylations;
 	}
 
-	public int[] getTauPhosLocalization() {
+	int[] getTauPhosLocalization() {
 		return tauPhosLocalization;
 	}
 
-	public void setTauPhosLocalization(int[] tauPhosLocalization) {
+	void setTauPhosLocalization(int[] tauPhosLocalization) {
 		this.tauPhosLocalization = tauPhosLocalization;
 	}
 
-	public int getTauIndex() {
+	int getTauIndex() {
 		return tauIndex;
 	}
 
-	public void setTauIndex(int tauIndex) {
+	void setTauIndex(int tauIndex) {
 		this.tauIndex = tauIndex;
 	}
 
