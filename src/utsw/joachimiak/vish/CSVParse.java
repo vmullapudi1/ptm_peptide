@@ -111,15 +111,17 @@ class CSVParse {
 	}
 
 	/**
-	 * @param peptideList List of peptides for which to convert the peptide phosphorylation index to the 2N4R Tau
+	 * @param peptideList List of peptides for which to convert the peptide phosphorylation index to the protein
 	 *                    residue number (zero-indexed)
+	 * @param protein The sequence of the protein against which to index the peptide
 	 */
+	//Todo make compatible with non-localized phosphorylations
 	private static void calcProteinPhosLocalizations(@NotNull List<Peptide> peptideList, String protein) {
 
 		for(Peptide p:peptideList){
 			String seq = p.getSequence().toUpperCase();
-			int peptideTauIndex = protein.indexOf(seq);
-			p.setTauIndex(peptideTauIndex);
+			int seqProteinIndex = protein.indexOf(seq);
+			p.setPeptideProteinIndex(seqProteinIndex);
 			String[] peptideSites=p.getPhosphorylations();
 
 			if (peptideSites.length == 0) {
@@ -129,13 +131,13 @@ class CSVParse {
 				continue;
 			}
 
-			int[] tauLocal = new int[peptideSites.length];
+			int[] proteinPhophorylationLocalizations = new int[peptideSites.length];
 
 			for (int i = 0; i < peptideSites.length; i++) {
 				int site = Integer.parseInt(peptideSites[i].replaceAll("[\\D]", ""));
-				tauLocal[i]=site-1+peptideTauIndex;
+				proteinPhophorylationLocalizations[i] = site - 1 + seqProteinIndex;
 			}
-			p.setTauPhosLocalization(tauLocal);
+			p.setProteinPhosLocalizations(proteinPhophorylationLocalizations);
 		}
 	}
 
