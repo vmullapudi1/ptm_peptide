@@ -3,28 +3,14 @@
   <component name="AnalysisUIOptions">
     <option name="CUSTOM_SCOPE_NAME" value="Current File" />
   </component>
+  <component name="BookmarkManager">
+    <bookmark url="mock:///fragment.java" line="0" mnemonic="9" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="2e607ce3-0343-4ed1-8721-2d56870ccc4f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/vmull.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/vmull.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AT8_PCF-DC-816-03-2019_peptide.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AT8_PCF-DC-816-03-2019_peptide.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AT8_PCF-DC-816-03-2019_protein.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FW%3a_proteomics_sample_submission_PCF-DC-816--03--2019.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/P10636_DC_816.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHF_PCF-DC-816-03-2019_peptide.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHF_PCF-DC-816-03-2019_peptide.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHF_PCF-DC-816-03-2019_protein.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ptm_peptide/utsw/joachimiak/vish/CSVParse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ptm_peptide/utsw/joachimiak/vish/CSVParse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ptm_peptide/utsw/joachimiak/vish/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ptm_peptide/utsw/joachimiak/vish/Peptide.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ptm_peptide/utsw/joachimiak/vish/Peptide.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ptm_peptide/utsw/joachimiak/vish/psBase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/1552938944347/FileID Null_14-55-44-03-18-2019PCF-DC-816-03-2019_peptide_Output.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/AT8/FileID Null_12-28-06-03-18-2019PCF-DC-816-03-2019_peptide_Output.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/PHF/FileID Null_13-30-21-03-18-2019PCF-DC-816-03-2019_peptide_Output.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -49,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="217" column="26" selection-start-line="217" selection-start-column="26" selection-end-line="218" selection-end-column="25" />
+            <state relative-caret-position="-164">
+              <caret line="139" column="41" selection-start-line="139" selection-start-column="41" selection-end-line="139" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#ingestFile#0;class#CSVParse#0" />
@@ -71,21 +57,36 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="53" column="98" selection-start-line="53" selection-start-column="98" selection-end-line="53" selection-end-column="98" />
+            <state relative-caret-position="385">
+              <caret line="75" column="43" lean-forward="true" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2807#2808#0" expanded="true" />
-                <element signature="e#2876#2877#0" expanded="true" />
-                <element signature="e#2931#2932#0" expanded="true" />
-                <element signature="e#3024#3025#0" expanded="true" />
-                <element signature="e#3089#3090#0" expanded="true" />
-                <element signature="e#3200#3201#0" expanded="true" />
-                <element signature="e#3275#3276#0" expanded="true" />
-                <element signature="e#3394#3395#0" expanded="true" />
-                <element signature="e#3445#3446#0" expanded="true" />
-                <element signature="e#3518#3519#0" expanded="true" />
-                <element signature="e#3626#3627#0" expanded="true" />
+                <element signature="e#861#862#0" expanded="true" />
+                <element signature="e#883#884#0" expanded="true" />
+                <element signature="e#928#929#0" expanded="true" />
+                <element signature="e#959#960#0" expanded="true" />
+                <element signature="e#2547#2548#0" expanded="true" />
+                <element signature="e#2567#2568#0" expanded="true" />
+                <element signature="e#2609#2610#0" expanded="true" />
+                <element signature="e#2636#2637#0" expanded="true" />
+                <element signature="e#2665#2666#0" expanded="true" />
+                <element signature="e#2691#2692#0" expanded="true" />
+                <element signature="e#2745#2746#0" expanded="true" />
+                <element signature="e#2784#2785#0" expanded="true" />
+                <element signature="e#2819#2820#0" expanded="true" />
+                <element signature="e#2849#2850#0" expanded="true" />
+                <element signature="e#2913#2914#0" expanded="true" />
+                <element signature="e#2960#2961#0" expanded="true" />
+                <element signature="e#2995#2996#0" expanded="true" />
+                <element signature="e#3028#3029#0" expanded="true" />
+                <element signature="e#3092#3093#0" expanded="true" />
+                <element signature="e#3145#3146#0" expanded="true" />
+                <element signature="e#3167#3168#0" expanded="true" />
+                <element signature="e#3189#3190#0" expanded="true" />
+                <element signature="e#3235#3236#0" expanded="true" />
+                <element signature="e#3266#3267#0" expanded="true" />
+                <element signature="e#3306#3307#0" expanded="true" />
+                <element signature="e#3374#3375#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -356,7 +357,21 @@
       <option name="project" value="LOCAL" />
       <updated>1552944323584</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="reformatted&#10;&#10;Signed-off-by: Vishruth Mullapudi &lt;vmullapudi1@gmail.com&gt;">
+      <created>1553098569780</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1553098569780</updated>
+    </task>
+    <task id="LOCAL-00014" summary="extracting phoshorylation sites now works with peptide files&#10;The protein phosphorylation localization needs to be fixed to work with this/non-localized phosphorylation">
+      <created>1553104795434</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1553104795434</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView">
@@ -372,24 +387,24 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49859944" visible="true" weight="0.20095949" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49859944" visible="true" weight="0.18603411" />
       <window_info id="Structure" order="1" sideWeight="0.49840087" weight="0.24918744" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Designer" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.494659" weight="0.32713348" />
+      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.494659" weight="0.14842904" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5021322" side_tool="true" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.59808105" weight="0.20932755" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.70629" weight="0.30010834" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.59808105" visible="true" weight="0.20693392" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.70629" weight="0.2990249" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="4" sideWeight="0.63270336" weight="0.22757111" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49733475" weight="0.32827735" />
-      <window_info active="true" anchor="bottom" id="Find" order="7" sideWeight="0.4978678" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Find" order="7" sideWeight="0.4978678" weight="0.32936078" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.48773986" weight="0.31995663" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.48773986" weight="0.318872" />
       <window_info anchor="bottom" id="Favorites" order="11" sideWeight="0.4989339" weight="0.12134345" />
       <window_info anchor="bottom" id="Inspection Results" order="12" sideWeight="0.49946696" weight="0.32936078" />
-      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.4978678" weight="0.32827735" />
+      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.4978678" weight="0.10400867" />
       <window_info anchor="bottom" id="Dependency Viewer" order="14" sideWeight="0.4989339" weight="0.3286334" />
       <window_info anchor="right" id="Cargo" order="0" weight="0.32949877" />
       <window_info anchor="right" id="Palette&#9;" order="1" />
@@ -403,6 +418,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Initial commit" />
     <MESSAGE value="attempted to separate input and output file Core finds correct input file. Still issues with parsing phosphorylation sites." />
@@ -414,12 +430,25 @@
     <MESSAGE value="fixed bug where total abundance would never be written do to the index the peptide is found in in tau not being used properly to iterate over the indices in the abundance table&#10;&#10;Improved file output, runs now output into their own folder using the system time to give runs (relatively) unique ids" />
     <MESSAGE value="removed extra files" />
     <MESSAGE value="reformatted" />
-    <option name="LAST_COMMIT_MESSAGE" value="reformatted" />
+    <MESSAGE value="decided that peptide/non-petide file formats are not parsable by the same rules. Split them apart to be robst to both file types." />
+    <MESSAGE value="reformatted&#10;&#10;Signed-off-by: Vishruth Mullapudi &lt;vmullapudi1@gmail.com&gt;" />
+    <MESSAGE value="extracting phoshorylation sites now works with peptide files&#10;The protein phosphorylation localization needs to be fixed to work with this/non-localized phosphorylation" />
+    <option name="LAST_COMMIT_MESSAGE" value="extracting phoshorylation sites now works with peptide files&#10;The protein phosphorylation localization needs to be fixed to work with this/non-localized phosphorylation" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java</url>
+          <line>74</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="lineArr[7]" />
@@ -431,83 +460,81 @@
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
       <expression>
-        <expression-string>Pattern phosRegex=Pattern.compile(&quot;[STY][0-9]+?&quot;);
-Matcher m=phosRegex.matcher(&quot;1xCarbamidomethyl [C2]; 3xPhospho [S3/Y4/S/T]&quot;);
-m.find();
-int[]x =m.groups();</expression-string>
+        <expression-string>Matcher STY_digit=Pattern.compile(&quot;[STY][\\d]{0,2}&quot;).matcher(modifications+&quot;S25&quot;);
+STY_digit.find();
+STY_digit.group();
+STY_digit.find();
+STY_digit.group();
+STY_digit.find();
+STY_digit.group();
+STY_digit.find();
+STY_digit.group();</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Pattern phosRegex=Pattern.compile(&quot;[STY][0-9]+?&quot;);
-Matcher m=phosRegex.matcher(&quot;1xCarbamidomethyl [C2]; 3xPhospho [S3/Y4/S/T]&quot;);
-m.find();
-int[]x=m.groups();</expression-string>
+        <expression-string>Matcher STY_digit=Pattern.compile(&quot;[STY][\\d]{0,2}&quot;).matcher(modifications+&quot;S25&quot;);
+STY_digit.find();
+STY_digit.group();
+STY_digit.find();
+STY_digit.group();
+STY_digit.find();
+STY_digit.group();</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Pattern phosRegex=Pattern.compile(&quot;[STY][0-9]+?&quot;);
-Matcher m=phosRegex.matcher(&quot;1xCarbamidomethyl [C2]; 3xPhospho [S3/Y4/S/T]&quot;);
-m.find();
-String[]x=m.groups();</expression-string>
+        <expression-string>Matcher STY_digit=Pattern.compile(&quot;[STY][\\d]{0,2}&quot;).matcher(modifications+&quot;S25&quot;);
+STY_digit.find();
+STY_digit.group();
+STY_digit.find();
+STY_digit.group();</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Pattern phosRegex=Pattern.compile(&quot;[STY][0-9]+?&quot;);
-Matcher m=phosRegex.matcher(&quot;1xCarbamidomethyl [C2]; 3xPhospho [S3/Y4/S/T]&quot;);
-m.find();
-m.group();
-m.find();
-m.group();</expression-string>
+        <expression-string>Matcher STY_digit=Pattern.compile(&quot;[STY][\\d]{0,2}&quot;).matcher(modifications);
+STY_digit.find();
+STY_digit.group();
+STY_digit.find();
+STY_digit.group();</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Pattern phosRegex=Pattern.compile(&quot;[STY][0-9]+?&quot;);
-Matcher m=phosRegex.matcher(&quot;1xCarbamidomethyl [C2]; 1xPhospho [S3/Y4]&quot;);
-m.find();
-m.group();
-m.find();
-m.group();</expression-string>
+        <expression-string>Matcher STY_digit=Pattern.compile(&quot;[STY][\\d]{0,2}&quot;).matcher(modifications);
+STY_digit.find();
+STY_digit.group();
+STY_digit.group();</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Pattern phosRegex=Pattern.compile(&quot;[STY][0-9]+?&quot;);
-Matcher m=phosRegex.matcher(&quot;1xCarbamidomethyl [C2]; 1xPhospho [S3/Y4]&quot;);
-m.find();
-m.group()</expression-string>
+        <expression-string>Matcher STY_digit=Pattern.compile(&quot;[STY][\\d]{0,2}&quot;).matcher(modifications);
+STY_digit.find();
+STY_digit.group();
+STY_digit.group()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Pattern phosRegex=Pattern.compile(&quot;[STY][0-9]+?&quot;);
-Matcher m=phosRegex.matcher(&quot;1xCarbamidomethyl [C2]; 1xPhospho [S3/Y]&quot;);
-m.find();
-m.group()</expression-string>
+        <expression-string>Matcher STY_digit=Pattern.compile(&quot;[STY][\\d]{0,2}&quot;).matcher(modifications);
+STY_digit.find();
+STY_digit.group()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Pattern phosRegex=Pattern.compile(&quot;[STY][0-9]+?&quot;);
-Matcher m=phosRegex.matcher(&quot;1xCarbamidomethyl [C2]; 1xPhospho [S3/Y]&quot;);
-m.find();</expression-string>
+        <expression-string>Matcher STY_digit=Pattern.compile(&quot;[STY][\\d]{0,2}?&quot;).matcher(modifications);
+STY_digit.find();
+STY_digit.group()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Pattern phosRegex=Pattern.compile(&quot;[STY][0-9]+?&quot;);
-Matcher m=phosRegex.matcher(&quot;1xCarbamidomethyl [C2]; 1xPhospho [S3/Y]&quot;);
-m.group();</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>Pattern phosRegex=Pattern.compile(&quot;[STY][0-9]+?&quot;);
-Matcher m=phosRegex.matcher(&quot;1xCarbamidomethyl [C2]; 1xPhospho [S3/Y]&quot;);
-m.groups();</expression-string>
+        <expression-string>Matcher STY_digit=Pattern.compile(&quot;S[\\d]{0,2}?&quot;).matcher(modifications);
+STY_digit.find();
+STY_digit.group()</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
@@ -545,17 +572,6 @@ m.groups();</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="217" column="26" selection-start-line="217" selection-start-column="26" selection-end-line="218" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#ingestFile#0;class#CSVParse#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Abundance.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -563,23 +579,49 @@ m.groups();</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java">
+    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="53" column="98" selection-start-line="53" selection-start-column="98" selection-end-line="53" selection-end-column="98" />
+        <state relative-caret-position="-164">
+          <caret line="139" column="41" selection-start-line="139" selection-start-column="41" selection-end-line="139" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2807#2808#0" expanded="true" />
-            <element signature="e#2876#2877#0" expanded="true" />
-            <element signature="e#2931#2932#0" expanded="true" />
-            <element signature="e#3024#3025#0" expanded="true" />
-            <element signature="e#3089#3090#0" expanded="true" />
-            <element signature="e#3200#3201#0" expanded="true" />
-            <element signature="e#3275#3276#0" expanded="true" />
-            <element signature="e#3394#3395#0" expanded="true" />
-            <element signature="e#3445#3446#0" expanded="true" />
-            <element signature="e#3518#3519#0" expanded="true" />
-            <element signature="e#3626#3627#0" expanded="true" />
+            <element signature="docComment;method#ingestFile#0;class#CSVParse#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="75" column="43" lean-forward="true" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#861#862#0" expanded="true" />
+            <element signature="e#883#884#0" expanded="true" />
+            <element signature="e#928#929#0" expanded="true" />
+            <element signature="e#959#960#0" expanded="true" />
+            <element signature="e#2547#2548#0" expanded="true" />
+            <element signature="e#2567#2568#0" expanded="true" />
+            <element signature="e#2609#2610#0" expanded="true" />
+            <element signature="e#2636#2637#0" expanded="true" />
+            <element signature="e#2665#2666#0" expanded="true" />
+            <element signature="e#2691#2692#0" expanded="true" />
+            <element signature="e#2745#2746#0" expanded="true" />
+            <element signature="e#2784#2785#0" expanded="true" />
+            <element signature="e#2819#2820#0" expanded="true" />
+            <element signature="e#2849#2850#0" expanded="true" />
+            <element signature="e#2913#2914#0" expanded="true" />
+            <element signature="e#2960#2961#0" expanded="true" />
+            <element signature="e#2995#2996#0" expanded="true" />
+            <element signature="e#3028#3029#0" expanded="true" />
+            <element signature="e#3092#3093#0" expanded="true" />
+            <element signature="e#3145#3146#0" expanded="true" />
+            <element signature="e#3167#3168#0" expanded="true" />
+            <element signature="e#3189#3190#0" expanded="true" />
+            <element signature="e#3235#3236#0" expanded="true" />
+            <element signature="e#3266#3267#0" expanded="true" />
+            <element signature="e#3306#3307#0" expanded="true" />
+            <element signature="e#3374#3375#0" expanded="true" />
           </folding>
         </state>
       </provider>

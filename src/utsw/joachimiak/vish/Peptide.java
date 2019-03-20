@@ -50,7 +50,7 @@ class Peptide {
 		//Todo-use number from the phosphorylation count to go directly to array
 		ArrayList<String> phosphorylations = new ArrayList<>();
 
-		if (modificationInPeptideFormat) {
+		//if (modificationInPeptideFormat) {
 			//Assumes that the peptide will not have more than 0-2 digits specifying the localization
 			//And that the only modifications to serine, threonine, and tyrosine will be phosphorylation
 			//TODO bug in this regex-phosphorylation extracting algorithm. Non-regex version below works on original dataset,
@@ -62,7 +62,7 @@ class Peptide {
 				phosphorylations.add(m.group());
 			}
 
-		} else {
+		/*} else {
 
 			String[] split = modifications.split(";");
 			for (String s : split) {
@@ -70,7 +70,7 @@ class Peptide {
 					phosphorylations.add(s.replaceAll("\\D", ""));
 				}
 			}
-		}
+		}*/
 
 		String[] s = new String[phosphorylations.size()];
 		return phosphorylations.toArray(s);
