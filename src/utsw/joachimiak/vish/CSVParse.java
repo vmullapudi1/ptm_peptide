@@ -7,24 +7,27 @@ import java.nio.file.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 class CSVParse {
-	public static void main(final String[] args) {
+	public static void main(String[] args) {
 		//Will contain the parsed raw data from the CSV of the MS output
 		ArrayList<Fragment> fileData = null;
 		//Will contain the data as peptide fragment objects grouped by fileID
-		final Map<String, List<Fragment>> peptidesByFile;
+		Map<String, List<Fragment>> peptidesByFile;
 
 		//Get the input parameters
-		final Scanner s = new Scanner(System.in);
+		Scanner s = new Scanner(System.in);
 		String sourceCSV = CSVParse.getInputFile(s);
 		String outputFileNameFormat = CSVParse.getOutputFormat();
 		String PROTEIN_SEQ = CSVParse.getProtein();
 		String outputFolderName = CSVParse.getOutputFolderName(s);
 		boolean byFragment = CSVParse.queryPeptideOrResidueAnalysis(s);
-		outputFileNameFormat = byFragment ? "peptide_analysis" + outputFileNameFormat : "residue_analysis" + outputFileNameFormat;
+		outputFileNameFormat = byFragment ? "peptide_analysis" + outputFileNameFormat : "residue_analysis" +
+				outputFileNameFormat;
 		s.close();
 		final long tID = System.currentTimeMillis();//This tID is used as a unique folder name so that each run goes into
 		// it's own folder
@@ -32,7 +35,7 @@ class CSVParse {
 		//Read the file, complain if it doesn't work
 		try {
 			fileData = CSVParse.ingestFile(sourceCSV);
-		} catch (final IOException e) {
+		} catch (IOException e) {
 			System.err.println("error-file could not be read or found\n" + e);
 			System.exit(1);
 		}
@@ -41,17 +44,18 @@ class CSVParse {
 				.collect(Collectors.groupingBy(Fragment::getFileID));
 
 		//generate abundance and phosphorylation data for each file
-		for (final String fileID : peptidesByFile.keySet()) {
+		for (Map.Entry<String, List<Fragment>> stringListEntry : peptidesByFile.entrySet()) {
 			//Get the peptide list of that file ID
-			final List<Fragment> p = peptidesByFile.get(fileID);
+			List<Fragment> p = stringListEntry.getValue();
 
 			//Calculate residue modification analysis
 			//otherwise calculate the peptide modification analysis
 			if (byFragment) {
 				try {
-					CSVParse.outputFragmentCSV(fileID, CSVParse.generateFragmentPhosAbundances(p), tID, sourceCSV, outputFileNameFormat, outputFolderName);
-					System.out.println("Output " + fileID + " to folder " + "output/" + outputFolderName + tID);
-				} catch (final IOException e) {
+					CSVParse.outputFragmentCSV(stringListEntry.getKey(), CSVParse.generateFragmentPhosAbundances(p), tID, sourceCSV,
+							outputFileNameFormat, outputFolderName);
+					System.out.println("Output " + stringListEntry.getKey() + " to folder " + "output/" + outputFolderName + tID);
+				} catch (IOException e) {
 					System.err.println("Error writing to file " + e);
 					System.exit(1);
 				}
@@ -60,13 +64,13 @@ class CSVParse {
 				CSVParse.calcProteinPhosLocalizations(p, PROTEIN_SEQ);
 
 				//Calculate the phosphorylated and unphosphorylated abundances for each residue in Tau
-				final Abundance[] abundance = CSVParse.generateResiduePhosAbundances(p, PROTEIN_SEQ.length());
+				Abundance[] abundance = CSVParse.generateResiduePhosAbundances(p, PROTEIN_SEQ.length());
 
 				//Attempt to print the abundance data to a file, or complain and exit if it doesn't work
 				try {
-					CSVParse.outputResidueCSV(fileID, abundance, tID, sourceCSV, outputFileNameFormat, outputFolderName);
-					System.out.println("Output " + fileID + " to folder " + "output/" + outputFolderName + tID);
-				} catch (final IOException e) {
+					CSVParse.outputResidueCSV(stringListEntry.getKey(), abundance, tID, sourceCSV, outputFileNameFormat, outputFolderName);
+					System.out.println("Output " + stringListEntry.getKey() + " to folder " + "output/" + outputFolderName + tID);
+				} catch (IOException e) {
 					System.err.println("Error writing to file " + e);
 					System.exit(1);
 				}
@@ -78,9 +82,9 @@ class CSVParse {
 	 * Determines whether or not the uses wan't to perform by residue or by peptide analysis
 	 * TODO convert to CLI
 	 */
-	private static boolean queryPeptideOrResidueAnalysis(final Scanner s) {
+	private static boolean queryPeptideOrResidueAnalysis(Scanner s) {
 		System.out.println("Should the output format be by peptide fragment instead of by residue? [Y/N]");
-		final String ans = s.next();
+		String ans = s.next();
 		if ("Y".equalsIgnoreCase(ans)) {
 			return true;
 		} else if ("N".equalsIgnoreCase(ans)) {
@@ -93,16 +97,18 @@ class CSVParse {
 
 
 	/**
-	 * Ingest file, using comma as the delimiting value between items and producing an ArrayList<String[]> containing the file's data	 *
+	 * Ingest file, using comma as the delimiting value between items and producing an ArrayList<String[]> containing
+	 * the file's data
 	 * @return An ArrayList of fragments from the file containing each line of the CSV file as a string array
-	 * @throws IOException           if there is another error in reading/opening/working with the file (From BufferedReader)
+	 * @throws IOException           if there is another error in reading/opening/working with the file
+	 * (From BufferedReader)
 	 * @throws FileNotFoundException if the file is not found in the local directory
 	 */
-	private static ArrayList<Fragment> ingestFile(final String sourceCSV) throws FileNotFoundException, IOException {
+	private static ArrayList<Fragment> ingestFile(String sourceCSV) throws FileNotFoundException, IOException {
 		//The list that wil contain the data from the file about each peptide
-		final ArrayList<Fragment> data = new ArrayList<>();
+		ArrayList<Fragment> data = new ArrayList<>(3000);
 		//The first line of the file containing the column headers of the CSV file
-		final List<String> headerList;
+		List<String> headerList;
 
 		//Check to see if the source file exists and can be read, or else throw an exception
 		if (Files.exists((FileSystems.getDefault().getPath(sourceCSV))) && new File(sourceCSV).canRead()) {
@@ -112,22 +118,27 @@ class CSVParse {
 		}
 
 		//Attempt to read the file. Throw an exception if it fails.
-		try (final BufferedReader inputReader = Files.newBufferedReader(Paths.get(sourceCSV))) {
+		try (BufferedReader inputReader = Files.newBufferedReader(Paths.get(sourceCSV))) {
 			//Get the column headers for use in locating the fields of interest
 			headerList = Arrays.asList(inputReader.readLine().split(","));
 
 			//Find the locations of the fields of interest in the CSV output
-			final int fileIDIndex = headerList.indexOf("File ID");
-			final int sequenceIndex = headerList.indexOf("Annotated Sequence");
-			final int modIndex = headerList.indexOf("Modifications");
-			int abundanceIndex = headerList.indexOf("Abundance: F1: Sample") == -1 ? headerList.indexOf("Precursor Abundance") : headerList.indexOf("Abundance: F1: Sample");
+			int fileIDIndex = headerList.indexOf("File ID");
+			int sequenceIndex = headerList.indexOf("Annotated Sequence");
+			int modIndex = headerList.indexOf("Modifications");
+			int abundanceIndex = headerList.indexOf("Abundance: F1: Sample") == -1 ?
+					headerList.indexOf("Precursor Abundance") : headerList.indexOf("Abundance: F1: Sample");
 			if (abundanceIndex == -1) {
 				abundanceIndex = headerList.indexOf("Abundance");
 			}
 			//todo: for peptide file formats grab the fileID from the Abundance:F# column
 			//Read the whole file, creating new peptides from the CSV data
+			Pattern delimiter = Pattern.compile(",");
+			Matcher m = delimiter.matcher("");
 			while (inputReader.ready()) {
-				String[] lineArr = inputReader.readLine().replaceAll(",", ", ").split(",");
+				String line = inputReader.readLine();
+				m.reset(line);
+				String[] lineArr = m.replaceAll(", ").split(",");
 				if(lineArr.length==8){
 					lineArr=Arrays.copyOf(lineArr,9);
 					lineArr[8]="0";
@@ -138,14 +149,16 @@ class CSVParse {
 					}
 				}
 				if(fileIDIndex==-1){
-					data.add(new Fragment("FileID F1", lineArr[sequenceIndex], lineArr[modIndex], Double.parseDouble(lineArr[abundanceIndex])));
+					data.add(new Fragment("FileID F1", lineArr[sequenceIndex], lineArr[modIndex],
+							Double.parseDouble(lineArr[abundanceIndex])));
 				}
 				else {
-					data.add(new Fragment(lineArr[fileIDIndex], lineArr[sequenceIndex], lineArr[modIndex], Double.parseDouble(lineArr[abundanceIndex])));
+					data.add(new Fragment(lineArr[fileIDIndex], lineArr[sequenceIndex], lineArr[modIndex],
+							Double.parseDouble(lineArr[abundanceIndex])));
 				}
 			}
 			return data;
-		} catch (final IOException e) {
+		} catch (IOException e) {
 			System.err.println("Error occurred while parsing input file\n" + e.getMessage());
 			throw e;
 		}
@@ -156,29 +169,35 @@ class CSVParse {
 	 *                    residue number (zero-indexed)
 	 * @param protein The sequence of the protein against which to index the peptide
 	 */
-	private static void calcProteinPhosLocalizations(@NotNull final List<Fragment> fragmentList, final String protein) {
-		for (final Fragment p : fragmentList) {
-			final String seq = p.getSequence().toUpperCase();
+	private static void calcProteinPhosLocalizations(@NotNull List<Fragment> fragmentList, String protein) {
+		Pattern phosLocalizer = Pattern.compile(".*\\d+.*");
+		Pattern digitIsolator = Pattern.compile("[\\D]");
+		Matcher finder = phosLocalizer.matcher("");
+		Matcher replacer = digitIsolator.matcher("");
+		for (Fragment p : fragmentList) {
+			String seq = p.getSequence().toUpperCase();
+			int seqProteinIndex = protein.indexOf(seq);
 
-			final int seqProteinIndex = protein.indexOf(seq);
 			//If the peptide isn't in the protein, ignore it and go to the next peptide
 			if (seqProteinIndex == -1) {
 				continue;
 			}
 
 			p.setPeptideProteinIndex(seqProteinIndex);
-			final String[] peptideSites = p.getPhosphorylations();
+			String[] peptideSites = p.getPhosphorylations();
 			if (peptideSites == null || peptideSites.length == 0 || "-1".equals(peptideSites[0])) {
 				continue;
 			}
 
-			final int[] proteinPhosphorylationLocalizations = new int[peptideSites.length];
+			int[] proteinPhosphorylationLocalizations = new int[peptideSites.length];
 			Arrays.fill(proteinPhosphorylationLocalizations, -1);
 
 			for (int i = 0; i < peptideSites.length; i++) {
-				final String siteStr = peptideSites[i];
-				if (siteStr.matches(".*\\d+.*")) {
-					final int site = Integer.parseInt(siteStr.replaceAll("[\\D]", ""));
+				String siteStr = peptideSites[i];
+				finder.reset(siteStr);
+				if (finder.find()) {
+					replacer.reset(siteStr);
+					int site = Integer.parseInt(replacer.replaceAll(""));
 					proteinPhosphorylationLocalizations[i] = site - 1 + seqProteinIndex;
 				} else {
 					p.containsUnlocalizedPhosphorylation = true;
@@ -189,19 +208,19 @@ class CSVParse {
 	}
 
 	/**
-	 * Calculates the modified (phosphorylated) and unmodified abundances for each phosphorylation locus given in the fragmentList
-	 *
+	 * Calculates the modified (phosphorylated) and unmodified abundances for each phosphorylation locus given in the
+	 * fragmentList
 	 * @param fragmentList the list of peptide fragments from a particular MS run/sample
 	 * @return a 2d int array, where for every residue of tau a modified and unmodified abundance is stored
 	 */
-	private static Abundance[] generateResiduePhosAbundances(final List<Fragment> fragmentList, final int proteinLength) {
-		final Abundance[] residueAbundances = new Abundance[proteinLength];
+	private static Abundance[] generateResiduePhosAbundances(List<Fragment> fragmentList, int proteinLength) {
+		Abundance[] residueAbundances = new Abundance[proteinLength];
 		for (int i = 0; i < residueAbundances.length; i++) {
 			residueAbundances[i] = new Abundance(0, 0);
 		}
 
-		for (final Fragment p : fragmentList) {
-			final int index = p.getIndexInProtein();
+		for (Fragment p : fragmentList) {
+			int index = p.getIndexInProtein();
 			//If the fragment isn't in the protein, ignore it
 			if (index == -1) {
 				continue;
@@ -217,7 +236,7 @@ class CSVParse {
 
 			if (p.getProteinPhosLocalizations().length != 0) {
 				//add the peptide abundance to the modified abundance of all the phosphorylated sites
-				for (final int i : p.getProteinPhosLocalizations()) {
+				for (int i : p.getProteinPhosLocalizations()) {
 					//If the localization doesn't exist e.g. unlocalized phosphorylation, ignore it
 					if (i == -1) {
 						continue;
@@ -236,25 +255,26 @@ class CSVParse {
 	 * @param fragmentList The fragments to be analyzed
 	 * @return A HashMap<Fragment, Abundance> mapping each combined fragment to its abundance
 	 */
-	private static HashMap<Fragment, Abundance> generateFragmentPhosAbundances(final List<Fragment> fragmentList) {
-		final Map<String, List<Fragment>> fragmentsBySeq = fragmentList.stream().collect(Collectors.groupingBy(f -> f.getSequence().toUpperCase()));
-		final HashMap<Fragment, Abundance> ans = new HashMap<>(fragmentsBySeq.keySet().size());
+	private static HashMap<Fragment, Abundance> generateFragmentPhosAbundances(List<Fragment> fragmentList) {
+		Map<String, List<Fragment>> fragmentsBySeq = fragmentList.stream().collect(Collectors.groupingBy(f ->
+				f.getSequence().toUpperCase()));
+		HashMap<Fragment, Abundance> ans = new HashMap<>(fragmentsBySeq.keySet().size());
 		String fileID;
 		int protIndex;
 
-		for (final String seq : fragmentsBySeq.keySet()) {
-			final List<Fragment> sameSeq = fragmentsBySeq.get(seq);
+		for (Map.Entry<String, List<Fragment>> stringListEntry : fragmentsBySeq.entrySet()) {
+			List<Fragment> sameSeq = stringListEntry.getValue();
 			fileID = sameSeq.get(0).getFileID();
-			protIndex = CSVParse.getProtein().indexOf(seq);
-			final Abundance combinedAbundance = new Abundance(0, 0);
-			final Set<String> phosphorylations = new HashSet<>();
-			final Set<Integer> proteinPhosSites = new HashSet<>();
+			protIndex = CSVParse.getProtein().indexOf(stringListEntry.getKey());
+			Abundance combinedAbundance = new Abundance(0, 0);
+			Set<String> phosphorylations = new HashSet<>(10);
+			Set<Integer> proteinPhosSites = new HashSet<>(10);
 			boolean unlocalized = false;
 			//if the fragment doesn't align to the protein, ignore it and continue
 			if (protIndex == -1) {
 				continue;
 			}
-			for (final Fragment f : sameSeq) {
+			for (Fragment f : sameSeq) {
 				if (f.getPhosphorylations().length > 0) {
 					combinedAbundance.phosphorylated += f.getAbundance();
 					phosphorylations.addAll(Arrays.asList(f.getPhosphorylations()));
@@ -265,7 +285,7 @@ class CSVParse {
 					unlocalized = true;
 				}
 			}
-			ans.put(new Fragment(fileID, seq, phosphorylations.toArray(new String[0]), proteinPhosSites.stream()
+			ans.put(new Fragment(fileID, stringListEntry.getKey(), phosphorylations.toArray(new String[0]), proteinPhosSites.stream()
 					.filter(i -> i != null && i >= 0).mapToInt(Integer::intValue)
 					.toArray(), protIndex, unlocalized), combinedAbundance);
 		}
@@ -284,24 +304,25 @@ class CSVParse {
 	 *                         name.
 	 * @throws IOException When an error occurs in opening the file to be written to or in writing the file
 	 */
-	private static void outputResidueCSV(final String fileID, final Abundance[] abundances, final long tID, final String sourceCSV,
-										 final String outputFormat, final String outputFolderName) throws IOException {
+	private static void outputResidueCSV(String fileID, Abundance[] abundances, long tID,
+										 String sourceCSV, String outputFormat,
+										 String outputFolderName) throws IOException {
 		//Create the output file name and folder, using the system time as folder
 		//and the date and time as filename modifiers
-		final LocalDateTime date = LocalDateTime.now();
-		final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("kk-mm-MM-dd-YY");
-		final String dateString = date.format(formatter);
+		LocalDateTime date = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("kk-mm-MM-dd-YY");
+		String dateString = date.format(formatter);
 		//todo allow user picking of output folder
-		final Path path = Paths.get("output/" + outputFolderName + tID);
+		Path path = Paths.get("output/" + outputFolderName + tID);
 		//create the folder for the current run
 		Files.createDirectories(path);
-		final String sourceFile = sourceCSV.replaceAll("[/.<>:\"\\\\|\\-?*[\\s]]", "").strip();
+		String sourceFile = sourceCSV.replaceAll("[/.<>:\"\\\\|\\-?*[\\s]]", "").strip();
 		//The file writer. Creates new file instead of appending old ones, failing if the file already exists
-		final BufferedWriter w = Files.newBufferedWriter(
+		BufferedWriter w = Files.newBufferedWriter(
 				new File(("output/" + outputFolderName + tID + "/" + fileID + "_" + dateString + sourceFile + outputFormat).strip())
 						.toPath(), StandardOpenOption.CREATE_NEW);
 
-		final StringBuilder outputBuffer = new StringBuilder(7000);
+		StringBuilder outputBuffer = new StringBuilder(7000);
 		//for residue-based phosphorylation data
 		outputBuffer.append("Phosphorylation site, Phosphorylation Abundance, Total Abundance, Modification Proportion\n");
 		double phos;
@@ -310,7 +331,7 @@ class CSVParse {
 		for (int i = 0; i < abundances.length; i++) {
 			phos = abundances[i].phosphorylated;
 			tot = abundances[i].total;
-			final String out = i + "," + phos + "," + tot + "," + (phos / tot) + "\n";
+			String out = i + "," + phos + "," + tot + "," + (phos / tot) + "\n";
 			outputBuffer.append(out);
 		}
 
@@ -322,42 +343,45 @@ class CSVParse {
 	 * Outputs the data created by the protein-fragment based phosphorylation analysis to a CSV file
 	 *
 	 * @param fileID              he file id of the residues being output
-	 * @param combinedFragments-A HashMap of the cumulated Fragment objects containing the aggregated data from all fragments
-	 *                            of that fileId with the same protein sequence, along with the associated abundance values.
+	 * @param combinedFragments-A HashMap of the cumulated Fragment objects containing the aggregated data from all
+	 *                            fragments
+	 *                            of that fileId with the same protein sequence, along with the associated abundance
+	 *                            values.
 	 * @param tID                 An id number used to temporally segregate runs
 	 * @param sourceCSV           the filename of the source CSV file
 	 * @param outputFormat        a string to modify the output filename with
-	 * @param outputFolderName    the folder name to output the run to. Is added to the tID to produce a more unique folder
-	 *                            name.
+	 * @param outputFolderName    the folder name to output the run to. Is added to the tID to produce a more unique
+	 *                            folder name.
 	 * @throws IOException When an error occurs in opening the file to be written to or in writing the file
 	 */
-	private static void outputFragmentCSV(final String fileID, final HashMap<Fragment, Abundance> combinedFragments, final long tID,
-										  final String sourceCSV, final String outputFormat, final String outputFolderName) throws IOException {
+	private static void outputFragmentCSV(String fileID, HashMap<Fragment, Abundance> combinedFragments,
+										  long tID, String sourceCSV, String outputFormat,
+										  String outputFolderName) throws IOException {
 		//Create the output file name and folder, using the system time as folder
 		//and the date and time as filename modifiers
-		final LocalDateTime date = LocalDateTime.now();
-		final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("kk-mm-MM-dd-YY");
-		final String dateString = date.format(formatter);
+		LocalDateTime date = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("kk-mm-MM-dd-YY");
+		String dateString = date.format(formatter);
 		//todo allow user picking of output folder
-		final Path path = Paths.get("output/" + outputFolderName + tID);
+		Path path = Paths.get("output/" + outputFolderName + tID);
 		//create the folder for the current run
 		Files.createDirectories(path);
-		final String sourceFile = sourceCSV.replaceAll("[/.<>:\"\\\\|\\-?*[\\s]]", "").strip();
+		String sourceFile = sourceCSV.replaceAll("[/.<>:\"\\\\|\\-?*[\\s]]", "").strip();
 		//The file writer. Creates new file instead of appending old ones, failing if the file already exists
-		final BufferedWriter w = Files.newBufferedWriter(
+		BufferedWriter w = Files.newBufferedWriter(
 				new File(("output/" + outputFolderName + tID + "/" + fileID + "_" + dateString + sourceFile + outputFormat).strip())
 						.toPath(), StandardOpenOption.CREATE_NEW);
 
-		final StringBuilder outputBuffer = new StringBuilder(7000);
-		outputBuffer.append("Fragment,Start Index,End Index,Modified Abundance,Unmodified Abundance, Modification Proportion\n");
+		StringBuilder outputBuffer = new StringBuilder(7000);
+		outputBuffer.append("Fragment,Start Index,End Index,Modified Abundance,Unmodified Abundance,Modification Proportion\n");
 
-		final SortedSet<Fragment> sortedFragments = new TreeSet<>(Comparator.comparing(Fragment::getIndexInProtein));
+		SortedSet<Fragment> sortedFragments = new TreeSet<>(Comparator.comparing(Fragment::getIndexInProtein));
 
 		sortedFragments.addAll(combinedFragments.keySet());
-		for (final Fragment f : sortedFragments) {
-			final double phos = combinedFragments.get(f).phosphorylated;
-			final double tot = +combinedFragments.get(f).total;
-			final String out = f.getSequence() + "," + f.getIndexInProtein() + "," +
+		for (Fragment f : sortedFragments) {
+			double phos = combinedFragments.get(f).phosphorylated;
+			double tot = +combinedFragments.get(f).total;
+			String out = f.getSequence() + "," + f.getIndexInProtein() + "," +
 					(f.getIndexInProtein() + f.getSequence().length()) + "," + phos + "," + tot + "," + (phos / tot) + "\n";
 			outputBuffer.append(out);
 
@@ -373,7 +397,7 @@ class CSVParse {
 	 * @return a String containing the file path input by the user
 	 */
 	//todo implement command line input of file or a config file
-	private static String getInputFile(@NotNull final Scanner s) {
+	private static String getInputFile(@NotNull Scanner s) {
 		System.out.println("Enter the name/path of the file you want to parse");
 		return s.next();
 	}
@@ -384,7 +408,7 @@ class CSVParse {
 	 * @return a String containing the desired output folder name
 	 */
 	//todo implement config file or commandline arg
-	private static String getOutputFolderName(final Scanner s) {
+	private static String getOutputFolderName(Scanner s) {
 		System.out.println("Enter the folder name the output should be stored in");
 		return s.next();
 	}

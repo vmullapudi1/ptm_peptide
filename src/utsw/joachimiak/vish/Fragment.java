@@ -17,22 +17,23 @@ class Fragment {
 	private double abundance;
 
 	Fragment(final String fileID, final String seq, final String modifications, final double abundance) {
-		this.setFileID(fileID);
-		this.setAnnotatedSeq(seq);
-		this.setPhosphorylations(this.initPhosphorylations(modifications));
-		this.setAbundance(abundance);
+		this.fileID = fileID;
+		this.annotatedSeq = seq;
+		this.setPhosphorylations(Fragment.initPhosphorylations(modifications));
+		this.abundance = abundance;
 		this.proteinPhosLocalizations = new int[this.phosphorylations.length];
 		Arrays.fill(this.proteinPhosLocalizations, -1);
-		this.setSequence(seq.substring(seq.indexOf('.') + 1, seq.lastIndexOf('.')));
+		this.sequence = seq.substring(seq.indexOf('.') + 1, seq.lastIndexOf('.'));
 	}
 
-	Fragment(final String fileID, final String seq, final String[] phosphorylations, final int[] localizedPhosSites, final int protIndex, final boolean containsUnlocalizedPhosphorylation) {
-		this.setFileID(fileID);
-		this.setSequence(seq);
+	Fragment(final String fileID, final String seq, final String[] phosphorylations, final int[] localizedPhosSites,
+			 final int protIndex, final boolean containsUnlocalizedPhosphorylation) {
+		this.fileID = fileID;
+		this.sequence = seq;
 		this.setPhosphorylations(phosphorylations);
 		this.proteinPhosLocalizations = localizedPhosSites;
 		Arrays.fill(this.proteinPhosLocalizations, -1);
-		this.setSequence(seq);
+		this.sequence = seq;
 		this.indexInProtein = protIndex;
 		this.containsUnlocalizedPhosphorylation = containsUnlocalizedPhosphorylation;
 	}
@@ -53,11 +54,11 @@ class Fragment {
 		this.abundance = abundance;
 	}
 
-	private String[] initPhosphorylations(final String modifications) {
-		if ("".equals(modifications) || !modifications.contains("Phospho")) {
+	private static String[] initPhosphorylations(final String modifications) {
+		if (modifications != null && modifications.isEmpty() || !modifications.contains("Phospho")) {
 			return new String[0];
 		}
-		final ArrayList<String> phosphorylations = new ArrayList<>();
+		final ArrayList<String> phosphorylations = new ArrayList<>(10);
 
 		//Assumes that the peptide will not have more than 0-2 digits specifying the localization
 		//And that the only modifications to serine, threonine, and tyrosine will be phosphorylation
@@ -112,7 +113,7 @@ class Fragment {
 
 	@Override
 	public String toString() {
-		return "FileID " + this.getFileID() + " Seq: " + this.getAnnotatedSeq();
+		return "FileID " + this.fileID + " Seq: " + this.annotatedSeq;
 	}
 
 }
