@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-class Peptide {
+class Fragment {
 
 	private String fileID;
 	private String annotatedSeq;
@@ -15,7 +15,8 @@ class Peptide {
 	private int[] proteinPhosLocalizations;
 	private double abundance;
 	boolean containsUnlocalizedPhosphorylation;
-	Peptide(String fileID, String seq, String modifications, double abundance) {
+
+	Fragment(String fileID, String seq, String modifications, double abundance) {
 		setFileID(fileID);
 		setAnnotatedSeq(seq);
 		setPhosphorylations(initPhosphorylations(modifications));
@@ -23,6 +24,16 @@ class Peptide {
 		proteinPhosLocalizations = new int[phosphorylations.length];
 		Arrays.fill(proteinPhosLocalizations, -1);
 		setSequence(seq.substring(seq.indexOf('.') + 1, seq.lastIndexOf('.')));
+	}
+
+	Fragment(String fileID, String seq, String[] phosphorylations, int[] localizedPhosSites, int protIndex) {
+		setFileID(fileID);
+		setSequence(seq);
+		setPhosphorylations(phosphorylations);
+		proteinPhosLocalizations = new int[phosphorylations.length];
+		Arrays.fill(proteinPhosLocalizations, -1);
+		setSequence(seq);
+		indexInProtein = protIndex;
 	}
 
 	String getSequence() {
@@ -94,8 +105,8 @@ class Peptide {
 		return indexInProtein;
 	}
 
-	void setPeptideProteinIndex(int tauIndex) {
-		this.indexInProtein = tauIndex;
+	void setPeptideProteinIndex(int index) {
+		this.indexInProtein = index;
 	}
 
 	@Override
