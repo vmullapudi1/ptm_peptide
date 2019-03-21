@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 class Fragment {
 
+	boolean containsUnlocalizedPhosphorylation;
 	private String fileID;
 	private String annotatedSeq;
 	private String sequence;
@@ -14,104 +15,104 @@ class Fragment {
 	private String[] phosphorylations;
 	private int[] proteinPhosLocalizations;
 	private double abundance;
-	boolean containsUnlocalizedPhosphorylation;
 
-	Fragment(String fileID, String seq, String modifications, double abundance) {
-		setFileID(fileID);
-		setAnnotatedSeq(seq);
-		setPhosphorylations(initPhosphorylations(modifications));
-		setAbundance(abundance);
-		proteinPhosLocalizations = new int[phosphorylations.length];
-		Arrays.fill(proteinPhosLocalizations, -1);
-		setSequence(seq.substring(seq.indexOf('.') + 1, seq.lastIndexOf('.')));
+	Fragment(final String fileID, final String seq, final String modifications, final double abundance) {
+		this.setFileID(fileID);
+		this.setAnnotatedSeq(seq);
+		this.setPhosphorylations(this.initPhosphorylations(modifications));
+		this.setAbundance(abundance);
+		this.proteinPhosLocalizations = new int[this.phosphorylations.length];
+		Arrays.fill(this.proteinPhosLocalizations, -1);
+		this.setSequence(seq.substring(seq.indexOf('.') + 1, seq.lastIndexOf('.')));
 	}
 
-	Fragment(String fileID, String seq, String[] phosphorylations, int[] localizedPhosSites, int protIndex) {
-		setFileID(fileID);
-		setSequence(seq);
-		setPhosphorylations(phosphorylations);
-		proteinPhosLocalizations = new int[phosphorylations.length];
-		Arrays.fill(proteinPhosLocalizations, -1);
-		setSequence(seq);
-		indexInProtein = protIndex;
+	Fragment(final String fileID, final String seq, final String[] phosphorylations, final int[] localizedPhosSites, final int protIndex, final boolean containsUnlocalizedPhosphorylation) {
+		this.setFileID(fileID);
+		this.setSequence(seq);
+		this.setPhosphorylations(phosphorylations);
+		this.proteinPhosLocalizations = localizedPhosSites;
+		Arrays.fill(this.proteinPhosLocalizations, -1);
+		this.setSequence(seq);
+		this.indexInProtein = protIndex;
+		this.containsUnlocalizedPhosphorylation = containsUnlocalizedPhosphorylation;
 	}
 
 	String getSequence() {
-		return sequence;
+		return this.sequence;
 	}
 
-	private void setSequence(String sequence) {
+	private void setSequence(final String sequence) {
 		this.sequence = sequence;
 	}
 
 	double getAbundance() {
-		return abundance;
+		return this.abundance;
 	}
 
-	private void setAbundance(double abundance) {
+	private void setAbundance(final double abundance) {
 		this.abundance = abundance;
 	}
 
-	private String[] initPhosphorylations(String modifications) {
-		if (modifications.equals("") || modifications == null || !modifications.contains("Phospho")) {
+	private String[] initPhosphorylations(final String modifications) {
+		if ("".equals(modifications) || !modifications.contains("Phospho")) {
 			return new String[0];
 		}
-		ArrayList<String> phosphorylations = new ArrayList<>();
+		final ArrayList<String> phosphorylations = new ArrayList<>();
 
 		//Assumes that the peptide will not have more than 0-2 digits specifying the localization
 		//And that the only modifications to serine, threonine, and tyrosine will be phosphorylation
-		Pattern phosRegex = Pattern.compile("[STY]([\\d]{0,2})");
-		Matcher m = phosRegex.matcher(modifications);
+		final Pattern phosRegex = Pattern.compile("[STY]([\\d]{0,2})");
+		final Matcher m = phosRegex.matcher(modifications);
 		while (m.find()) {
 			phosphorylations.add(m.group());
 		}
-		String[] s = new String[phosphorylations.size()];
+		final String[] s = new String[phosphorylations.size()];
 		return phosphorylations.toArray(s);
 	}
 
 	String getFileID() {
-		return fileID;
+		return this.fileID;
 	}
 
-	private void setFileID(String fileID) {
+	private void setFileID(final String fileID) {
 		this.fileID = fileID;
 	}
 
 	private String getAnnotatedSeq() {
-		return annotatedSeq;
+		return this.annotatedSeq;
 	}
 
-	private void setAnnotatedSeq(String annotatedSeq) {
+	private void setAnnotatedSeq(final String annotatedSeq) {
 		this.annotatedSeq = annotatedSeq;
 	}
 
 	String[] getPhosphorylations() {
-		return phosphorylations;
+		return this.phosphorylations;
 	}
 
-	private void setPhosphorylations(String[] phosphorylations) {
+	private void setPhosphorylations(final String[] phosphorylations) {
 		this.phosphorylations = phosphorylations.clone();
 	}
 
 	int[] getProteinPhosLocalizations() {
-		return proteinPhosLocalizations;
+		return this.proteinPhosLocalizations;
 	}
 
-	void setProteinPhosLocalizations(int[] tauPhosLocalization) {
-		this.proteinPhosLocalizations = tauPhosLocalization.clone();
+	void setProteinPhosLocalizations(final int[] tauPhosLocalization) {
+		proteinPhosLocalizations = tauPhosLocalization.clone();
 	}
 
 	int getIndexInProtein() {
-		return indexInProtein;
+		return this.indexInProtein;
 	}
 
-	void setPeptideProteinIndex(int index) {
-		this.indexInProtein = index;
+	void setPeptideProteinIndex(final int index) {
+		indexInProtein = index;
 	}
 
 	@Override
 	public String toString() {
-		return "FileID " + getFileID() + " Seq: " + getAnnotatedSeq();
+		return "FileID " + this.getFileID() + " Seq: " + this.getAnnotatedSeq();
 	}
 
 }

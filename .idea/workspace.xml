@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e607ce3-0343-4ed1-8721-2d56870ccc4f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ptm_peptide/utsw/joachimiak/vish/CSVParse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ptm_peptide/utsw/joachimiak/vish/CSVParse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ptm_peptide/utsw/joachimiak/vish/Peptide.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Contacts graphing-Copy1-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Contacts graphing-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utsw/joachimiak/vish/Abundance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utsw/joachimiak/vish/Abundance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utsw/joachimiak/vish/Fragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utsw/joachimiak/vish/Fragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utsw/joachimiak/vish/Fragment.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,22 +31,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="89" column="25" lean-forward="true" selection-start-line="89" selection-start-column="25" selection-end-line="89" selection-end-column="25" />
+            <state relative-caret-position="-184">
+              <caret line="238" column="71" selection-start-line="238" selection-start-column="71" selection-end-line="238" selection-end-column="71" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#main#0;class#CSVParse#0" />
+                <element signature="docComment;method#queryPeptideOrResidueAnalysis#0;class#CSVParse#0" />
+                <element signature="method#queryPeptideOrResidueAnalysis#0;class#CSVParse#0" />
                 <element signature="docComment;method#ingestFile#0;class#CSVParse#0" />
                 <element signature="method#ingestFile#0;class#CSVParse#0" />
                 <element signature="docComment;method#calcProteinPhosLocalizations#0;class#CSVParse#0" />
-                <element signature="e#5264#6251#1" />
+                <element signature="method#calcProteinPhosLocalizations#0;class#CSVParse#0" />
                 <element signature="docComment;method#generateResidueAbundances#0;class#CSVParse#0" />
-                <element signature="method#generateResiduePhosAbundances#0;class#CSVParse#0" />
+                <element signature="docComment;method#generateFragmentPhosAbundances#0;class#CSVParse#0" />
+                <element signature="method#generateFragmentPhosAbundances#0;class#CSVParse#0" />
                 <element signature="docComment;method#outputResidueCSV#0;class#CSVParse#0" />
                 <element signature="method#outputResidueCSV#0;class#CSVParse#0" />
-                <element signature="e#14294#14295#0" expanded="true" />
+                <element signature="docComment;method#outputFragmentCSV#0;class#CSVParse#0" />
+                <element signature="method#outputFragmentCSV#0;class#CSVParse#0" />
+                <element signature="e#11818#11891#0" />
+                <element signature="docComment;method#getInputFile#0;class#CSVParse#0" />
+                <element signature="method#getInputFile#0;class#CSVParse#0" />
+                <element signature="docComment;method#getOutputFolderName#0;class#CSVParse#0" />
+                <element signature="docComment;method#getOutputFormat#0;class#CSVParse#0" />
+                <element signature="e#11929#11957#1" />
+                <element signature="e#17940#17941#0" expanded="true" />
+                <element signature="method#getProtein#0;class#CSVParse#0" />
               </folding>
             </state>
           </provider>
@@ -55,17 +67,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Abundance.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+            <state>
+              <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Fragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+            <state relative-caret-position="705">
+              <caret line="117" column="1" selection-start-line="117" selection-start-column="1" selection-end-line="117" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -153,8 +165,8 @@
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/psBase.java" />
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java" />
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/CumulativeFragment.java" />
-        <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Fragment.java" />
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" />
+        <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Fragment.java" />
       </list>
     </option>
   </component>
@@ -371,7 +383,21 @@
       <option name="project" value="LOCAL" />
       <updated>1553192536408</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="peptide fragment partially implemented, still broken&#10;Residue based analysis still working, confirmed binary equal to previous files (which were verified by hand/and against greg's output).">
+      <created>1553203021496</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1553203021496</updated>
+    </task>
+    <task id="LOCAL-00020" summary="improved documentation">
+      <created>1553208085631</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1553208085631</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TodoView">
@@ -387,23 +413,23 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49859944" visible="true" weight="0.14658849" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49859944" visible="true" weight="0.14658849" />
       <window_info id="Structure" order="1" sideWeight="0.49840087" weight="0.24918744" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Designer" order="3" />
       <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.494659" weight="0.14842904" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5021322" side_tool="true" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.59808105" visible="true" weight="0.19934994" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.70629" weight="0.29252437" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.59808105" weight="0.19826652" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.70629" weight="0.29035753" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="4" sideWeight="0.63270336" weight="0.22751896" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49733475" weight="0.32827735" />
       <window_info anchor="bottom" id="Find" order="7" sideWeight="0.4978678" weight="0.32936078" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.48773986" weight="0.318872" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.48773986" weight="0.31852654" />
       <window_info anchor="bottom" id="Favorites" order="11" sideWeight="0.4989339" weight="0.12134345" />
-      <window_info anchor="bottom" id="Inspection Results" order="12" sideWeight="0.49946696" weight="0.32936078" />
+      <window_info anchor="bottom" id="Inspection Results" order="12" sideWeight="0.49946696" weight="0.32827735" />
       <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.4978678" weight="0.10400867" />
       <window_info anchor="bottom" id="Dependency Viewer" order="14" sideWeight="0.4989339" weight="0.3286334" />
       <window_info anchor="right" id="Cargo" order="0" weight="0.32949877" />
@@ -437,7 +463,11 @@
     <MESSAGE value="updated output. Nonpeptide is still binary equal to previous data, but peptide file has instances where phos&gt;tot" />
     <MESSAGE value="Fixed parsing to deal properly with non-assigned phosphorylations. Binary equal to previous output on Human_Tau-PTM data" />
     <MESSAGE value="improved output formatting." />
-    <option name="LAST_COMMIT_MESSAGE" value="improved output formatting." />
+    <MESSAGE value="implemented by peptide fragment modification analysis. still need to verify.&#10;Residue based analysis still working, confirmed binary equal to previous files (which were verified by hand/and against greg's output). &#10;need to verify new fragment analysis" />
+    <MESSAGE value="peptide fragment partially implemented, still broken&#10;Residue based analysis still working, confirmed binary equal to previous files (which were verified by hand/and against greg's output)." />
+    <MESSAGE value="peptide fragment analysis working." />
+    <MESSAGE value="improved documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="improved documentation" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -448,11 +478,22 @@
         <watch expression="lineArr[7]" />
         <watch expression="((HashMap)fragments).entrySet().toArray()[0]" custom="java.util.HashMap" />
         <watch expression="((HashMap)fragments).entrySet().toArray()[0]" language="JAVA" custom="java.util.HashMap" />
+        <watch expression="combinedAbundance" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>getProtein().indexOf(seq);</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>getProtein().indexOf(&quot;KLDLSNVQSK&quot;);</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>&quot;S&quot;.matches(&quot;.*\\d+.*&quot;);</expression-string>
         <language-id>JAVA</language-id>
@@ -485,16 +526,6 @@
       </expression>
       <expression>
         <expression-string>Pattern.matches(&quot;\\d&quot;,siteStr)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>&quot;S3&quot;.matches(&quot;\\d&quot;)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>&quot;3&quot;.matches(&quot;\\d&quot;)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
@@ -539,38 +570,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-184">
+          <caret line="238" column="71" selection-start-line="238" selection-start-column="71" selection-end-line="238" selection-end-column="71" />
+          <folding>
+            <element signature="method#main#0;class#CSVParse#0" />
+            <element signature="docComment;method#queryPeptideOrResidueAnalysis#0;class#CSVParse#0" />
+            <element signature="method#queryPeptideOrResidueAnalysis#0;class#CSVParse#0" />
+            <element signature="docComment;method#ingestFile#0;class#CSVParse#0" />
+            <element signature="method#ingestFile#0;class#CSVParse#0" />
+            <element signature="docComment;method#calcProteinPhosLocalizations#0;class#CSVParse#0" />
+            <element signature="method#calcProteinPhosLocalizations#0;class#CSVParse#0" />
+            <element signature="docComment;method#generateResidueAbundances#0;class#CSVParse#0" />
+            <element signature="docComment;method#generateFragmentPhosAbundances#0;class#CSVParse#0" />
+            <element signature="method#generateFragmentPhosAbundances#0;class#CSVParse#0" />
+            <element signature="docComment;method#outputResidueCSV#0;class#CSVParse#0" />
+            <element signature="method#outputResidueCSV#0;class#CSVParse#0" />
+            <element signature="docComment;method#outputFragmentCSV#0;class#CSVParse#0" />
+            <element signature="method#outputFragmentCSV#0;class#CSVParse#0" />
+            <element signature="e#11818#11891#0" />
+            <element signature="docComment;method#getInputFile#0;class#CSVParse#0" />
+            <element signature="method#getInputFile#0;class#CSVParse#0" />
+            <element signature="docComment;method#getOutputFolderName#0;class#CSVParse#0" />
+            <element signature="docComment;method#getOutputFormat#0;class#CSVParse#0" />
+            <element signature="e#11929#11957#1" />
+            <element signature="e#17940#17941#0" expanded="true" />
+            <element signature="method#getProtein#0;class#CSVParse#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Abundance.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+        <state>
+          <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+        <state relative-caret-position="705">
+          <caret line="117" column="1" selection-start-line="117" selection-start-column="1" selection-end-line="117" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="89" column="25" lean-forward="true" selection-start-line="89" selection-start-column="25" selection-end-line="89" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#ingestFile#0;class#CSVParse#0" />
-            <element signature="method#ingestFile#0;class#CSVParse#0" />
-            <element signature="docComment;method#calcProteinPhosLocalizations#0;class#CSVParse#0" />
-            <element signature="e#5264#6251#1" />
-            <element signature="docComment;method#generateResidueAbundances#0;class#CSVParse#0" />
-            <element signature="method#generateResiduePhosAbundances#0;class#CSVParse#0" />
-            <element signature="docComment;method#outputResidueCSV#0;class#CSVParse#0" />
-            <element signature="method#outputResidueCSV#0;class#CSVParse#0" />
-            <element signature="e#14294#14295#0" expanded="true" />
           </folding>
         </state>
       </provider>
