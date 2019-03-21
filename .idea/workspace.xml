@@ -33,12 +33,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1224">
-              <caret line="196" column="47" selection-start-line="196" selection-start-column="47" selection-end-line="196" selection-end-column="47" />
+            <state relative-caret-position="226">
+              <caret line="63" column="87" lean-forward="true" selection-start-line="62" selection-start-column="7" selection-end-line="63" selection-end-column="87" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#ingestFile#0;class#CSVParse#0" />
-                <element signature="e#10937#10938#0" expanded="true" />
+                <element signature="e#11360#11361#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -56,8 +56,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+            <state relative-caret-position="190">
+              <caret line="84" column="10" selection-start-line="84" selection-start-column="10" selection-end-line="84" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2547#2548#0" expanded="true" />
@@ -74,8 +74,6 @@
                 <element signature="e#2960#2961#0" expanded="true" />
                 <element signature="e#2995#2996#0" expanded="true" />
                 <element signature="e#3028#3029#0" expanded="true" />
-                <element signature="e#3092#3093#0" expanded="true" />
-                <element signature="e#3145#3146#0" expanded="true" />
                 <element signature="e#3167#3168#0" expanded="true" />
                 <element signature="e#3189#3190#0" expanded="true" />
                 <element signature="e#3235#3236#0" expanded="true" />
@@ -377,7 +375,14 @@
       <option name="project" value="LOCAL" />
       <updated>1553105880734</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="updated output. Nonpeptide is still binary equal to previous data, but peptide file has instances where phos&gt;tot">
+      <created>1553119614310</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1553119614310</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView">
@@ -391,15 +396,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49859944" visible="true" weight="0.19029851" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49859944" visible="true" weight="0.05970149" />
       <window_info id="Structure" order="1" sideWeight="0.49840087" weight="0.24918744" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Designer" order="3" />
       <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.494659" weight="0.14842904" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5021322" side_tool="true" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.59808105" visible="true" weight="0.20476706" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.70629" weight="0.2979415" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.59808105" visible="true" weight="0.20260021" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.70629" weight="0.2936078" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="4" sideWeight="0.63270336" weight="0.22751896" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49733475" weight="0.32827735" />
@@ -439,34 +445,13 @@
     <MESSAGE value="reformatted&#10;&#10;Signed-off-by: Vishruth Mullapudi &lt;vmullapudi1@gmail.com&gt;" />
     <MESSAGE value="extracting phoshorylation sites now works with peptide files&#10;The protein phosphorylation localization needs to be fixed to work with this/non-localized phosphorylation" />
     <MESSAGE value="New parsing method confirmed binary equal for both sets of old data (and therefore consistent with Greg's original parsing./&#10;&#10;Need to rework phosphorylation localization to handle unlocalized phosphorylation and be capable of producing both per-peptide output and per-residue phosphorylation. These data can be used in conjunction to view the hidden impact of unlocalized phosphorylation data and also to identify regions of high phosphorylation" />
-    <option name="LAST_COMMIT_MESSAGE" value="New parsing method confirmed binary equal for both sets of old data (and therefore consistent with Greg's original parsing./&#10;&#10;Need to rework phosphorylation localization to handle unlocalized phosphorylation and be capable of producing both per-peptide output and per-residue phosphorylation. These data can be used in conjunction to view the hidden impact of unlocalized phosphorylation data and also to identify regions of high phosphorylation" />
+    <MESSAGE value="updated output. Nonpeptide is still binary equal to previous data, but peptide file has instances where phos&gt;tot" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated output. Nonpeptide is still binary equal to previous data, but peptide file has instances where phos&gt;tot" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java</url>
-          <line>141</line>
-          <properties />
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java</url>
-          <line>135</line>
-          <properties />
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java</url>
-          <line>133</line>
-          <properties />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="lineArr[7]" />
@@ -477,6 +462,21 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>&quot;S&quot;.matches(&quot;.*\\d+.*&quot;);</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>protein.indexOf(&quot;TDHGAEIVYKSPVVSGDTSPR&quot;);</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>protein.indexOf(seq);</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>Pattern.compile(&quot;\\d&quot;).matcher(&quot;S4&quot;).find();</expression-string>
         <language-id>JAVA</language-id>
@@ -504,35 +504,6 @@
       </expression>
       <expression>
         <expression-string>&quot;3&quot;.matches(&quot;\\d&quot;)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>siteStr.matches(&quot;\\d&quot;)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>Matcher STY_digit=Pattern.compile(&quot;[STY][\\d]{0,2}&quot;).matcher(modifications+&quot;S25&quot;);
-STY_digit.find();
-STY_digit.group();
-STY_digit.find();
-STY_digit.group();
-STY_digit.find();
-STY_digit.group();
-STY_digit.find();
-STY_digit.group();</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>Matcher STY_digit=Pattern.compile(&quot;[STY][\\d]{0,2}&quot;).matcher(modifications+&quot;S25&quot;);
-STY_digit.find();
-STY_digit.group();
-STY_digit.find();
-STY_digit.group();
-STY_digit.find();
-STY_digit.group();</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
@@ -579,8 +550,8 @@ STY_digit.group();</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+        <state relative-caret-position="190">
+          <caret line="84" column="10" selection-start-line="84" selection-start-column="10" selection-end-line="84" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2547#2548#0" expanded="true" />
@@ -597,8 +568,6 @@ STY_digit.group();</expression-string>
             <element signature="e#2960#2961#0" expanded="true" />
             <element signature="e#2995#2996#0" expanded="true" />
             <element signature="e#3028#3029#0" expanded="true" />
-            <element signature="e#3092#3093#0" expanded="true" />
-            <element signature="e#3145#3146#0" expanded="true" />
             <element signature="e#3167#3168#0" expanded="true" />
             <element signature="e#3189#3190#0" expanded="true" />
             <element signature="e#3235#3236#0" expanded="true" />
@@ -611,12 +580,12 @@ STY_digit.group();</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="196" column="47" selection-start-line="196" selection-start-column="47" selection-end-line="196" selection-end-column="47" />
+        <state relative-caret-position="226">
+          <caret line="63" column="87" lean-forward="true" selection-start-line="62" selection-start-column="7" selection-end-line="63" selection-end-column="87" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#ingestFile#0;class#CSVParse#0" />
-            <element signature="e#10937#10938#0" expanded="true" />
+            <element signature="e#11360#11361#0" expanded="true" />
           </folding>
         </state>
       </provider>

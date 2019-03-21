@@ -10,9 +10,9 @@ class Peptide {
 	private String fileID;
 	private String annotatedSeq;
 	private String sequence;
-	private int tauIndex;
+	private int indexInProtein = -1;
 	private String[] phosphorylations;
-	private int[] tauPhosLocalization;
+	private int[] proteinPhosLocalizations;
 	private double abundance;
 	boolean containsUnlocalizedPhosphorylation;
 	Peptide(String fileID, String seq, String modifications, double abundance) {
@@ -20,8 +20,8 @@ class Peptide {
 		setAnnotatedSeq(seq);
 		setPhosphorylations(initPhosphorylations(modifications));
 		setAbundance(abundance);
-		tauPhosLocalization = new int[phosphorylations.length];
-		Arrays.fill(tauPhosLocalization, -1);
+		proteinPhosLocalizations = new int[phosphorylations.length];
+		Arrays.fill(proteinPhosLocalizations, -1);
 		setSequence(seq.substring(seq.indexOf('.') + 1, seq.lastIndexOf('.')));
 	}
 
@@ -79,23 +79,23 @@ class Peptide {
 	}
 
 	private void setPhosphorylations(String[] phosphorylations) {
-		this.phosphorylations = phosphorylations;
+		this.phosphorylations = phosphorylations.clone();
 	}
 
-	int[] getTauPhosLocalization() {
-		return tauPhosLocalization;
+	int[] getProteinPhosLocalizations() {
+		return proteinPhosLocalizations;
 	}
 
 	void setProteinPhosLocalizations(int[] tauPhosLocalization) {
-		this.tauPhosLocalization = tauPhosLocalization;
+		this.proteinPhosLocalizations = tauPhosLocalization.clone();
 	}
 
-	int getTauIndex() {
-		return tauIndex;
+	int getIndexInProtein() {
+		return indexInProtein;
 	}
 
 	void setPeptideProteinIndex(int tauIndex) {
-		this.tauIndex = tauIndex;
+		this.indexInProtein = tauIndex;
 	}
 
 	@Override

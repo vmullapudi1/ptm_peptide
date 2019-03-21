@@ -15,10 +15,12 @@ class CSVParse {
 		ArrayList<Peptide> fileData = null;
 		//Will contain the data as peptide fragment objects grouped by fileID
 		Map<String, List<Peptide>> peptidesByFile;
+		//Get the input parameters
 		final String sourceCSV = getInputFile();
 		final String outputFileNameFormat = getOutputFormat();
 		final String PROTEIN_SEQ = getProtein();
-		//Read The file
+
+		//Read the file, complain if it doesn't work
 		try {
 			fileData = ingestFile(sourceCSV);
 		} catch (IOException e) {
@@ -31,7 +33,7 @@ class CSVParse {
 				.collect(Collectors.groupingBy(Peptide::getFileID));
 
 		//generate abundance and phosphorylation data for each file
-		long tID = System.currentTimeMillis();
+		long tID = System.currentTimeMillis();//This tID is used as a unique folder name so that each run goes into it's own folder
 		for (String fileID : peptidesByFile.keySet()) {
 			//Get the peptide list of that file ID
 			List<Peptide> p = peptidesByFile.get(fileID);
@@ -118,7 +120,13 @@ class CSVParse {
 	private static void calcProteinPhosLocalizations(@NotNull List<Peptide> peptideList, String protein) {
 		for(Peptide p:peptideList){
 			String seq = p.getSequence().toUpperCase();
+
 			int seqProteinIndex = protein.indexOf(seq);
+			//If the peptide isn't in the protein, ignore it and go to the next peptide
+			if (seqProteinIndex == -1) {
+				continue;
+			}
+
 			p.setPeptideProteinIndex(seqProteinIndex);
 			String[] peptideSites=p.getPhosphorylations();
 			if (peptideSites == null || peptideSites.length == 0 || peptideSites[0].equals("-1")) {
@@ -126,6 +134,7 @@ class CSVParse {
 			}
 
 			int[] proteinPhosphorylationLocalizations = new int[peptideSites.length];
+			Arrays.fill(proteinPhosphorylationLocalizations, -1);
 
 			for (int i = 0; i < peptideSites.length; i++) {
 				String siteStr = peptideSites[i];
@@ -154,7 +163,7 @@ class CSVParse {
 		}
 		//ArrayList<Peptide> notInTauFL = new ArrayList<>();
 		for (Peptide p : peptideList) {
-			int index = p.getTauIndex();
+			int index = p.getIndexInProtein();
 			if (index == -1) {
 				//notInTauFL.add(p);
 				continue;
@@ -168,9 +177,13 @@ class CSVParse {
 				residueAbundances[i].total += a;
 			}
 
-			if (p.getTauPhosLocalization().length != 0) {
+			if (p.getProteinPhosLocalizations().length != 0) {
 				//add the peptide abundance to the modified abundance of all the phosphorylated sites
-				for (int i : p.getTauPhosLocalization()) {
+				for (int i : p.getProteinPhosLocalizations()) {
+					//If the localization doesn exist e.g. unlocalized phosphorylation, ignore it
+					if (i == -1) {
+						continue;
+					}
 					residueAbundances[i].phosphorylated += a;
 				}
 			}
