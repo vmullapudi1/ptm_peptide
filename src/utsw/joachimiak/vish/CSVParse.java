@@ -19,6 +19,7 @@ class CSVParse {
 		final String sourceCSV = getInputFile();
 		final String outputFileNameFormat = getOutputFormat();
 		final String PROTEIN_SEQ = getProtein();
+		final String outputFolderName = getOutputFolderName();
 
 		//Read the file, complain if it doesn't work
 		try {
@@ -34,6 +35,7 @@ class CSVParse {
 
 		//generate abundance and phosphorylation data for each file
 		long tID = System.currentTimeMillis();//This tID is used as a unique folder name so that each run goes into it's own folder
+
 		for (String fileID : peptidesByFile.keySet()) {
 			//Get the peptide list of that file ID
 			List<Peptide> p = peptidesByFile.get(fileID);
@@ -46,7 +48,7 @@ class CSVParse {
 
 			//Attempt to print the abundance data to a file, or complain and exit if it doesn't work
 			try {
-				outputCSV(fileID, abundance, tID, sourceCSV, outputFileNameFormat);
+				outputCSV(fileID, abundance, tID, sourceCSV, outputFileNameFormat, outputFolderName);
 				System.out.println("Output " + fileID + " to folder " + tID);
 			} catch (IOException e) {
 				System.err.println("Error writing to file" + e);
@@ -83,8 +85,10 @@ class CSVParse {
 			int fileIDIndex = headerList.indexOf("File ID");
 			int sequenceIndex = headerList.indexOf("Annotated Sequence");
 			int modIndex = headerList.indexOf("Modifications");
-			int abundanceIndex = headerList.indexOf("Abundance") == -1 ? headerList.indexOf("Precursor Abundance") : headerList.indexOf("Abundance");
-
+			int abundanceIndex = headerList.indexOf("Abundance: F1: Sample") == -1 ? headerList.indexOf("Precursor Abundance") : headerList.indexOf("Abundance: F1: Sample");
+			if (abundanceIndex == -1) {
+				abundanceIndex = headerList.indexOf("Abundance");
+			}
 			//Read the whole file, creating new peptides from the CSV data
 			while (inputReader.ready()) {
 				//String[] lineArr = inputReader.readLine().split(",");
@@ -196,20 +200,20 @@ class CSVParse {
 	 * @param abundances the array containing phosphorylated and total abundances of a residue
 	 *                   in the PTM data
 	 */
-	private static void outputCSV(String fileID, Abundance[] abundances, long tID, String sourceCSV, String outputFormat) throws IOException {
+	private static void outputCSV(String fileID, Abundance[] abundances, long tID, String sourceCSV, String outputFormat, String outputFolderName) throws IOException {
 		//Create the output file name and folder, using the system time as folder
 		//and the date and time as filename modifiers
 		LocalDateTime date = LocalDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("kk-mm-MM-dd-YY");
 		String dateString = date.format(formatter);
 		//todo allow user picking of output folder
-		Path path = Paths.get("output/" + tID);
+		Path path = Paths.get("output/" + outputFolderName);
 		//create the folder for the current run
 		Files.createDirectories(path);
-		String sourceFile = sourceCSV.replaceAll("[/<>:\"\\\\|?*[\\w_]]", "").strip();
+		String sourceFile = sourceCSV.replaceAll("[/.<>:\"\\\\|\\-?*[\\s]]", "").strip();
 		//The file writer. Creates new file instead of appending old ones, failing if the file already exists
 		BufferedWriter w = Files.newBufferedWriter(
-				new File(("output/" + tID + "/" + fileID + "_" + dateString + sourceFile + outputFormat).strip())
+				new File(("output/" + outputFolderName + "/" + fileID + "_" + dateString + sourceFile + outputFormat).strip())
 						.toPath(), StandardOpenOption.CREATE_NEW);
 
 		StringBuilder outputBuffer = new StringBuilder(7000);
@@ -273,6 +277,14 @@ class CSVParse {
 	private static String getInputFile() {
 		Scanner s = new Scanner(System.in);
 		System.out.println("Enter the name/path of the file you want to parse");
+		String f = s.next();
+		s.close();
+		return f;
+	}
+
+	private static String getOutputFolderName() {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter the folder name the out;ut should be stored in");
 		String f = s.next();
 		s.close();
 		return f;
