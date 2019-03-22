@@ -113,7 +113,7 @@ class Fragment {
 
 	@Override
 	public String toString() {
-		return "FileID " + this.fileID + " Seq: " + this.annotatedSeq;
+		return "FileID " + this.fileID + " Seq: " + this.sequence;
 	}
 
 }

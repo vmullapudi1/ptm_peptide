@@ -1,14 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AnalysisUIOptions">
+    <option name="GROUP_BY_SEVERITY" value="true" />
     <option name="CUSTOM_SCOPE_NAME" value="Current File" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e607ce3-0343-4ed1-8721-2d56870ccc4f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Contacts graphing-Copy1-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Contacts graphing-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utsw/joachimiak/vish/Abundance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utsw/joachimiak/vish/Abundance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-10.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-100.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-101.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-102.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-103.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-104.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-105.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-106.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-107.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-108.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-109.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-11.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-110.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-111.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-112.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-113.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-114.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-115.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-116.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-117.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-12.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-13.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-14.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-15.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-16.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-17.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-18.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-19.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-20.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-21.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-22.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-23.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-24.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-25.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-26.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-27.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-28.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-29.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-30.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-31.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-32.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-33.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-34.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-35.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-36.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-37.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-38.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-39.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-40.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-41.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-42.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-43.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-44.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-45.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-46.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-47.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-48.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-49.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-5.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-50.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-51.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-52.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-53.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-54.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-55.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-56.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-57.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-58.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-59.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-6.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-60.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-61.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-62.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-63.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-64.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-65.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-66.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-67.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-68.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-69.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-7.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-70.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-71.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-72.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-73.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-74.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-75.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-76.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-77.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-78.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-79.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-8.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-80.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-81.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-82.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-83.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-84.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-85.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-86.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-87.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-88.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-89.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-9.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-90.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-91.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-92.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-93.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-94.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-95.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-96.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-97.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-98.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contactOutput/Tau Links0-99.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ptm_peptide/utsw/joachimiak/vish/CSVParse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ptm_peptide/utsw/joachimiak/vish/CSVParse.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utsw/joachimiak/vish/Fragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utsw/joachimiak/vish/Fragment.java" afterDir="false" />
     </list>
@@ -21,6 +133,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/ptm_from_scratch$Main.ic" NAME="Main Coverage Results" MODIFIED="1550511991579" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ptm_peptide$CSVParse.ic" NAME="CSVParse Coverage Results" MODIFIED="1553271949410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/ptm_from_scratch$CSVParse.ic" NAME="CSVParse Coverage Results" MODIFIED="1551212191985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CoverageViewManager">
@@ -31,33 +144,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-184">
-              <caret line="238" column="71" selection-start-line="238" selection-start-column="71" selection-end-line="238" selection-end-column="71" />
+            <state relative-caret-position="306">
+              <caret line="384" selection-start-line="384" selection-end-line="384" />
               <folding>
-                <element signature="method#main#0;class#CSVParse#0" />
+                <element signature="imports" expanded="true" />
                 <element signature="docComment;method#queryPeptideOrResidueAnalysis#0;class#CSVParse#0" />
-                <element signature="method#queryPeptideOrResidueAnalysis#0;class#CSVParse#0" />
-                <element signature="docComment;method#ingestFile#0;class#CSVParse#0" />
-                <element signature="method#ingestFile#0;class#CSVParse#0" />
                 <element signature="docComment;method#calcProteinPhosLocalizations#0;class#CSVParse#0" />
-                <element signature="method#calcProteinPhosLocalizations#0;class#CSVParse#0" />
-                <element signature="docComment;method#generateResidueAbundances#0;class#CSVParse#0" />
                 <element signature="docComment;method#generateFragmentPhosAbundances#0;class#CSVParse#0" />
-                <element signature="method#generateFragmentPhosAbundances#0;class#CSVParse#0" />
                 <element signature="docComment;method#outputResidueCSV#0;class#CSVParse#0" />
                 <element signature="method#outputResidueCSV#0;class#CSVParse#0" />
-                <element signature="docComment;method#outputFragmentCSV#0;class#CSVParse#0" />
-                <element signature="method#outputFragmentCSV#0;class#CSVParse#0" />
-                <element signature="e#11818#11891#0" />
                 <element signature="docComment;method#getInputFile#0;class#CSVParse#0" />
                 <element signature="method#getInputFile#0;class#CSVParse#0" />
                 <element signature="docComment;method#getOutputFolderName#0;class#CSVParse#0" />
                 <element signature="docComment;method#getOutputFormat#0;class#CSVParse#0" />
-                <element signature="e#11929#11957#1" />
-                <element signature="e#17940#17941#0" expanded="true" />
+                <element signature="e#18198#18199#0" expanded="true" />
+                <element signature="e#18225#18226#0" expanded="true" />
                 <element signature="method#getProtein#0;class#CSVParse#0" />
               </folding>
             </state>
@@ -67,19 +171,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Abundance.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
+            <state relative-caret-position="338">
+              <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Fragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="117" column="1" selection-start-line="117" selection-start-column="1" selection-end-line="117" selection-end-column="1" />
+            <state relative-caret-position="2122">
+              <caret line="115" column="65" selection-start-line="115" selection-start-column="65" selection-end-line="115" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3310#3311#0" expanded="true" />
+                <element signature="e#3378#3379#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -113,6 +219,8 @@
       <find>strip</find>
       <find>println</find>
       <find>should</find>
+      <find>final</find>
+      <find>matcher</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -161,12 +269,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Main.java" />
-        <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Abundance.java" />
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/psBase.java" />
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Peptide.java" />
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/CumulativeFragment.java" />
-        <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" />
+        <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Abundance.java" />
         <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/Fragment.java" />
+        <option value="$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java" />
       </list>
     </option>
   </component>
@@ -182,7 +290,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -193,18 +300,18 @@
             <path>
               <item name="ptm_peptide" type="b2602c69:ProjectViewProjectNode" />
               <item name="ptm_peptide" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="output" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ptm_peptide" type="b2602c69:ProjectViewProjectNode" />
               <item name="ptm_peptide" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="vish" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -397,7 +504,21 @@
       <option name="project" value="LOCAL" />
       <updated>1553208085631</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="improved documentation&#10;&#10;Signed-off-by: Vishruth Mullapudi &lt;vmullapudi1@gmail.com&gt;">
+      <created>1553208735914</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1553208735914</updated>
+    </task>
+    <task id="LOCAL-00022" summary="precompile patterns and reset matcher with each new line/phosphorylation instead of making new ones">
+      <created>1553210819888</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1553210819888</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView">
@@ -413,14 +534,14 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49859944" visible="true" weight="0.14658849" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49859944" visible="true" weight="0.14818764" />
       <window_info id="Structure" order="1" sideWeight="0.49840087" weight="0.24918744" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Designer" order="3" />
       <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.494659" weight="0.14842904" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5021322" side_tool="true" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.59808105" weight="0.19826652" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.70629" weight="0.29035753" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.29584223" side_tool="true" visible="true" weight="0.2892741" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5954158" weight="0.1971831" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.70415777" visible="true" weight="0.2892741" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="4" sideWeight="0.63270336" weight="0.22751896" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49733475" weight="0.32827735" />
@@ -429,8 +550,8 @@
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.48773986" weight="0.31852654" />
       <window_info anchor="bottom" id="Favorites" order="11" sideWeight="0.4989339" weight="0.12134345" />
-      <window_info anchor="bottom" id="Inspection Results" order="12" sideWeight="0.49946696" weight="0.32827735" />
-      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.4978678" weight="0.10400867" />
+      <window_info anchor="bottom" id="Inspection Results" order="12" sideWeight="0.93336886" weight="0.32719395" />
+      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49733475" weight="0.10400867" />
       <window_info anchor="bottom" id="Dependency Viewer" order="14" sideWeight="0.4989339" weight="0.3286334" />
       <window_info anchor="right" id="Cargo" order="0" weight="0.32949877" />
       <window_info anchor="right" id="Palette&#9;" order="1" />
@@ -441,6 +562,9 @@
       <window_info anchor="right" id="Coverage" order="6" side_tool="true" weight="0.32995737" />
       <window_info anchor="right" x="92" y="92" width="1736" height="856" id="Byte Code Viewer" order="7" type="FLOATING" />
     </layout>
+  </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -467,12 +591,42 @@
     <MESSAGE value="peptide fragment partially implemented, still broken&#10;Residue based analysis still working, confirmed binary equal to previous files (which were verified by hand/and against greg's output)." />
     <MESSAGE value="peptide fragment analysis working." />
     <MESSAGE value="improved documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="improved documentation" />
+    <MESSAGE value="improved documentation&#10;&#10;Signed-off-by: Vishruth Mullapudi &lt;vmullapudi1@gmail.com&gt;" />
+    <MESSAGE value="precompile patterns and reset matcher with each new line/phosphorylation instead of making new ones" />
+    <option name="LAST_COMMIT_MESSAGE" value="precompile patterns and reset matcher with each new line/phosphorylation instead of making new ones" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java</url>
+          <line>260</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java</url>
+          <line>288</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java</url>
+          <line>294</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java</url>
+          <line>380</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="lineArr[7]" />
@@ -484,6 +638,22 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>Collections.</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>fragmentsBySeq.containsKey(&quot;QEFEVMEDHAGTYGLGDRK&quot;);
+getProtein().indexOf(&quot;QEFEVMEDHAGTYGLGDRK&quot;);</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>fragmentsBySeq.containsKey(&quot;QEFEVMEDHAGTYGLGDRK&quot;);</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>getProtein().indexOf(seq);</expression-string>
         <language-id>JAVA</language-id>
@@ -516,16 +686,6 @@
       </expression>
       <expression>
         <expression-string>Pattern.matches(&quot;\\d&quot;,&quot;S4&quot;);</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>Pattern.matches(&quot;\\d&quot;,S4)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>Pattern.matches(&quot;\\d&quot;,siteStr)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
@@ -563,57 +723,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CumulativeFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="48" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-184">
-          <caret line="238" column="71" selection-start-line="238" selection-start-column="71" selection-end-line="238" selection-end-column="71" />
-          <folding>
-            <element signature="method#main#0;class#CSVParse#0" />
-            <element signature="docComment;method#queryPeptideOrResidueAnalysis#0;class#CSVParse#0" />
-            <element signature="method#queryPeptideOrResidueAnalysis#0;class#CSVParse#0" />
-            <element signature="docComment;method#ingestFile#0;class#CSVParse#0" />
-            <element signature="method#ingestFile#0;class#CSVParse#0" />
-            <element signature="docComment;method#calcProteinPhosLocalizations#0;class#CSVParse#0" />
-            <element signature="method#calcProteinPhosLocalizations#0;class#CSVParse#0" />
-            <element signature="docComment;method#generateResidueAbundances#0;class#CSVParse#0" />
-            <element signature="docComment;method#generateFragmentPhosAbundances#0;class#CSVParse#0" />
-            <element signature="method#generateFragmentPhosAbundances#0;class#CSVParse#0" />
-            <element signature="docComment;method#outputResidueCSV#0;class#CSVParse#0" />
-            <element signature="method#outputResidueCSV#0;class#CSVParse#0" />
-            <element signature="docComment;method#outputFragmentCSV#0;class#CSVParse#0" />
-            <element signature="method#outputFragmentCSV#0;class#CSVParse#0" />
-            <element signature="e#11818#11891#0" />
-            <element signature="docComment;method#getInputFile#0;class#CSVParse#0" />
-            <element signature="method#getInputFile#0;class#CSVParse#0" />
-            <element signature="docComment;method#getOutputFolderName#0;class#CSVParse#0" />
-            <element signature="docComment;method#getOutputFormat#0;class#CSVParse#0" />
-            <element signature="e#11929#11957#1" />
-            <element signature="e#17940#17941#0" expanded="true" />
-            <element signature="method#getProtein#0;class#CSVParse#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CumulativeFragment.java" />
     <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Abundance.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
+        <state relative-caret-position="338">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="117" column="1" selection-start-line="117" selection-start-column="1" selection-end-line="117" selection-end-column="1" />
+        <state relative-caret-position="2122">
+          <caret line="115" column="65" selection-start-line="115" selection-start-column="65" selection-end-line="115" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3310#3311#0" expanded="true" />
+            <element signature="e#3378#3379#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utsw/joachimiak/vish/CSVParse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="384" selection-start-line="384" selection-end-line="384" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#queryPeptideOrResidueAnalysis#0;class#CSVParse#0" />
+            <element signature="docComment;method#calcProteinPhosLocalizations#0;class#CSVParse#0" />
+            <element signature="docComment;method#generateFragmentPhosAbundances#0;class#CSVParse#0" />
+            <element signature="docComment;method#outputResidueCSV#0;class#CSVParse#0" />
+            <element signature="method#outputResidueCSV#0;class#CSVParse#0" />
+            <element signature="docComment;method#getInputFile#0;class#CSVParse#0" />
+            <element signature="method#getInputFile#0;class#CSVParse#0" />
+            <element signature="docComment;method#getOutputFolderName#0;class#CSVParse#0" />
+            <element signature="docComment;method#getOutputFormat#0;class#CSVParse#0" />
+            <element signature="e#18198#18199#0" expanded="true" />
+            <element signature="e#18225#18226#0" expanded="true" />
+            <element signature="method#getProtein#0;class#CSVParse#0" />
           </folding>
         </state>
       </provider>

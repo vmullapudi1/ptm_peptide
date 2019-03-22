@@ -285,6 +285,9 @@ class CSVParse {
 					unlocalized = true;
 				}
 			}
+			if (stringListEntry.getKey().equals("QEFEVMEDHAGTYGLGDRK")) {
+				System.out.println("asdf");
+			}
 			ans.put(new Fragment(fileID, stringListEntry.getKey(), phosphorylations.toArray(new String[0]), proteinPhosSites.stream()
 					.filter(i -> i != null && i >= 0).mapToInt(Integer::intValue)
 					.toArray(), protIndex, unlocalized), combinedAbundance);
@@ -375,9 +378,9 @@ class CSVParse {
 		StringBuilder outputBuffer = new StringBuilder(7000);
 		outputBuffer.append("Fragment,Start Index,End Index,Modified Abundance,Unmodified Abundance,Modification Proportion\n");
 
-		SortedSet<Fragment> sortedFragments = new TreeSet<>(Comparator.comparing(Fragment::getIndexInProtein));
+		ArrayList<Fragment> sortedFragments = new ArrayList<>(combinedFragments.keySet());
+		sortedFragments.sort(Comparator.comparing(Fragment::getIndexInProtein));
 
-		sortedFragments.addAll(combinedFragments.keySet());
 		for (Fragment f : sortedFragments) {
 			double phos = combinedFragments.get(f).phosphorylated;
 			double tot = +combinedFragments.get(f).total;
