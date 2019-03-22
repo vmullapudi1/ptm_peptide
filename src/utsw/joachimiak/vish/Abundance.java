@@ -4,9 +4,9 @@ class Abundance {
 	double phosphorylated;
 	double total;
 
-	Abundance(final double phosphorylated, final double total) {
-		this.phosphorylated = phosphorylated;
-		this.total = total;
+	Abundance(double phos, double tot) {
+		this.phosphorylated = phos;
+		this.total = tot;
 	}
 
 	@Override

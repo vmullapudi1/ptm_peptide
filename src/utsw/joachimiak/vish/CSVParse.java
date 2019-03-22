@@ -13,6 +13,9 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 class CSVParse {
+	private CSVParse() {
+	}
+
 	public static void main(String[] args) {
 		//Will contain the parsed raw data from the CSV of the MS output
 		ArrayList<Fragment> fileData = null;
@@ -64,12 +67,14 @@ class CSVParse {
 				CSVParse.calcProteinPhosLocalizations(p, PROTEIN_SEQ);
 
 				//Calculate the phosphorylated and unphosphorylated abundances for each residue in Tau
-				Abundance[] abundance = CSVParse.generateResiduePhosAbundances(p, PROTEIN_SEQ.length());
+				Abundance[] residuePhosAbundances = CSVParse.generateResiduePhosAbundances(p, PROTEIN_SEQ.length());
 
 				//Attempt to print the abundance data to a file, or complain and exit if it doesn't work
 				try {
-					CSVParse.outputResidueCSV(stringListEntry.getKey(), abundance, tID, sourceCSV, outputFileNameFormat, outputFolderName);
-					System.out.println("Output " + stringListEntry.getKey() + " to folder " + "output/" + outputFolderName + tID);
+					CSVParse.outputResidueCSV(stringListEntry.getKey(), residuePhosAbundances, tID, sourceCSV, outputFileNameFormat,
+							outputFolderName);
+					System.out.println("Output " + stringListEntry.getKey() + " to folder " + "output/" +
+							outputFolderName + tID);
 				} catch (IOException e) {
 					System.err.println("Error writing to file " + e);
 					System.exit(1);
@@ -250,7 +255,7 @@ class CSVParse {
 
 	/**
 	 * Combines all fragments in the input that have the same amino acid sequence together and sums their abundances,
-	 * creating a cumulated fragment that contains to total phosporylated and unphosphorylated incidence of the fragment,
+	 * creating an accumulated fragment that contains to total phosporylated and unphosphorylated incidence of the fragment,
 	 * and notes whether that fragment contains unlocalized phosphorylations
 	 * @param fragmentList The fragments to be analyzed
 	 * @return A HashMap<Fragment, Abundance> mapping each combined fragment to its abundance
@@ -285,12 +290,11 @@ class CSVParse {
 					unlocalized = true;
 				}
 			}
-			if (stringListEntry.getKey().equals("QEFEVMEDHAGTYGLGDRK")) {
-				System.out.println("asdf");
-			}
-			ans.put(new Fragment(fileID, stringListEntry.getKey(), phosphorylations.toArray(new String[0]), proteinPhosSites.stream()
-					.filter(i -> i != null && i >= 0).mapToInt(Integer::intValue)
-					.toArray(), protIndex, unlocalized), combinedAbundance);
+
+			ans.put(new Fragment(fileID, stringListEntry.getKey(), phosphorylations.toArray(new String[0]),
+					proteinPhosSites.stream().filter(i -> i != null && i >= 0)
+							.mapToInt(Integer::intValue)
+							.toArray(), protIndex, unlocalized), combinedAbundance);
 		}
 		return ans;
 	}
@@ -346,7 +350,7 @@ class CSVParse {
 	 * Outputs the data created by the protein-fragment based phosphorylation analysis to a CSV file
 	 *
 	 * @param fileID              he file id of the residues being output
-	 * @param combinedFragments-A HashMap of the cumulated Fragment objects containing the aggregated data from all
+	 * @param combinedFragments-A HashMap of the accumulated Fragment objects containing the aggregated data from all
 	 *                            fragments
 	 *                            of that fileId with the same protein sequence, along with the associated abundance
 	 *                            values.
@@ -430,7 +434,7 @@ class CSVParse {
 	// 	Using keyboard input/system.in or file/config file?
 
 	/**
-	 * @return The protein sequence agains which to index peptides
+	 * @return The protein sequence against which to index peptides
 	 */
 	private static String getProtein() {
 		//Full length 2n4r tau isoform
