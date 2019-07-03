@@ -29,6 +29,7 @@ class CSVParse {
 		String PROTEIN_SEQ = CSVParse.getProtein();
 		String outputFolderName = CSVParse.getOutputFolderName(s);
 		boolean byFragment = CSVParse.queryPeptideOrResidueAnalysis(s);
+		boolean isPeptideFile = isPeptideFormat(s);
 		outputFileNameFormat = byFragment ? "peptide_analysis" + outputFileNameFormat : "residue_analysis" +
 				outputFileNameFormat;
 		s.close();
@@ -37,7 +38,7 @@ class CSVParse {
 
 		//Read the file, complain if it doesn't work
 		try {
-			fileData = CSVParse.ingestFile(sourceCSV);
+			fileData = CSVParse.ingestFile(sourceCSV, isPeptideFile);
 		} catch (IOException e) {
 			System.err.println("error-file could not be read or found\n" + e);
 			System.exit(1);
@@ -88,7 +89,7 @@ class CSVParse {
 	 * TODO convert to CLI
 	 */
 	private static boolean queryPeptideOrResidueAnalysis(Scanner s) {
-		System.out.println("Should the output format be by peptide fragment instead of by residue? [Y/N]");
+		System.out.println("Should the output format be by peptide fragment instead of by residue?\n[Y/N]");
 		String ans = s.next();
 		if ("Y".equalsIgnoreCase(ans)) {
 			return true;
@@ -100,6 +101,19 @@ class CSVParse {
 		return false;
 	}
 
+	private static boolean isPeptideFormat(Scanner s) {
+		System.out.println("Is this file a peptide file, without a separate fileID column, instead denoting different " +
+				"samples using \"Abundance: [ID}\"?\n[Y/N]?");
+		String ans = s.next();
+		if ("Y".equalsIgnoreCase(ans)) {
+			return true;
+		} else if ("N".equalsIgnoreCase(ans)) {
+			return false;
+		}
+		System.err.println("Invalid input " + ans);
+		System.exit(2);
+		return false;
+	}
 
 	/**
 	 * Ingest file, using comma as the delimiting value between items and producing an ArrayList<String[]> containing
@@ -109,7 +123,7 @@ class CSVParse {
 	 * (From BufferedReader)
 	 * @throws FileNotFoundException if the file is not found in the local directory
 	 */
-	private static ArrayList<Fragment> ingestFile(String sourceCSV) throws FileNotFoundException, IOException {
+	private static ArrayList<Fragment> ingestFile(String sourceCSV, boolean isPeptideFile) throws FileNotFoundException, IOException {
 		//The list that wil contain the data from the file about each peptide
 		ArrayList<Fragment> data = new ArrayList<>(3000);
 		//The first line of the file containing the column headers of the CSV file
@@ -136,7 +150,18 @@ class CSVParse {
 			if (abundanceIndex == -1) {
 				abundanceIndex = headerList.indexOf("Abundance");
 			}
-			//todo: for peptide file formats grab the fileID from the Abundance:F# column
+			HashMap<Integer, String> abundanceIndexWithFileID = new HashMap<>();
+			if (isPeptideFile) {
+				Matcher abundancePattern = Pattern.compile("Abundance: (\\w)*").matcher("");
+				for (int i = 0; i < headerList.size(); i++) {
+					abundancePattern.reset(headerList.get(i));
+					if (abundancePattern.matches()) {
+						String fileID = abundancePattern.group(1);
+						abundanceIndexWithFileID.put(i, fileID);
+					}
+				}
+			}
+			//todo: for peptide file formats grab the fileID from the Abundance:F# column or Abundance: #W
 			//Read the whole file, creating new peptides from the CSV data
 			Pattern delimiter = Pattern.compile(",");
 			Matcher m = delimiter.matcher("");
@@ -144,20 +169,32 @@ class CSVParse {
 				String line = inputReader.readLine();
 				m.reset(line);
 				String[] lineArr = m.replaceAll(", ").split(",");
-				if(lineArr.length==8){
-					lineArr=Arrays.copyOf(lineArr,9);
-					lineArr[8]="0";
+				if (lineArr.length < headerList.size()) {
+					int lineArrlen = lineArr.length;
+					lineArr = Arrays.copyOf(lineArr, headerList.size());
+					Arrays.fill(lineArr, lineArrlen - 1, lineArr.length - 1, "0");
 				}
 				for (int k = 0; k < lineArr.length; k++) {
 					if (" ".equals(lineArr[k])) {
 						lineArr[k] = "0";
 					}
 				}
-				if(fileIDIndex==-1){
+				if (isPeptideFile) {
+					for (Map.Entry<Integer, String> fileEntry : abundanceIndexWithFileID.entrySet()) {
+						if (lineArr[fileEntry.getKey()].equals("0")) {
+							continue;
+						}
+						data.add(new Fragment(fileEntry.getValue(), lineArr[fileEntry.getKey()], lineArr[modIndex],
+								Double.parseDouble(lineArr[fileEntry.getKey()])));
+					}
+				} else if (fileIDIndex == -1) {
 					data.add(new Fragment("FileID F1", lineArr[sequenceIndex], lineArr[modIndex],
 							Double.parseDouble(lineArr[abundanceIndex])));
 				}
 				else {
+					if (lineArr[sequenceIndex].equals("0")) {
+						continue;
+					}
 					data.add(new Fragment(lineArr[fileIDIndex], lineArr[sequenceIndex], lineArr[modIndex],
 							Double.parseDouble(lineArr[abundanceIndex])));
 				}
@@ -406,7 +443,7 @@ class CSVParse {
 	//todo implement command line input of file or a config file
 	private static String getInputFile(@NotNull Scanner s) {
 		System.out.println("Enter the name/path of the file you want to parse");
-		return s.next();
+		return s.nextLine();
 	}
 
 	/**
@@ -448,5 +485,15 @@ class CSVParse {
 						+ "PGGGS" + "VQIVY" + "KPVDL" + "SKVTS" + "KCGSL" + "GNIHH" + "KPGGG" + "QVEVK" + "SEKLD" + "FKDRV" //300-349
 						+ "QSKIG" + "SLDNI" + "THVPG" + "GGNKK" + "IETHK" + "LTFRE" + "NAKAK" + "TDHGA" + "EIVYK" + "SPVVS" //350-399
 						+ "GDTSP" + "RHLSN" + "VSSTG" + "SIDMV" + "DSPQL" + "ATLAD" + "EVSAS" + "LAKQG" + "L";
+
+		/*//1N4R P301S Tau
+		return
+						"MAEPRQEFEVMEDHAGTYGLGDRKDQGGYTMHQDQEGDTDAGLKESPLQTPTEDGSEEPG" +
+						"SETSDAKSTPTAEAEEAGIGDTPSLEDEAAGHVTQARMVSKSKDGTGSDDKKAKGADGKT" +
+						"KIATPRGAAPPGQKGQANATRIPAKTPPAPKTPPSSGEPPKSGDRSGYSSPGSPGTPGSR" +
+						"SRTPSLPTPPTREPKKVAVVRTPPKSPSSAKSRLQTAPVPMPDLKNVKSKIGSTENLKHQ" +
+						"PGGGKVQIINKKLDLSNVQSKCGSKDNIKHVSGGGSVQIVYKPVDLSKVTSKCGSLGNIH" +
+						"HKPGGGQVEVKSEKLDFKDRVQSKIGSLDNITHVPGGGNKKIETHKLTFRENAKAKTDHG" +
+						"AEIVYKSPVVSGDTSPRHLSNVSSTGSIDMVDSPQLATLADEVSASLAKQGL";*/
 	}
 }

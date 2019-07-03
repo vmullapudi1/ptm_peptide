@@ -23,6 +23,9 @@ class Fragment {
 		this.abundance = abundance;
 		this.proteinPhosLocalizations = new int[this.phosphorylations.length];
 		Arrays.fill(this.proteinPhosLocalizations, -1);
+		if (seq.indexOf('.') == -1) {
+			System.gc();
+		}
 		this.sequence = seq.substring(seq.indexOf('.') + 1, seq.lastIndexOf('.'));
 	}
 
